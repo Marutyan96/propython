@@ -1,0 +1,51 @@
+{% load static %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Code Editor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.0/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.0/theme/monokai.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.0/theme/elegant.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">  
+    <link rel="stylesheet" href="{% static 'main/editor.css' %}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.0/mode/python/python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.0/addon/hint/show-hint.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.0/addon/hint/show-hint.min.css">
+</head>
+<body>
+
+    <div id="editor">
+        <div class="button-container">
+            <a class="nav-link" href="{% url 'home' %}" title="HOME">
+                <i class="fas fa-home"></i> <!-- Иконка "дом" -->
+            </a>
+        
+
+            <button id="toggle-theme" aria-label="Toggle theme" title="Переключить тему">
+                <i class="fas fa-adjust"></i> <!-- Иконка "Adjust" для переключения темы -->
+            </button>
+        
+            <button id="reset" aria-label="Reset the code editor" title="reset">
+                <i class="fas fa-undo"></i> <!-- Иконка "Undo" для сброса -->
+            </button>
+            
+            <button id="run" aria-label="Run the code" title="RUN Ctrl + Enter">
+                <i class="fas fa-play"></i> <!-- Иконка "Play" для запуска кода -->
+            </button>
+        
+        </div>
+        
+        <textarea id="code" name="code"></textarea>
+    </div>
+    <div class="resizer" id="resizer"></div>
+    <div id="output">
+        <pre id="result"></pre>
+    </div>
+
+    <script src="{% static 'main/js/editor_script.js' %}"></script>
+
+</body>
+</html>

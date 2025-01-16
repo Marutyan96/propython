@@ -1,0 +1,59 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Урок по *args и **kwargs в Python{% endblock %}
+
+{% block content %}
+
+<h4>*args и **kwargs в Python</h4>
+
+<p>В Python вы можете передавать переменное количество аргументов в функции с помощью <span class="keyword">*</span>args и <span class="keyword">**</span>kwargs. Это позволяет создавать более гибкие функции, которые могут обрабатывать различные наборы аргументов.</p>
+
+<h4>*args</h4>
+<p><span class="keyword">*</span>args используется для передачи неограниченного количества позиционных аргументов в функцию. Эти аргументы будут доступны как кортеж.</p>
+<div class="code">
+<pre>
+<code>
+<span class="keyword">def</span> <span class="function">sum_all</span><span class="brackets">(<span class="variable">*args</span>):
+    <span class="keyword">total</span> = <span class="number">0</span>
+    <span class="keyword">for</span> <span class="variable">num</span> <span class="return">in</span> <span class="keyword">args</span>:
+        <span class="variable">total</span> += <span class="variable">num</span>
+    <span class="return">return</span> <span class="variable">total</span>
+
+<span class="variable">result</span> = <span class="function">sum_all</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)
+<span class="keyword">print</span>(<span class="string">f"Сумма: <span class="brackets">{<span class="variable">result<span class="brackets">}<span class="string">"</span>)  <span class="comment"># Вывод: Сумма: 10</span>
+</code></pre></div>
+
+<h4>**kwargs</h4>
+<p><span class="keyword">**</span>kwargs используется для передачи неограниченного количества именованных аргументов в функцию. Эти аргументы будут доступны как словарь.</p>
+<div class="code">
+<pre>
+<code>
+<span class="keyword">def</span> <span class="function">print_info</span><span class="brackets">(<span class="variable">**kwargs</span>):
+    <span class="keyword">for</span> <span class="variable">key</span>, <span class="variable">value</span> <span class="return">in</span> <span class="keyword">kwargs.items</span>():
+        <span class="keyword">print</span>(<span class="string">f"{<span class="variable">key</span>}: {<span class="variable">value</span>}"</span>)
+
+<span class="function">print_info</span>(<span class="string">"Имя"</span>=<span class="string">"Алексей"</span>, <span class="string">"Возраст"</span>=<span class="number">30</span>, <span class="string">"Город"</span>=<span class="string">"Москва"</span>)
+</code></pre></div>
+
+<h4>Смешивание *args и **kwargs</h4>
+<p>Вы можете использовать <span class="keyword">*</span>args и <span class="keyword">**</span>kwargs в одной функции. Однако <span class="keyword">*</span>args должен быть указан перед <span class="keyword">**</span>kwargs.</p>
+<div class="code">
+<pre>
+<code>
+<span class="keyword">def</span> <span class="function">mixed_function</span><span class="brackets">(<span class="variable">*args</span>,<span class="variable"> **kwargs</span>):</span>
+    <span class="keyword">print</span><span class="brackets">(<span class="string">"Позиционные аргументы:"</span>)
+    <span class="keyword">for</span> <span class="variable">arg</span> <span class="return">in</span> <span class="keyword">args</span>:
+        <span class="keyword">print</span>(<span class="variable">arg</span>)
+    
+    <span class="keyword">print</span>(<span class="string">"Именованные аргументы:"</span>)
+    <span class="keyword">for</span> <span class="variable">key</span>, <span class="variable">value</span> <span class="return">in</span> <span class="keyword">kwargs.items</span>():
+        <span class="keyword">print</span>(<span class="string">f"{<span class="variable">key</span>}: {<span class="variable">value</span>}"</span>)
+
+<span class="function">mixed_function</span>(<span class="string">"Первый"</span>, <span class="string">"Второй"</span>, <span class="string">"Третий"</span>, <span class="string">"Имя"</span>=<span class="string">"Мария"</span>, <span class="string">"Возраст"</span>=<span class="number">25</span>)
+</code></pre></div>
+<div class="button-container">
+    <a href="{% url 'string_info' %}" class="btn-minimal">Предыдущий</a>
+    <a href="{% url 'closures_info' %}" class="btn-bright">Следующий</a>
+</div>
+
+{% endblock %}

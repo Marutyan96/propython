@@ -1,0 +1,90 @@
+<!-- Множества.html -->
+{% extends 'main/base.html' %}
+
+{% block title %}Урок по множествам в Python{% endblock %}
+
+{% block content %}
+
+<h4>Множества в Python</h4>
+
+<p>Множества в Python представляют собой неупорядоченные коллекции уникальных элементов. Они используются для хранения данных, когда важна только уникальность значений.</p>
+
+<h4>Создание множества</h4>
+<p>Множества создаются с помощью фигурных скобок <code>{}</code> или с помощью функции <code class="function">set()</code>.</p>
+<div class="code">
+<pre>
+<code>
+<span class="variable">my_set </span>= {<span class="string">1, 2, 3, 4</span>}</span>
+<span class="keyword">print</span>(<span class="string">my_set</span>)  <span class="comment"># Вывод: {1, 2, 3, 4}</span>
+</code>
+</pre>
+</div>
+
+<h4>Создание пустого множества</h4>
+<p>Чтобы создать пустое множество, используйте функцию <code class="function">set()</code>, так как фигурные скобки создают пустой словарь.</p>
+<div class="code">
+<pre>
+<code>
+<span class="variable">empty_set</span> = <span class="function">set()</span>
+<span class="keyword">print</span>(<span class="string">empty_set</span>)  <span class="comment"># Вывод: set()</span>
+</code>
+</pre>
+</div>
+
+<h4>Добавление элементов в множество</h4>
+<p>Элементы добавляются с помощью метода <code class="function">add()</code>.</p>
+<div class="code">
+<pre>
+<code>
+<span class="variable">my_set<span class="function">.add(5)</span>
+<span class="keyword">print</span>(<span class="string">my_set</span>)  <span class="comment"># Вывод: {1, 2, 3, 4, 5}</span>
+</code>
+</pre>
+</div>
+
+<h4>Удаление элементов из множества</h4>
+<p>Элементы можно удалять с помощью метода <code class="function">remove()</code> или <code class="function">discard()</code>.</p>
+<div class="code">
+<pre>
+<code>
+<span class="variable">my_set<span class="function">.remove(2)</span>
+<span class="keyword">print</span>(<span class="string">my_set</span>)  <span class="comment"># Вывод: {1, 3, 4, 5}</span>
+
+<span class="variable">my_set<span class="function">.discard(10)</span>  <span class="comment"># Не вызывает ошибку, если элемента нет</span>
+</code>
+</pre>
+</div>
+
+<h4>Проверка наличия элемента</h4>
+<p>Вы можете проверять наличие элемента в множестве с помощью оператора <code>in</code>.</p>
+<div class="code">
+<pre>
+<code>
+<span class="keyword">if</span> <span class="variable">3</span> <span class="keyword">in</span> <span class="variable">my_set</span>:
+    <span class="keyword">print</span>(<span class="string">"3 есть в множестве."</span>)
+</code>
+</pre>
+</div>
+
+<h4>Объединение и пересечение множеств</h4>
+<p>Вы можете объединять множества с помощью метода <code class="function">union()</code> или оператора <code>|</code>, а также находить пересечение с помощью метода <code class="function">intersection()</code> или оператора <code>&</code>.</p>
+<div class="code">
+<pre>
+<code>
+<span class="variable">set_a</span> = {<span class="string">1, 2, 3</span>}
+<span class="variable">set_b </span>= {<span class="string">3, 4, 5</span>}
+
+<span class="function">union_set </span>= <span class="string">set_a | set_b</span>
+<span class="keyword">print</span>(<span class="string">union_set</span>)  <span class="comment"># Вывод: {1, 2, 3, 4, 5}</span>
+
+<span class="function">intersection_set </span>= <span class="string">set_a & set_b</span>
+<span class="keyword">print</span>(<span class="string">intersection_set</span>)  <span class="comment"># Вывод: {3}</span></code></pre></div>
+
+<h4>Заключение</h4>
+<p>Множества являются мощным инструментом для работы с уникальными данными в Python. Попробуйте создать свои собственные множества и поэкспериментировать с их методами!</p>
+<div class="button-container">
+    <a href="{% url 'dictionary_info' %}" class="btn-minimal">Предыдущий</a>
+    <a href="{% url 'string_info' %}" class="btn-bright">Следующий</a>
+</div>
+
+{% endblock %}

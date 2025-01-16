@@ -1,0 +1,146 @@
+<!-- Условные выражения.html -->
+{% extends 'main/base.html' %}
+
+{% block title %}Урок по условным выражениям в Python{% endblock %}
+
+{% block content %}
+
+<h5>Условные выражения в Python</h5>
+<h5>Операции сравнения в Python</h5>
+<p>Ряд операций представляют условные выражения. Все эти операции принимают два операнда и возвращают логическое значение, которое в Python представляет тип <code>bool</code>. Существует только два логических значения - <code>True</code> (выражение истинно) и <code>False</code> (выражение ложно).</p>
+
+<h4>Операции сравнения</h4>
+<p>Простейшие условные выражения представляют операции сравнения, которые сравнивают два значения. Python поддерживает следующие операции сравнения:</p>
+
+<ul>
+    <li><code class="variable">==</code>: Возвращает <code>True</code>, если оба операнда равны. Иначе возвращает <code>False</code>.</li>
+    <li><code class="variable">!=</code>: Возвращает <code>True</code>, если оба операнда НЕ равны. Иначе возвращает <code>False</code>.</li>
+    <li><code class="variable">&gt;</code>: (больше чем): Возвращает <code>True</code>, если первый операнд больше второго.</li>
+    <li><code class="variable">&lt;</code>: (меньше чем): Возвращает <code>True</code>, если первый операнд меньше второго.</li>
+    <li><code class="variable">&gt;=</code>: (больше или равно): Возвращает <code>True</code>, если первый операнд больше или равен второму.</li>
+    <li><code class="variable">&lt;=</code>: (меньше или равно): Возвращает <code>True</code>, если первый операнд меньше или равен второму.</li>
+</ul>
+
+<h4>Примеры операций сравнения:</h4>
+<div class="code">
+    <pre>
+<code>
+<span class="variable">a</span> = <span class="number">5</span>
+<span class="variable">b</span> = <span class="number">6</span>
+<span class="variable">result</span> = <span class="number">5</span> <span class="operator">==</span> <span class="number">6</span>  <span class="comment"># сохраняем результат операции в переменную</span>
+<span class="function">print</span>(<span class="variable">result</span>)  <span class="comment"># False - 5 не равно 6</span>
+<span class="function">print</span>(<span class="variable">a</span> <span class="operator">!=</span> <span class="variable">b</span>)  <span class="comment"># True</span>
+<span class="function">print</span>(<span class="variable">a</span> <span class="operator">&gt;</span> <span class="variable">b</span>)  <span class="comment"># False - 5 меньше 6</span>
+<span class="function">print</span>(<span class="variable">a</span> <span class="operator">&lt;</span> <span class="variable">b</span>)  <span class="comment"># True</span>
+
+<span class="variable">bool1</span> = <span class="keyword">True</span>
+<span class="variable">bool2</span> = <span class="keyword">False</span>
+<span class="function">print</span>(<span class="variable">bool1</span> <span class="operator">==</span> <span class="variable">bool2</span>)  <span class="comment"># False - bool1 не равно bool2</span>
+</code></pre>
+</div>
+
+<p>Операции сравнения могут сравнивать различные объекты - строки, числа, логические значения, однако оба операнда операции должны представлять один и тот же тип.</p>
+<p>Условные выражения позволяют выполнять различные действия в зависимости от выполнения определенных условий. Это важный аспект программирования, который позволяет создавать динамические и интерактивные программы.</p>
+<h5>Логические операции в Python</h5>
+<p>Логические операции используются для комбинирования или инверсии логических значений. В Python существуют следующие логические операторы:</p>
+
+<ul>
+    <li><code class="variable">and</code>: Возвращает <code>True</code>, если оба операнда истинны.</li>
+    <li><code class="variable">or</code>: Возвращает <code>True</code>, если хотя бы один из операндов истинен.</li>
+    <li><code class="variable">not</code>: Инвертирует логическое значение (возвращает <code>True</code>, если операнд ложен, и наоборот).</li>
+    <li><code class="variable">in</code>: Проверяет, содержится ли элемент в последовательности (например, в списке или строке).</li>
+    <li><code class="variable">not in</code>: Проверяет, не содержится ли элемент в последовательности.</li>
+</ul>
+
+<h4>Примеры логических операций:</h4>
+<div class="code">
+    <pre>
+<code>
+<span class="variable">x</span> = <span class="number">10</span>
+<span class="variable">y</span> = <span class="number">20</span>
+<span class="variable">z</span> = <span class="number">30</span>
+
+<span class="function">print</span>(<span class="variable">x</span> <span class="operator">&lt;</span> <span class="variable">y</span> <span class="operator">and</span> <span class="variable">y</span> <span class="operator">&lt;</span> <span class="variable">z</span>)  <span class="comment"># True, так как 10 < 20 и 20 < 30</span>
+<span class="function">print</span>(<span class="variable">x</span> <span class="operator">&gt;</span> <span class="variable">y</span> <span class="operator">or</span> <span class="variable">y</span> <span class="operator">&lt;</span> <span class="variable">z</span>)  <span class="comment"># True, так как 20 < 30</span>
+<span class="function">print</span>(<span class="operator">not</span> (<span class="variable">x</span> <span class="operator">&gt;</span> <span class="variable">y</span>))  <span class="comment"># True, так как x не больше y</span>
+
+<span class="variable">my_list</span> = [<span class="string">'apple'</span>, <span class="string">'banana'</span>, <span class="string">'cherry'</span>]
+<span class="function">print</span>(<span class="string">'banana'</span> <span class="operator">in</span> <span class="variable">my_list</span>)  <span class="comment"># True, 'banana' в списке</span>
+<span class="function">print</span>(<span class="string">'grape'</span> <span class="operator">not</span> <span class="operator">in</span> <span class="variable">my_list</span>)  <span class="comment"># True, 'grape' не в списке</span>
+</code></pre>
+</div>
+
+<p>Логические операции часто используются в условных выражениях, чтобы контролировать выполнение кода в зависимости от истинности выражений.</p>
+<h5>Условия : if, else, elif</h5>
+<p>В Python конструкции <code>if</code>, <code>else</code> и <code>elif</code> используются для выполнения различных блоков кода в зависимости от условий.</p>
+
+    <h4>Синтаксис</h4>
+    <div class="code">
+    <pre>
+<code>
+<span class="keyword">if</span> <span class="variable">условие</span>:
+    <span class="comment"># код, выполняемый если условие истинно</span>
+    <span class="keyword">... </span>
+<span class="keyword">elif</span> <span class="variable">другое_условие</span>:
+    <span class="comment"># код, выполняемый если другое условие истинно</span>
+    <span class="keyword">... </span>
+<span class="keyword">else</span>:
+    <span class="comment"># код, выполняемый если ни одно условие не истинно</span>
+    <span class="keyword">...</span></code></pre>
+</div>
+
+
+    <h5>Пример 1: Проверка четности числа</h5>
+    <div class="code">
+        <pre>
+<code>
+<span class="variable">number</span> = <span class="number">7</span>
+
+<span class="keyword">if</span> <span class="variable">number</span> % <span class="number">2</span> == <span class="number">0</span>:
+    <span class="function">print</span>(<span class="string">'Число четное'</span>)
+<span class="keyword">else</span>:
+    <span class="function">print</span>(<span class="string">'Число нечетное'</span>)
+</code></pre></div>
+
+
+    <h5>Пример 2: Оценка по баллам</h5>
+    <div class="code">
+        <pre>
+<code>
+<span class="variable">score</span> = <span class="number">85</span>
+
+<span class="keyword">if</span> <span class="variable">score</span> &gt;= <span class="number">90</span>:
+    <span class="function">print</span>(<span class="string">'Оценка: A'</span>)
+<span class="keyword">elif</span> <span class="variable">score</span> &gt;= <span class="number">80</span>:
+    <span class="function">print</span>(<span class="string">'Оценка: B'</span>)
+<span class="keyword">elif</span> <span class="variable">score</span> &gt;= <span class="number">70</span>:
+    <span class="function">print</span>(<span class="string">'Оценка: C'</span>)
+<span class="keyword">else</span>:
+    <span class="function">print</span>(<span class="string">'Оценка: D'</span>)
+</code></pre></div>
+
+    <h5>Пример 3: Определение времени суток</h5>
+    <div class="code">
+        <pre>
+<code>
+<span class="variable">hour</span> = <span class="number">14</span>
+
+<span class="keyword">if</span> <span class="variable">hour</span> &gt;= <span class="number">5</span> <span class="keyword">and</span> <span class="variable">hour</span> &lt; <span class="number">12</span>:
+    <span class="function">print</span>(<span class="string">'Доброе утро!'</span>)
+<span class="keyword">elif</span> <span class="variable">hour</span> &gt;= <span class="number">12</span> <span class="keyword">and</span> <span class="variable">hour</span> &lt; <span class="number">17</span>:
+    <span class="function">print</span>(<span class="string">'Добрый день!'</span>)
+<span class="keyword">else</span>:
+    <span class="function">print</span>(<span class="string">'Добрый вечер!'</span>)
+</code></pre></div>
+
+
+    <h4>Итоги</h4>
+    <p>Конструкции <code>if</code>, <code>elif</code> и <code>else</code> позволяют управлять потоком выполнения программы, выполняя разные действия в зависимости от условий. Это позволяет создавать более сложные логические структуры в вашем коде.</p>
+
+    <div class="button-container">
+        <a href="{% url 'arithmetic_info' %}" class="btn-minimal">Предыдущий</a>
+        <a href="{% url 'loops_info' %}" class="btn-bright">Следующий</a>
+    </div>
+    
+    
+    {% endblock %}

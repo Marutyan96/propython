@@ -1,0 +1,71 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Урок по декораторам в Python{% endblock %}
+
+{% block content %}
+
+<h4>Декораторы в Python</h4>
+
+<p>Декораторы в Python — это мощный инструмент, позволяющий изменять или расширять функциональность функций или методов без изменения их кода. Они часто используются для логирования, проверки прав доступа, измерения времени выполнения и других задач.</p>
+
+<h4>Что такое декоратор?</h4>
+<p>Декоратор — это функция, которая принимает другую функцию в качестве аргумента и возвращает новую функцию, которая обычно расширяет или изменяет поведение исходной функции. Это позволяет добавлять функциональность, не изменяя оригинальную функцию.</p>
+
+<h5>Пример 1: Простой декоратор</h5>
+<p>Рассмотрим простой декоратор, который выводит сообщения до и после вызова функции.</p>
+<div class="code">
+<pre>
+<code>
+<span class="keyword">def</span> <span class="function">my_decorator</span><span class="brackets">(<span class="variable">func</span>):
+    <span class="keyword">def</span> <span class="function">wrapper</span>():
+        <span class="keyword">print</span>(<span class="string">"Что-то происходит перед вызовом функции."</span>)
+        <span class="variable">func</span>()  <span class="comment"># Вызов оригинальной функции</span>
+        <span class="keyword">print</span>(<span class="string">"Что-то происходит после вызова функции."</span>)
+    <span class="return">return</span> <span class="variable">wrapper</span>
+
+<span class="return">@my_decorator</span>
+<span class="keyword">def</span> <span class="function">say_hello</span>():
+    <span class="keyword">print</span>(<span class="string">"Привет!"</span>)
+
+<span class="function">say_hello</span>()  <span class="comment"># Вызов функции с декоратором</span>
+</code>
+</pre>
+</div>
+
+
+<p>В этом примере мы определили декоратор <code>my_decorator</code>, который оборачивает функцию <code>say_hello</code>. Когда мы вызываем <code>say_hello</code>, сначала выполняется код в <code>wrapper</code>, который добавляет поведение до и после вызова оригинальной функции.</p>
+
+<h5>Пример 2: Декоратор с аргументами</h5>
+<p>Декораторы могут также принимать аргументы. Для этого вам нужно создать дополнительный уровень вложенности.</p>
+<div class="code">
+<pre>
+<code>
+<span class="keyword">def</span> <span class="function">repeat</span><span class="brackets">(<span class="variable">num_times</span>):
+    <span class="keyword">def</span> <span class="function">decorator</span>(<span class="variable">func</span>):
+        <span class="keyword">def</span> <span class="function">wrapper</span>(<span class="variable">*args</span>, <span class="variable">**kwargs</span>):
+            <span class="keyword">for</span> <span class="variable">_</span> <span class="keyword">in</span> <span class="keyword">range</span>(<span class="variable">num_times</span>):
+                <span class="variable">func</span>(<span class="variable">*args</span>, <span class="variable">**kwargs</span>)  <span class="comment"># Вызов функции несколько раз</span>
+        <span class="return">return</span> <span class="variable">wrapper</span>
+    <span class="return">return</span> <span class="function">decorator</span>
+
+<span class="return">@repeat</span>(<span class="number">3</span>)
+<span class="keyword">def</span> <span class="function">greet</span>(<span class="variable">name</span>):
+    <span class="keyword">print</span>(<span class="string">f"Привет, {name}!"</span>)
+
+<span class="function">greet</span>(<span class="string">"Мир"</span>)  <span class="comment"># Вызов функции greet</span>
+</code>
+</pre>
+</div>
+
+<p>В этом примере декоратор <code>repeat</code> принимает аргумент <code>num_times</code>, который указывает, сколько раз следует вызвать функцию <code>greet</code>. Декоратор создает вложенную функцию <code>decorator</code>, которая оборачивает функцию <code>greet</code> и вызывает её заданное количество раз.</p>
+
+<h4>Заключение</h4>
+<p>Декораторы — это мощный способ расширения функциональности функций в Python. Они позволяют легко добавлять дополнительные действия перед или после выполнения функции.</p>
+
+
+<div class="button-container">
+    <a href="{% url 'closures_info' %}" class="btn-minimal">Предыдущий</a>
+    <a href="{% url 'oop_info' %}" class="btn-bright">Следующий</a>
+</div>
+
+{% endblock %}

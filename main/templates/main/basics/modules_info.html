@@ -1,0 +1,92 @@
+<!-- Модули.html -->
+{% extends 'main/base.html' %}
+
+{% block title %}Урок по определению и подключению модулей в Python{% endblock %}
+
+{% block content %}
+
+<h4>Определение и подключение модулей в Python</h4>
+
+<p>Модули в Python — это файлы, содержащие код, который можно повторно использовать в других программах. Они позволяют организовать код и делить его на логические части.</p>
+
+<h4>Создание модуля</h4>
+<p>Для создания модуля просто создайте файл с расширением <code>.py</code>. Например, создадим файл <code>mymodule.py</code> со следующим содержимым:</p>
+<div class="code">
+<pre>
+<code>
+<span class="keyword">def</span> <span class="function">greet</span><span class="brackets">(<span class="variable">name</span>):
+    <span class="return">return</span> <span class="string">f"Привет, <span class="brackets">{<span class="variable">name</span>}!"</span>
+</code>
+</pre>
+</div>
+    
+
+<h4>Подключение модуля</h4>
+<p>Чтобы использовать функции из модуля, его нужно импортировать. Это можно сделать с помощью ключевого слова <code>import</code>.</p>
+<div class="code">
+<pre>
+<code>
+<span class="return">import</span> <span class="module">mymodule</span>
+
+<span class="variable">message = mymodule</span><span class="function">.greet</span><span class="brackets">(<span class="string">"Алексей"</span>)
+<span class="keyword">print</span>(<span class="variable">message</span>)  <span class="comment"># Вывод: Привет, Алексей!</span>
+</code></pre></div>
+    
+
+
+<h4>Импортирование отдельных функций</h4>
+<p>Если вы хотите импортировать только определённую функцию из модуля, используйте следующий синтаксис:</p>
+<div class="code">
+<pre>
+<code>
+<span class="return">from</span> <span class="variable">mymodule</span> <span class="return">import</span> <span class="function">greet</span>
+
+<span class="variable">message = <span class="function">greet</span><span class="brackets">(<span class="string">"Мария"</span>)
+<span class="keyword">print</span>(<span class="variable">message</span>)  <span class="comment"># Вывод: Привет, Мария!</span>
+</code>
+</pre>
+</div>
+
+<h4>Импортирование всех функций</h4>
+<p>Вы также можете импортировать все функции из модуля, используя <code>*</code>:</p>
+<div class="code">
+<pre>
+<code>
+<span class="return">from</span> <span class="module">mymodule</span> <span class="return">import</span> <span class="class">*</span>
+
+<span class="variable">message = greet</span><span class="brackets">(<span class="string">"Иван"</span>)
+<span class="keyword">print</span>(<span class="variable">message</span>)  <span class="comment"># Вывод: Привет, Иван!</span>
+</code></pre></div>
+    
+<h4>Создание пакетов</h4>
+<p>Пакеты — это специальные модули, которые могут содержать другие модули. Чтобы создать пакет, создайте папку и добавьте в неё файл <code>__init__.py</code>.</p>
+<p>Например, структура пакета может выглядеть так:</p>
+<pre id='pre'><code>
+    my_package/
+        __init__.py
+        mymodule.py
+</code>
+</pre>
+
+<h4>Импортирование из пакета</h4>
+<p>Чтобы импортировать модуль из пакета, используйте следующий синтаксис:</p>
+<div class="code">
+<pre>
+<code>
+<span class="return">from</span> <span class="class-name">my_package</span>.<span class="class-name">mymodule</span> <span class="return">import</span> <span class="function">greet</span>
+
+<span class="variable">message = <span class="function">greet</span></span>(<span class="string">"Ольга"</span>)
+<span class="keyword">print</span>(<span class="variable">message</span>)  <span class="comment"># Вывод: Привет, Ольга!</span>
+</code>
+</pre>
+</div>
+    
+
+<h4>Заключение</h4>
+<p>Модули в Python позволяют организовать код и повторно использовать его в различных проектах. Используйте модули и пакеты для улучшения структуры вашего кода и упрощения его поддержки.</p>
+<div class="button-container">
+    <a href="{% url 'inheritance_info' %}" class="btn-minimal">Предыдущий</a>
+    <a href="{% url 'file_handling_info' %}" class="btn-bright">Следующий</a>
+</div>
+
+{% endblock %}

@@ -1,0 +1,85 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Урок по машинному обучению{% endblock %}
+
+{% block content %}
+
+<h2>Урок по машинному обучению</h2>
+
+<h2>Введение в машинное обучение</h2>
+<p>Машинное обучение — это область искусственного интеллекта, которая позволяет компьютерам обучаться на основе данных и делать предсказания или решения без явного программирования.</p>
+
+<h2>Типы машинного обучения</h2>
+<ul>
+    <li><strong>Обучение с учителем (Supervised Learning)</strong>: модель обучается на размеченных данных, где известны входные и выходные значения.</li>
+    <li><strong>Обучение без учителя (Unsupervised Learning)</strong>: модель обучается на неразмеченных данных и ищет скрытые структуры.</li>
+    <li><strong>Обучение с подкреплением (Reinforcement Learning)</strong>: модель обучается через взаимодействие с окружением, получая награды или штрафы.</li>
+</ul>
+
+<h2>Установка необходимых библиотек</h2>
+<p>Для работы с машинным обучением в Python необходимо установить несколько библиотек. Используйте следующую команду:</p>
+<div class="code">
+pip install numpy pandas scikit-learn matplotlib seaborn
+</div>
+
+<h2>Работа с данными</h2>
+<p>Для начала работы с машинным обучением необходимо загрузить и подготовить данные. Пример загрузки данных с использованием библиотеки pandas:</p>
+<div class="code">
+<pre>
+<code>
+<span class="module">import</span> <span class="module-name">pandas</span> <span class="module">as</span> <span class="variable">pd</span>
+<span class="variable">data</span> = <span class="function">pd.read_csv</span>(<span class="string">'data.csv'</span>)
+<span class="function">print</span>(<span class="variable">data</span>.<span class="function">head</span>())
+</code></pre>
+</div>
+
+
+<h2>Обучение модели</h2>
+<p>Рассмотрим простую модель линейной регрессии:</p>
+<div class="code">
+    <pre>
+<code>
+<span class="keyword">from</span> <span class="import">sklearn.model_selection</span> <span class="keyword">import</span> <span class="function">train_test_split</span>
+<span class="keyword">from</span> <span class="import">sklearn.linear_model</span> <span class="keyword">import</span> <span class="class-name">LinearRegression</span>
+
+<span class="comment"># Предположим, что у нас есть данные X и y</span>
+<span class="variable">X</span> = <span class="variable">data</span>[[<span class="string">'feature1'</span>, <span class="string">'feature2'</span>]]
+<span class="variable">y</span> = <span class="variable">data</span>[<span class="string">'target'</span>]
+
+<span class="comment"># Разделяем данные на обучающую и тестовую выборки</span>
+<span class="variable">X_train</span>, <span class="variable">X_test</span>, <span class="variable">y_train</span>, <span class="variable">y_test</span> = <span class="function">train_test_split</span>(<span class="variable">X</span>, <span class="variable">y</span>, 
+                                   <span class="keyword">test_size</span>=<span class="number">0.2</span>, <span class="keyword">random_state</span>=<span class="number">42</span>)
+
+<span class="comment"># Создаем и обучаем модель</span>
+<span class="variable">model</span> = <span class="class-name">LinearRegression</span>(<span class="brackets">(</span><span class="brackets">)</span>)
+<span class="function">model.fit</span>(<span class="variable">X_train</span>, <span class="variable">y_train</span>)
+</code></pre>
+</div>
+
+
+
+<h2>Оценка модели</h2>
+<p>После обучения модели важно оценить ее качество. Например, можно использовать коэффициент детерминации (R²):</p>
+<div class="code">
+<pre><code>
+<span class="module">from </span><span class="import">sklearn.metrics</span> <span class="keyword">import</span> <span class="function">r2_score</span>
+
+<span class="variable">y_pred</span> = <span class="function">model.predict</span>(<span class="variable">X_test</span>)
+<span class="function">print</span>(<span class="string">"Коэффициент детерминации:"</span>, <span class="function">r2_score</span>(<span class="variable">y_test</span>, <span class="variable">y_pred</span>))
+</code></pre>
+</div>
+
+
+
+<h2>Заключение</h2>
+<p>Машинное обучение предоставляет мощные инструменты для анализа и обработки данных. Освоив основные концепции и библиотеки, вы сможете создавать собственные модели и применять их к реальным задачам.</p>
+
+
+
+
+<div class="button-container">
+    <a href="{% url 'fastAPI_info' %}" class="btn-minimal">Предыдущий</a>
+
+</div>
+
+{% endblock %}

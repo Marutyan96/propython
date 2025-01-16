@@ -1,0 +1,105 @@
+<!-- Работа с asyncio.html -->
+{% extends 'main/base.html' %}
+
+{% block title %}Работа с asyncio в Python{% endblock %}
+
+{% block content %}
+
+<h4>Работа с asyncio в Python</h4>
+
+<p>Модуль <code>asyncio</code> предоставляет инструменты для работы с асинхронным программированием в Python. Он позволяет создавать, управлять и синхронизировать асинхронные задачи, что особенно полезно для выполнения операций ввода-вывода, таких как сетевые запросы и работа с файлами.</p>
+
+<h4>Создание задач</h4>
+<p>Вы можете создавать задачи с помощью <code>asyncio.create_task()</code>. Это позволяет вам запускать корутины параллельно, не дожидаясь завершения каждой из них.</p>
+<div class="code">
+<pre>
+<code>
+<span class="return">async def</span> <span class="function">task</span><span class="brackets">(<span class="variable">name</span>):
+    <span class="return">await</span> <span class="module">asyncio</span>.<span class="function">sleep</span>(<span class="string">1</span>)
+    <span class="keyword">print</span>(<span class="string">f"Task {name} completed!"</span>)
+
+<span class="return">async def</span> <span class="function">main</span>():
+    <span class="keyword">task1</span> = <span class="return">asyncio.<span class="function">create_task</span><span class="brackets">(<span class="function">task</span>(<span class="string">'A'</span>))
+    <span class="keyword">task2</span> = <span class="return">asyncio.<span class="function">create_task</span><span class="brackets">(<span class="function">task</span>(<span class="string">'B'</span>))
+    <span class="return">await</span> <span class="module">asyncio</span>.<span class="function">gather</span><span class="brackets">(<span class="variable">task1</span>, <span class="variable">task2</span>)
+
+<span class="return">asyncio.<span class="function">run</span>(<span class="function">main</span>())
+</code>
+</pre>
+</div>
+
+<h4>Обработка исключений</h4>
+<p>При работе с асинхронными задачами важно учитывать возможность возникновения ошибок. Вы можете обрабатывать исключения, используя блоки <code>try</code> и <code>except</code> внутри корутин.</p>
+<div class="code">
+<pre>
+<code>
+<span class="return">async def</span> <span class="function">task_with_error</span><span class="brackets">(<span class="variable">name</span>):
+    <span class="return">await</span> <span class="module">asyncio</span>.<span class="function">sleep</span>(<span class="str">1</span>)
+    <span class="return">if</span> <span class="variable">name</span> == <span class="string">'B'</span>:
+        <span class="keyword">raise</span> <span class="module">ValueError</span>(<span class="string">'An error occurred in task B'</span>)
+    <span class="keyword">print</span>(<span class="string">f"Task {name} completed!"</span>)
+
+<span class="return">async def</span> <span class="function">main</span>():
+    <span class="return">try</span>:
+        <span class="return">await</span> <span class="module">asyncio</span>.<span class="function">gather</span>(
+            <span class="function">task_with_error</span>(<span class="string">'A'</span>),
+            <span class="function">task_with_error</span>(<span class="string">'B'</span>)
+        )
+    <span class="return">except</span> <span class="module">ValueError</span> <span class="variable">e</span>:
+        <span class="keyword">print</span>(<span class="string>f"Error: {e}"</span>)
+
+<span class="return"">asyncio.run</span>(<span class="function">main</span>())
+</code>
+</pre>
+</div>
+
+<h4>Синхронизация задач</h4>
+<p>Иногда вам может понадобиться синхронизировать выполнение нескольких задач. Для этого можно использовать <code>asyncio.Lock</code>, чтобы предотвратить одновременный доступ к общим ресурсам.</p>
+<div class="code">
+<pre>
+<code>
+<span class="return">async def</span> <span class="function">task_with_lock</span><span class="brackets">(<span class="variable">lock</span>, <span class="variable">name</span>):
+    <span class="return">async with</span> <span class="variable">lock</span>:
+        <span class="return">await</span> <span class="module">asyncio</span>.<span class="function">sleep</span>(<span class="number">1'</span>)
+        <span class="keyword">print</span>(<span class="string>f"Task {name} is using the lock!</span>)
+
+<span class="return">async def</span> <span class="function">main</span>():
+    <span class="variable">lock</span> = <span class="module">asyncio</span>.<span class="function">Lock</span>()
+    <span class="return">await</span> <span class="module">asyncio</span>.<span class="function">gather</span>(
+        <span class="function">task_with_lock</span>(<span class="variable">lock</span>, <span class="string">'A'</span>),
+        <span class="function">task_with_lock</span>(<span class="variable">lock</span>, <span class="string">'B'</span>)
+    )
+
+<span class="return">asyncio.run</span>(<span class="function">main</span>())
+</code>
+</pre>
+</div>
+
+<h4>Использование контекстных менеджеров</h4>
+<p>Вы можете использовать контекстные менеджеры для управления ресурсами, такими как сетевые соединения или файлы. Это позволяет автоматически освобождать ресурсы после завершения работы с ними.</p>
+<div class="code">
+<pre>
+<code>
+<span class="return">import</span> <span class="module">aiohttp</span>
+
+<span class="return">async def</span> <span class="function">fetch_data</span><span class="brackets">(<span class="variable">url</span>):
+    <span class="return">async with</span> <span class="module">aiohttp</span>.<span class="function">ClientSession</span>() <span class="return">as</span> <span class="variable">session</span>:
+        <span class="return">async with</span> <span class="variable">session</span>.<span class="function">get</span>(<span class="variable">url</span>) <span class="return">as</span> <span class="variable">response</span>:
+            <span class="return">return</span> <span class="return">await</span> <span class="variable">response</span>.<span class="function">text</span>()
+
+<span class="return">async def</span> <span class="function">main</span>():
+    <span class="variable">url</span> = <span class="string">'https://jsonplaceholder.typicode.com/posts'</span>
+    <span class="variable">data</span> = <span class="return">await</span> <span class="function">fetch_data</span>(<span class="variable">url</span>)
+    <span class="keyword">print</span>(<span class="string">'Fetched data:'</span>, <span class="variable">data</span>[<span class="string">:100</span>])  <span class="comment"># Печатаем первые 100 символов</span>
+
+<span class="return">asyncio.run</span>(<span class="function">main</span>())
+</code>
+</pre>
+</div>
+
+<div class="button-container">
+    <a href="{% url 'async_programming_intro' %}" class="btn-minimal">Предыдущий</a>
+    <a href="{% url 'exception_handling_async' %}" class="btn-bright">Следующий</a>
+</div>
+
+{% endblock %}

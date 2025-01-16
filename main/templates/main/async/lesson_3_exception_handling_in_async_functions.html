@@ -1,0 +1,47 @@
+<!-- Обработка исключений в асинхронных функциях.html -->
+{% extends 'main/base.html' %}
+
+{% block title %}Обработка исключений в асинхронных функциях{% endblock %}
+
+{% block content %}
+
+<h4>Обработка исключений в асинхронных функциях</h4>
+
+<p>Как и в обычных функциях, в асинхронных функциях могут возникать исключения. Их можно обрабатывать с помощью конструкции <code>try...except</code>. Это позволяет вам управлять ошибками, которые могут произойти во время выполнения асинхронного кода, и предотвращать аварийное завершение программы.</p>
+
+<h4>Пример обработки исключений</h4>
+<p>В следующем примере мы создадим асинхронную функцию, которая вызывает исключение, и обработаем это исключение в главной функции.</p>
+
+<div class="code">
+<pre>
+<code>
+<span class="return">async def</span> <span class="function">risky_task</span><span class="brackets">():
+    <span class="return">raise</span> <span class="module">ValueError</span>(<span class="string">'Something went wrong'</span>)  <span class="comment"># Генерируем исключение ValueError</span>
+
+<span class="return">async def</span> <span class="function">main</span>():
+    <span class="return">try</span>:  <span class="comment"># Начинаем блок try для перехвата исключений</span>
+        <span class="return">await</span> <span class="function">risky_task</span>()  <span class="comment"># Вызываем асинхронную функцию</span>
+    <span class="return">except</span> <span class="module">ValueError</span> <span class="variable">e</span>:  <span class="comment"># Обрабатываем исключение ValueError</span>
+        <span class="keyword">print</span>(<span class="string">f"Caught an exception: <span class="brackets">{</span>e<span class="brackets">}</span>"</span>)  <span class="comment"># Выводим сообщение об ошибке</span>
+
+<span class="return">asyncio.run</span>(<span class="function">main</span>())  <span class="comment"># Запускаем главную асинхронную функцию</span>
+</code>
+</pre>
+</div>
+
+<h4>Пояснение кода</h4>
+<ul>
+    <li><strong>risky_task</strong>: Эта асинхронная функция генерирует исключение <code>ValueError</code> с сообщением "Something went wrong".</li>
+    <li><strong>main</strong>: В этой функции мы используем блок <code>try</code> для вызова <code>risky_task</code>. Если возникает исключение, оно будет перехвачено блоком <code>except</code>.</li>
+    <li><strong>Обработка исключения</strong>: Если <code>ValueError</code> возникает, мы выводим сообщение об ошибке, используя <code>print</code>.</li>
+    <li><strong>asyncio.run</strong>: Эта функция запускает асинхронную функцию <code>main</code> и управляет циклом событий.</li>
+</ul>
+
+<h4>Заключение</h4>
+<p>Обработка исключений в асинхронных функциях аналогична обработке в обычных функциях. Использование конструкции <code>try...except</code> позволяет вам контролировать поведение программы в случае возникновения ошибок и обеспечивать ее стабильность.</p>
+<div class="button-container">
+    <a href="{% url 'working_with_asyncio' %}" class="btn-minimal">Предыдущий</a>
+    <a href="{% url 'async_http_requests' %}" class="btn-bright">Следующий</a>
+</div>
+
+{% endblock %}

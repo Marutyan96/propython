@@ -1,0 +1,99 @@
+<!-- Тестирование и отладка кода.html -->
+{% extends 'main/base.html' %}
+
+{% block title %}Урок по тестированию и отладке кода в Python{% endblock %}
+
+{% block content %}
+
+<h4>Тестирование и отладка кода в Python</h4>
+
+<p>Тестирование и отладка кода являются важными этапами разработки программного обеспечения. В этом уроке мы рассмотрим основные подходы к тестированию и отладке кода в Python.</p>
+
+<h4>Тестирование кода</h4>
+<p>Тестирование кода помогает выявить ошибки и убедиться, что программа работает как ожидалось. В Python для этого часто используется модуль <code>unittest</code>.</p>
+
+<h5>Пример использования unittest</h5>
+<div class="code">
+<pre>
+<code>
+<span class="import">import</span> <span class="module">unittest</span>  
+
+<span class="keyword">def</span> <span class="function">add</span><span class="brackets">(<span class="parameter">a</span>, <span class="parameter">b</span>):
+    <span class="return">return</span> <span class="variable">a</span> <span class="operator">+</span> <span class="variable">b</span> 
+
+<span class="keyword">class</span> <span class="class-name">TestMath</span>(<span class="module">unittest.TestCase</span>):
+    <span class="comment">"""Класс для тестирования математических функций."""</span>
+
+    <span class="keyword">def</span> <span class="function">test_add</span>(<span class="parameter">self</span>):
+        <span class="comment">"""Тест для проверки функции add."""</span>
+        <span class="method">self.assertEqual</span>(<span class="class">add</span>(<span class="number">2</span>, <span class="number">3</span>), <span class="number">5</span>)  <span class="comment"># Ожидаем, что 2 + 3 = 5</span>
+
+<span class="keyword">if</span> <span class="variable">__name__</span> <span class="operator">==</span> <span class="string">'__main__'</span>:
+    <span class="function">unittest.main</span>()  <span class="comment"># Запускаем все тесты в классе TestMath</span>
+</code></pre>
+</div>
+
+<h5>Объяснение кода</h5>
+<p>В этом примере мы использовали модуль <code>unittest</code> для создания теста для простой функции <code>add</code>, которая складывает два числа. Мы создали класс <code>TestMath</code>, который наследует от <code>unittest.TestCase</code>, и определили метод <code>test_add</code> для проверки правильности работы функции <code>add</code>.</p>
+<p>Метод <code>self.assertEqual</code> проверяет, что результат выполнения <code>add(2, 3)</code> равен <code>5</code>. Если тест проходит, это означает, что функция работает корректно. В конце, если файл выполняется как основная программа, вызывается <code>unittest.main()</code>, который запускает все тесты, определенные в классе.</p>
+
+    
+    
+    
+<h4>Отладка кода</h4>
+<p>Отладка кода помогает найти и исправить ошибки в программе. В Python для отладки можно использовать встроенный модуль <code>pdb</code>.</p>
+
+<h5>Пример использования pdb</h5>
+<p>Вы можете вставить точку останова в код с помощью команды <code>pdb.set_trace()</code>:</p>
+<div class="code">
+<pre>
+<code>
+<span class="return">import</span> <span class="module">pdb</span>
+
+<span class="keyword">def</span> <span class="function">divide</span><span class="brackets">(</span><span class="variable">a</span>, <span class="variable">b</span><span class="brackets">)</span>:
+    <span class="module">pdb.set_trace</span><span class="brackets">(</span><span class="brackets">)</span>  <span class="comment"># Точка останова</span>
+    <span class="return">return</span> <span class="variable">a</span> <span class="operator">/</span> <span class="variable">b</span>
+
+<span class="variable">result</span> <span class="operator">=</span> <span class="function">divide</span><span class="brackets">(</span><span class="number">10</span>, <span class="number">0</span><span class="brackets">)</span>  <span class="comment"># Это вызовет ошибку</span>
+</code></pre>
+</div>
+
+<h5>Объяснение кода</h5>
+<p>В этом примере мы используем модуль <code>pdb</code> для отладки функции <code>divide</code>, которая делит два числа. Мы вставляем точку останова с помощью команды <code>pdb.set_trace()</code>, что позволяет приостановить выполнение программы и перейти в интерактивный режим отладки.</p>
+<p>Когда программа достигает этой точки, вы можете исследовать текущее состояние переменных и выполнять команды для диагностики. В данном случае, если мы попытаемся вызвать <code>divide(10, 0)</code>, это вызовет ошибку деления на ноль. Точка останова поможет нам понять, что происходит в этот момент, и исправить ошибку.</p>
+
+    
+<h4>Логирование</h4>
+<p>Логирование помогает отслеживать выполнение программы и выявлять ошибки. В Python можно использовать встроенный модуль <code>logging</code>.</p>
+
+<h5>Пример использования logging</h5>
+<div class="code">
+<pre>
+<code>
+<span class="return">import</span> <span class="module">logging</span>
+
+<span class="keyword">logging.basicConfig</span><span class="brackets">(</span><span class="keyword">level</span><span class="operator">=</span><span class="module">logging</span>.<span class="function">DEBUG</span><span class="brackets">)</span>
+
+<span class="keyword">def</span> <span class="function">calculate</span><span class="brackets">(</span><span class="variable">x</span><span class="brackets">)</span>:
+    <span class="keyword">logging.debug</span><span class="brackets">(</span><span class="string">'Начало вычислений'</span><span class="brackets">)</span>
+    <span class="return">return</span> <span class="variable">x</span> <span class="operator">*</span> <span class="number">2</span>
+
+<span class="variable">result</span> <span class="operator">=</span> <span class="function">calculate</span><span class="brackets">(</span><span class="number">5</span><span class="brackets">)</span>
+<span class="keyword">print</span><span class="brackets">(</span><span class="string">f'Результат: {result}'</span><span class="brackets">)</span>
+</code></pre>
+</div>
+
+<h5>Объяснение кода</h5>
+<p>В этом примере мы используем модуль <code>logging</code> для отслеживания выполнения функции <code>calculate</code>, которая удваивает переданное значение <code>x</code>. Мы настраиваем уровень логирования на <code>DEBUG</code>, что позволяет регистрировать отладочные сообщения.</p>
+<p>Перед выполнением вычислений мы добавляем строку <code>logging.debug('Начало вычислений')</code>, которая выводит сообщение в лог. Это полезно для отслеживания выполнения программы и выявления возможных проблем. После вычисления мы выводим результат на экран с помощью функции <code>print</code>.</p>
+
+    
+
+<h4>Заключение</h4>
+<p>Тестирование и отладка кода — это важные аспекты разработки программного обеспечения. Используйте <code>unittest</code> для тестирования, <code>pdb</code> для отладки и <code>logging</code> для логирования, чтобы сделать ваш код более надежным и поддерживаемым.</p>
+<div class="button-container">
+    <a href="{% url 'solid_info' %}" class="btn-minimal">Предыдущий</a>
+    <a href="{% url 'flask_info' %}" class="btn-bright">Следующий</a>
+</div>
+
+{% endblock %}

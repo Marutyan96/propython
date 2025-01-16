@@ -1,0 +1,95 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Урок по кортежам в Python{% endblock %}
+
+{% block content %}
+
+<h4>Кортежи в Python</h4>
+
+<p>Кортежи в Python — это упорядоченные, неизменяемые коллекции, которые могут содержать элементы различных типов. Они часто используются для хранения связанных данных и являются полезным инструментом в программировании.</p>
+
+<h4>Создание кортежа</h4>
+<p>Кортежи создаются с помощью круглых скобок <code>()</code>. Вот пример создания простого кортежа:</p>
+<div class="code">
+    <pre>
+        <code>
+<span class="variable">my_tuple</span> <span class="operator">=</span> <span class="brackets">(</span><span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span><span class="brackets">)</span>
+<span class="keyword">print</span><span class="brackets">(<span class="variable">my_tuple</span>)  <span class="comment"># Вывод: (1, 2, 3)</span>
+</code></pre>
+</div>
+
+
+<h4>Кортежи с разными типами данных</h4>
+<p>Кортежи могут содержать элементы различных типов, включая числа, строки и даже другие кортежи. Пример:</p>
+<div class="code">
+    <pre>
+        <code>
+<span class="variable">mixed_tuple</span> <span class="operator">=</span> <span class="brackets">(</span><span class="number">1</span>, <span class="string">"два"</span>, <span class="number">3.0</span>, <span class="brackets">(</span><span class="number">4</span>, <span class="number">5</span><span class="brackets">)</span><span class="brackets">)</span>
+<span class="keyword">print</span><span class="brackets">(<span class="variable">mixed_tuple</span>)  <span class="comment"># Вывод: (1, 'два', 3.0, (4, 5))</span>
+</code></pre>
+</div>
+
+
+<h4>Доступ к элементам кортежа</h4>
+<p>Элементы кортежа можно получить по индексу, начиная с 0:</p>
+<div class="code">
+    <pre>
+        <code>
+<span class="keyword">print</span></span><span class="brackets">(<span class="variable">my_tuple</span><span class="brackets">[</span><span class="number">0</span><span class="brackets">]</span>)  <span class="comment"># Вывод: 1</span>
+<span class="keyword">print</span>(<span class="variable">mixed_tuple</span><span class="brackets">[</span><span class="number">1</span><span class="brackets">]</span>)  <span class="comment"># Вывод: 'два'</span>
+</code></pre>
+</div>
+
+
+<h4>Итерация по кортежу</h4>
+<p>Итерация по элементам кортежа может быть выполнена с помощью цикла <code>for</code>. Вот пример:</p>
+<div class="code">
+<pre>
+<code>
+<span class="keyword">for</span> <span class="variable">item</span> <span class="keyword">in</span> <span class="function">my_tuple:</span>
+    <span class="keyword">print</span></span><span class="brackets">(<span class="variable">item</span>)
+</code></pre>
+</div>
+
+<h4>Кортежи и их длина</h4>
+<p>Вы можете узнать количество элементов в кортеже с помощью функции <code>len()</code>:</p>
+<div class="code">
+    <pre>
+        <code>
+<span class="variable">length</span> <span class="operator">=</span> <span class="function">len</span></span><span class="brackets">(<span class="variable">my_tuple</span>)
+<span class="keyword">print</span>(<span class="string">f"Количество элементов: {length}"</span>)  <span class="comment"># Вывод: Количество элементов: 3</span>
+</code></pre>
+</div>
+
+
+<h4>Объединение кортежей</h4>
+<p>Кортежи можно объединять с помощью оператора <code>+</code>. Например:</p>
+<div class="code">
+    <pre>
+        <code>
+<span class="variable">another_tuple</span> <span class="operator">=</span> </span><span class="brackets">(<span class="number">4</span>, <span class="number">5</span>)
+<span class="variable">combined_tuple</span> <span class="operator">=</span> <span class="variable">my_tuple</span> <span class="operator">+</span> <span class="variable">another_tuple</span>
+<span class="keyword">print</span>(<span class="variable">combined_tuple</span>)  <span class="comment"># Вывод: (1, 2, 3, 4, 5)</span>
+        </code>
+    </pre>
+</div>
+
+
+<h4>Неизменяемость кортежей</h4>
+<p>Кортежи являются неизменяемыми, поэтому вы не можете изменять их элементы после создания. Попытка сделать это приведет к ошибке:</p>
+<div class="code">
+    <pre>
+        <code>
+<span class="comment"># Это вызовет ошибку:</span>
+<span class="variable">my_tuple</span><span class="brackets">[<span class="number">0</span>]</span> <span class="operator">=</span> <span class="number">10</span>  <span class="comment"># TypeError: 'tuple' object does not support item assignment</span>
+</code></pre>
+</div>
+
+<h4>Заключение</h4>
+<p>Кортежи являются полезным инструментом для хранения данных, когда вам не нужно изменять содержимое. Попробуйте создать свои собственные кортежи и поэкспериментировать с их использованием! Также помните, что кортежи могут быть вложенными, что позволяет создавать более сложные структуры данных.</p>
+<div class="button-container">
+    <a href="{% url 'list_info' %}" class="btn-minimal">Предыдущий</a>
+    <a href="{% url 'type_conversion_info' %}" class="btn-bright">Следующий</a>
+</div>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Результаты поиска{% endblock %}
+
+{% block content %}
+    <h4>Результаты поиска для: "{{ request.GET.q }}"</h4>
+    <ul>
+        {% for result in results %}
+            <li>{{ result.title }}</li>
+        {% empty %}
+            <li>Ничего не найдено.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

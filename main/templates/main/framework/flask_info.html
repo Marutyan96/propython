@@ -1,0 +1,102 @@
+<!-- Основы Flask.html -->
+{% extends 'main/base.html' %}
+
+{% block title %}Основы Flask{% endblock %}
+
+{% block content %}
+
+<h4>Основы Flask</h4>
+
+<p>Flask - это легковесный веб-фреймворк для Python, который позволяет быстро и легко создавать веб-приложения. В этом уроке мы рассмотрим основные концепции Flask и создадим простое веб-приложение.</p>
+
+<h4>Установка Flask</h4>
+<p>Для установки Flask используйте pip:</p>
+<div class="code">
+
+<span class="keyword">pip install flask</span>
+
+</div>
+
+<h4>Создание простого приложения</h4>
+<p>Создадим простое веб-приложение, которое будет отображать "Hello, World!" на главной странице.</p>
+
+<h5>Пример кода</h5>
+<div class="code">
+<pre>
+<code>
+<span class="keyword">from</span> <span class="module">flask</span> <span class="keyword">import</span> <span class="variable">Flask</span>
+
+<span class="keyword">app</span> = <span class="variable">Flask</span>(<span class="string">'__main__'</span>)
+
+<span class="keyword">@app.route</span>(<span class="string">'/'</span>)
+<span class="keyword">def</span> <span class="function">hello</span>():
+    <span class="keyword">return</span> <span class="string">'Hello, World!'</span>
+
+<span class="keyword">if</span> <span class="variable">__name__</span> == <span class="string">'__main__'</span>:
+    <span class="keyword">app.run</span>(<span class="keyword">debug</span>=<span class="keyword">True</span>)
+</code></pre>
+</div>
+
+<h4>Запуск приложения</h4>
+<p>Сохраните код в файл, например <code>app.py</code>, и запустите его:</p>
+<div class="code">
+
+<span class="keyword">python app.py</span>
+
+</div>
+<p>После этого откройте браузер и перейдите по адресу <code>http://127.0.0.1:5000/</code>, чтобы увидеть сообщение "Hello, World!".</p>
+
+<h4>Добавление маршрутов</h4>
+<p>Вы можете добавлять дополнительные маршруты для обработки различных URL. Например:</p>
+<div class="code">
+<pre>
+<code>
+<span class="keyword">@app.route</span>(<span class="string">'/about'</span>)
+<span class="keyword">def</span> <span class="function">about</span>():
+    <span class="keyword">return</span> <span class="string">'Это страница о нас.'</span>
+</code></pre>
+</div>
+
+<h4>Шаблоны</h4>
+<p>Flask поддерживает шаблоны с использованием Jinja2. Вы можете создавать HTML-шаблоны и динамически генерировать контент.</p>
+
+<h5>Пример использования шаблонов</h5>
+<p>Создайте папку <code>templates</code> и файл <code>index.html</code> внутри неё:</p>
+
+<div class="code">
+    <pre>
+        <code>
+<span class="parenthesis">&lt;!DOCTYPE html&gt;</span>
+<span class="keyword">&lt;html</span> <span class="variable">lang</span>=<span class="string">"ru"</span><span class="keyword">&gt;</span>
+<span class="keyword">&lt;head&gt;</span>
+    <span class="keyword">&lt;meta</span> <span class="variable">charset</span>=<span class="string">"UTF-8"</span><span class="keyword">&gt;</span>
+    <span class="keyword">&lt;title&gt;</span><span class="parenthesis">Главная страница</span><span class="keyword">&lt;/title&gt;</span>
+<span class="keyword">&lt;/head&gt;</span>
+<span class="keyword">&lt;body&gt;</span>
+    <span class="keyword">&lt;h4&gt;</span><span class="parenthesis">Привет, {{ name }}!</span><span class="keyword">&lt;/h4&gt;</span>
+<span class="keyword">&lt;/body&gt;</span>
+<span class="keyword">&lt;/html&gt;</span>
+</code></pre>
+</div>
+
+<p>Теперь измените функцию <code>hello</code>, чтобы использовать шаблон:</p>
+<div class="code">
+<pre>
+<code>
+<span class="return">from</span> <span class="module">flask</span> <span class="return">import</span> <span class="function">render_template</span>
+
+<span class="keyword">@app.route</span>(<span class="string">'/'</span>)
+<span class="keyword">def</span> <span class="function">hello</span>():
+    <span class="return">return</span> <span class="function">render_template</span>(<span class="string">'index.html'</span>, <span class="variable">name</span>=<span class="string">'Мир'</span>)
+</code>
+</pre>
+</div>
+
+<h4>Заключение</h4>
+<p>Flask - это мощный инструмент для создания веб-приложений. В этом уроке мы рассмотрели основы Flask, установку, создание простого приложения, добавление маршрутов и использование шаблонов. Теперь вы можете начать разрабатывать свои собственные веб-приложения на Flask!</p>
+<div class="button-container">
+    <a href="{% url 'testing_info' %}" class="btn-minimal">Предыдущий</a>
+    <a href="{% url 'django_info' %}" class="btn-bright">Следующий</a>
+</div>
+
+{% endblock %}

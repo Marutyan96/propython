@@ -1,0 +1,138 @@
+<!-- Наследование.html -->
+{% extends 'main/base.html' %}
+
+{% block title %}принципы ООП {% endblock %}
+
+{% block content %}
+
+<h4>принципы ООП</h4>
+<p>Наследование, инкапсуляция, полиморфизм и абстракция — это ключевые концепции объектно-ориентированного программирования, которые позволяют создавать более сложные структуры классов и повторно использовать код. Это упрощает разработку и поддержку программного обеспечения. </p>
+<h4>Наследование</h4>
+
+<p>Наследование — это один из основных принципов объектно-ориентированного программирования, который позволяет создавать новый класс на основе существующего. Новый класс наследует свойства и методы родительского класса.</p>
+
+<h4>Создание базового класса</h4>
+<p>Сначала создадим базовый класс <code class="class-name">Vehicle</code>, который будет содержать общие методы и свойства, такие как марка, модель и год выпуска.</p>
+<div class="code"><pre><code>
+<span class="keyword">class</span> <span class="class-name">Vehicle</span><span class="brackets">:
+    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="variable">self</span>, <span class="variable">make</span>, <span class="variable">model</span>, <span class="variable">year</span>):
+        <span class="variable">self.make</span> = <span class="variable">make</span>
+        <span class="variable">self.model</span> = <span class="variable">model</span>
+        <span class="variable">self.year</span> = <span class="variable">year</span>
+    
+    <span class="keyword">def</span> <span class="function">info</span>(<span class="variable">self</span>):
+        <span class="return">f"{self.year} {self.make} {self.model}"</span>
+    
+    <span class="keyword">def</span> <span class="function">start_engine</span>(<span class="variable">self</span>):
+        <span class="return">"Двигатель запущен!"</span>
+</code></pre></div>
+
+<h4>Создание дочерних классов</h4>
+<p>Теперь создадим классы <code class="class-name">Car</code> и <code class="class-name">Truck</code>, которые наследуют от базового класса <code class="class-name">Vehicle</code>.</p>
+<div class="code">
+<pre>
+<code>
+<span class="keyword">class</span> <span class="class-name">Car</span><span class="brackets">(<span class="class-name">Vehicle</span>):
+    <span class="keyword">def</span> <span class="function">start_engine</span>(<span class="variable">self</span>):
+        <span class="return">"Двигатель автомобиля запущен!"</span>
+
+<span class="keyword">class</span> <span class="class-name">Truck</span>(<span class="class-name">Vehicle</span>):
+    <span class="keyword">def</span> <span class="function">start_engine</span>(<span class="variable">self</span>):
+        <span class="return">"Двигатель грузовика запущен!"</span>
+</code></pre>
+</div>
+
+<p>Теперь мы можем создавать экземпляры дочерних классов и использовать их методы.</p>
+<div class="code">
+<pre>
+<code>
+<span class="variable">car</span> <span class="brackets">= <span class="function">Car</span>(<span class="string">"Toyota"</span>, <span class="string">"Camry"</span>, <span class="number">2020</span>)
+<span class="keyword">print</span>(<span class="variable">car</span>.<span class="function">info</span>())  <span class="comment"># Вывод: 2020 Toyota Camry</span>
+<span class="keyword">print</span>(<span class="variable">car</span>.<span class="function">start_engine</span>())  <span class="comment"># Вывод: Двигатель автомобиля запущен!</span>
+
+<span class="variable">truck</span> = <span class="function">Truck</span>(<span class="string">"Ford"</span>, <span class="string">"F-150"</span>, <span class="number">2019</span>)
+<span class="keyword">print</span>(<span class="variable">truck</span>.<span class="function">info</span>())  <span class="comment"># Вывод: 2019 Ford F-150</span>
+<span class="keyword">print</span>(<span class="variable">truck</span>.<span class="function">start_engine</span>())  <span class="comment"># Вывод: Двигатель грузовика запущен!</span>
+</code></pre>
+</div>
+
+<h4>Переопределение методов</h4>
+<p>Дочерние классы могут переопределять методы родительского класса, чтобы изменить их поведение. Например, мы можем создать класс <code class="class-name">ElectricCar</code>, который также наследует от <code class="class-name">Car</code>.</p>
+<div class="code">
+<pre>
+<code>
+<span class="keyword">class</span> <span class="class-name">ElectricCar</span><span class="brackets">(<span class="class-name">Car</span>):
+    <span class="keyword">def</span> <span class="function">start_engine</span>(<span class="variable">self</span>):
+        <span class="return">"Электродвигатель запущен!"</span>
+
+<span class="variable">electric_car</span> = <span class="function">ElectricCar</span>(<span class="string">"Tesla"</span>, <span class="string">"Model 3"</span>, <span class="number">2021</span>)
+<span class="keyword">print</span>(<span class="variable">electric_car</span>.<span class="function">info</span>())  <span class="comment"># Вывод: 2021 Tesla Model 3</span>
+<span class="keyword">print</span>(<span class="variable">electric_car</span>.<span class="function">start_engine</span>())  <span class="comment"># Вывод: Электродвигатель запущен!</span>
+</code></pre>
+</div>
+
+<h4>Инкапсуляция</h4>
+<p>Инкапсуляция — это принцип, который позволяет скрывать внутренние детали реализации класса и предоставлять доступ к ним только через методы. Это позволяет защитить данные и предотвратить их некорректное использование.</p>
+<p>В Python инкапсуляция достигается с помощью использования приватных атрибутов, которые начинаются с одного или двух подчеркиваний.</p>
+<div class="code">
+<pre>
+<code>
+<span class="keyword">class</span> <span class="class-name">Person</span><span class="brackets">:
+    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="variable">self</span>, <span class="variable">name</span>):
+        <span class="variable">self.__name</span> = <span class="variable">name</span>  <span class="comment"># Приватный атрибут</span>
+    
+    <span class="keyword">def</span> <span class="function">get_name</span>(<span class="variable">self</span>):
+        <span class="return">return</span> <span class="variable">self.__name</span>
+
+<span class="variable">person</span> = <span class="class-name">Person</span>(<span class="string">"Иван"</span>)
+<span class="keyword">print</span>(<span class="variable">person</span>.<span class="function">get_name</span>())  <span class="comment"># Вывод: Иван</span>
+</code></pre>
+</div>
+<h4>Полиморфизм</h4>
+<p>Полиморфизм позволяет использовать одинаковые интерфейсы для различных типов объектов. Это означает, что один и тот же метод может вести себя по-разному в зависимости от объекта, который его вызывает.</p>
+<p>В нашем примере мы можем создать список транспортных средств и вызвать метод <code class="function">start_engine</code> для каждого из них:</p>
+<div class="code">
+<pre>
+<code>
+<span class="variable">vehicles</span> <span class="brackets">= [<span class="function">Car</span>(<span class="string">"Toyota"</span>, <span class="string">"Camry"</span>, <span class="number">2020</span>), 
+              <span class="function">Truck</span>(<span class="string">"Ford"</span>, <span class="string">"F-150"</span>, <span class="number">2019</span>), 
+              <span class="function">ElectricCar</span>(<span class="string">"Tesla"</span>, <span class="string">"Model 3"</span>, <span class="number">2021</span>)]
+
+<span class="keyword">for</span> <span class="variable">vehicle</span> <span class="keyword">in</span> <span class="variable">vehicles</span>:
+    <span class="keyword">print</span>(<span class="variable">vehicle</span>.<span class="function">start_engine</span>())  <span class="comment"># Вывод: Двигатель автомобиля запущен!, Двигатель грузовика запущен!, Электродвигатель запущен!</span>
+</code></pre>
+</div>
+
+<h4>Абстракция</h4>
+<p>Абстракция — это процесс выделения общих характеристик объектов и игнорирование несущественных деталей. В Python это можно реализовать с помощью абстрактных классов и интерфейсов, которые определяют методы, которые должны быть реализованы в дочерних классах.</p>
+<p>Для создания абстрактного класса в Python используется модуль <code class="module">abc</code> (Abstract Base Class).</p>
+<div class="code">
+<pre>
+<code>
+<span class="return">from</span> <span class="module">abc</span> <span class="return">import</span> <span class="module">ABC, abstractmethod
+
+<span class="keyword">class</span> <span class="class-name">Vehicle</span><span class="brackets">(<span class="variable">ABC</span>):
+    <span class="keyword">@</span><span class="function">abstractmethod</span>
+    <span class="keyword">def</span> <span class="function">start_engine</span>(<span class="variable">self</span>):
+        <span class="return">pass</span>
+
+<span class="keyword">class</span> <span class="class-name">Car</span>(<span class="class-name">Vehicle</span>):
+    <span class="keyword">def</span> <span class="function">start_engine</span>(<span class="variable">self</span>):
+        <span class="return">return</span> <span class="string">"Двигатель автомобиля запущен!"</span>
+
+<span class="keyword">class</span> <span class="class-name">Truck</span>(<span class="class-name">Vehicle</span>):
+    <span class="keyword">def</span> <span class="function">start_engine</span>(<span class="variable">self</span>):
+        <span class="return">return</span> <span class="string">"Двигатель грузовика запущен!"</span>
+
+<span class="keyword">class</span> <span class="class-name">ElectricCar</span>(<span class="class-name">Vehicle</span>):
+    <span class="keyword">def</span> <span class="function">start_engine</span>(<span class="variable">self</span>):
+        <span class="return">return</span> <span class="string">"Электродвигатель запущен!"</span></code></pre>
+</div>
+
+
+<div class="button-container">
+    <a href="{% url 'oop_info' %}" class="btn-minimal">Предыдущий</a>
+    <a href="{% url 'modules_info' %}" class="btn-bright">Следующий</a>
+</div>
+
+{% endblock %}

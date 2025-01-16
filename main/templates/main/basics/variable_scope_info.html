@@ -1,0 +1,80 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Преобразование типов{% endblock %}
+
+{% block content %}
+
+<h5>Область видимости переменных в Python</h5>
+    <p>Область видимости переменных определяет, где в коде можно использовать переменные. В Python существует несколько уровней области видимости, включая локальную, глобальную и встроенную области видимости.</p>
+
+    <h4>Типы области видимости</h4>
+    <ul>
+        <li><strong>Локальная область видимости:</strong> Переменные, определенные внутри функции, доступны только в этой функции.</li>
+        <li><strong>Глобальная область видимости:</strong> Переменные, определенные вне всех функций, доступны в любой части кода.</li>
+        <li><strong>Встроенная область видимости:</strong> Переменные и функции, доступные по умолчанию в Python, такие как <code>print()</code> и <code>len()</code>.</li>
+    </ul>
+
+    <h4>Примеры области видимости переменных</h4>
+
+    <h5>Пример 1: Локальная область видимости</h5>
+    <div class="code">
+        <pre>
+<code>
+<span class="function">def</span> <span class="variable">my_function</span>():
+    <span class="variable">local_var</span> = <span class="string">'Я локальная переменная'</span> <span class="comment"># локальная переменная</span>
+    <span class="function">print</span>(<span class="variable">local_var</span>) <span class="comment"># выводим локальную переменную</span>
+
+<span class="function">my_function</span>() <span class="comment"># вызываем функцию</span>
+<span class="function">print</span>(<span class="string">'Локальная переменная доступна здесь: '</span>, <span class="variable">local_var</span>) <span class="comment"># вызовет ошибку, так как local_var не доступна здесь</span>
+</code>
+        </pre>
+    </div>
+
+    <h5>Пример 2: Глобальная область видимости</h5>
+    <div class="code">
+        <pre>
+<code>
+<span class="variable">global_var</span> = <span class="string">'Я глобальная переменная'</span> <span class="comment"># глобальная переменная</span>
+
+<span class="function">def</span> <span class="variable">my_function</span>():
+    <span class="function">print</span>(<span class="string">'Глобальная переменная внутри функции: '</span>, <span class="variable">global_var</span>) <span class="comment"># доступ к глобальной переменной</span>
+
+<span class="function">my_function</span>() <span class="comment"># вызываем функцию</span>
+<span class="function">print</span>(<span class="string">'Глобальная переменная снаружи: '</span>, <span class="variable">global_var</span>) <span class="comment"># доступ к глобальной переменной</span>
+</code>
+        </pre>
+    </div>
+
+    <h5>Пример 3: Изменение глобальной переменной внутри функции</h5>
+    <div class="code">
+        <pre>
+<code>
+<span class="variable">global_var</span> = <span class="number">10</span> <span class="comment"># глобальная переменная</span>
+
+<span class="function">def</span> <span class="variable">modify_global</span>():
+    <span class="keyword">global</span> <span class="variable">global_var</span> <span class="comment"># объявляем, что будем использовать глобальную переменную</span>
+    <span class="variable">global_var</span> += <span class="number">5</span> <span class="comment"># изменяем глобальную переменную</span>
+
+<span class="function">modify_global</span>() <span class="comment"># вызываем функцию</span>
+<span class="function">print</span>(<span class="string">'Измененная глобальная переменная: '</span>, <span class="variable">global_var</span>) <span class="comment"># выводим измененную глобальную переменную</span>
+</code>
+        </pre>
+    </div>
+
+    <h5>Пример 4: Встроенные переменные</h5>
+    <div class="code">
+        <pre>
+<code>
+<span class="variable">numbers</span> = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]
+<span class="function">print</span>(<span class="string">'Количество элементов в списке: '</span>, <span class="function">len</span>(<span class="variable">numbers</span>)) <span class="comment"># используем встроенную функцию len()</span>
+</code>
+        </pre>
+    </div>
+
+    <h4>Итоги</h4>
+    <p>Область видимости переменных в Python играет важную роль в управлении доступом к переменным в различных частях программы. Понимание локальной и глобальной области видимости поможет вам писать более понятный и безопасный код.</p>
+    <div class="button-container">
+        <a href="{% url 'type_conversion_info' %}" class="btn-minimal">Предыдущий</a>
+        <a href="{% url 'range_info' %}" class="btn-bright">Следующий</a>
+    </div>
+    {% endblock %}

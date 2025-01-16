@@ -1,0 +1,75 @@
+<!-- range.html -->
+{% extends 'main/base.html' %}
+
+{% block title %}Урок по функции range в Python{% endblock %}
+
+{% block content %}
+
+<h4>Функция range в Python</h4>
+
+<p>Функция <code>range()</code> в Python используется для генерации последовательности чисел. Она часто применяется в циклах <code>for</code> для итерации по числовым диапазонам.</p>
+
+<h4>Основные понятия функции range</h4>
+
+<ul>
+    <li><strong>range(stop)</strong>: Генерирует последовательность чисел от 0 до <code>stop</code> (не включая <code>stop</code>).</li>
+    <li><strong>range(start, stop)</strong>: Генерирует последовательность чисел от <code>start</code> до <code>stop</code> (не включая <code>stop</code>).</li>
+    <li><strong>range(start, stop, step)</strong>: Генерирует последовательность чисел от <code>start</code> до <code>stop</code> с шагом <code>step</code>.</li>
+</ul>
+
+<h4>Шаг 1: Использование range без параметров</h4>
+<p>Давайте начнем с простого примера использования <code>range()</code> без параметров.</p>
+
+<div class="code">
+<pre>
+<code>
+<span class="keyword">for</span> <span class="variable">i</span> <span class="keyword">in</span> <span class="function">range</span>(<span class="string">5</span>):
+    <span class="keyword">print</span>(<span class="variable">i</span>)
+</code>
+</pre>
+</div>
+
+<h4>Шаг 2: Использование range с двумя параметрами</h4>
+<p>Теперь рассмотрим использование <code>range()</code> с двумя параметрами: <code>start</code> и <code>stop</code>.</p>
+
+<div class="code">
+<pre>
+<code>
+<span class="keyword">for</span> <span class="variable">i</span> <span class="keyword">in</span> <span class="function">range</span>(<span class="string">2</span>, <span class="string">8</span>):
+    <span class="keyword">print</span>(<span class="variable">i</span>)
+</code>
+</pre>
+</div>
+
+<h4>Шаг 3: Использование range с тремя параметрами</h4>
+<p>Теперь добавим третий параметр для задания шага.</p>
+
+<div class="code">
+<pre>
+<code>
+<span class="keyword">for</span> <span class="variable">i</span> <span class="keyword">in</span> <span class="function">range</span>(<span class="string">1</span>, <span class="string">10</span>, <span class="string">2</span>):
+    <span class="keyword">print</span>(<span class="variable">i</span>)
+</code>
+</pre>
+</div>
+
+<h4>Шаг 4: Преобразование range в список</h4>
+<p>Вы можете преобразовать объект <code>range</code> в список, чтобы увидеть все значения в нем.</p>
+
+<div class="code">
+<pre>
+<code>
+<span class="variable">my_range =</span> <span class="function">list</span>(<span class="function">range</span>(<span class="string">5</span>))
+<span class="keyword">print</span>(<span class="variable">my_range</span>)  <span class="comment"># Вывод: [0, 1, 2, 3, 4]</span>
+</code>
+</pre>
+</div>
+
+<h4>Заключение</h4>
+<p>Функция <code>range()</code> является мощным инструментом для работы с последовательностями чисел в Python. Она широко используется в циклах и позволяет легко генерировать числовые последовательности. Попробуйте использовать <code>range()</code> в своих проектах и экспериментах!</p>
+<div class="button-container">
+    <a href="{% url 'variable_scope_info' %}" class="btn-minimal">Предыдущий</a>
+    <a href="{% url 'dictionary_info' %}" class="btn-bright">Следующий</a>
+</div>
+
+{% endblock %}

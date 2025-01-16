@@ -1,0 +1,100 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Синхронное vs Асинхронное программирование{% endblock %}
+
+{% block content %}
+
+<h4>Синхронное vs Асинхронное программирование</h4>
+
+<p>Синхронное и асинхронное программирование — это два различных подхода к выполнению задач в программировании. Понимание этих подходов поможет вам выбрать правильный метод для решения конкретных задач в ваших проектах.</p>
+
+<h4>Что такое синхронное программирование?</h4>
+<p>В синхронном программировании задачи выполняются последовательно, одна за другой. Каждая задача должна завершиться, прежде чем начнется следующая. Это может привести к блокировке выполнения, если одна из задач занимает много времени.</p>
+<h5>Пример синхронного кода</h5>
+
+<div class="code">
+<pre>
+<code>
+<span class="keyword">import</span> <span class="module">time</span>
+
+<span class="keyword">def</span> <span class="function">task</span><span class="brackets">(<span class="variable">duration</span>):
+    <span class="keyword">print</span>(<span class="string">"Начинаю задачу..."</span>)
+    <span class="module">time</span>.<span class="function">sleep</span>(<span class="variable">duration</span>)
+    <span class="keyword">print</span>(<span class="string">"Задача завершена!"</span>)
+
+<span class="function">task</span>(<span class="string">2</span>)
+<span class="function">task</span>(<span class="string">3</span>)
+</code>
+</pre>
+</div>
+
+
+<p>В этом примере мы определили функцию <code>task</code>, которая выполняет задачу, задерживаясь на заданное время. Каждая задача выполняется последовательно, что приводит к общему времени выполнения, равному сумме времени всех задач.</p>
+
+<h4>Что такое асинхронное программирование?</h4>
+<p>Асинхронное программирование позволяет выполнять задачи параллельно, не дожидаясь завершения предыдущей. Это особенно полезно для задач, требующих ожидания (например, сетевые запросы), так как позволяет программе продолжать выполнять другие задачи во время ожидания.</p>
+
+<h5>Пример асинхронного кода</h5>
+<div class="code">
+<pre>
+<code>
+<span class="return">import</span> <span class="module">asyncio</span>
+
+<span class="return">async def</span> <span class="function">task</span><span class="brackets">(<span class="variable">duration</span>):
+    <span class="keyword">print</span>(<span class="string">"Начинаю задачу..."</span>)
+    <span class="return">await</span> <span class="module">asyncio</span>.<span class="function">sleep</span>(<span class="variable">duration</span>)
+    <span class="keyword">print</span>(<span class="string">"Задача завершена!"</span>)
+
+<span class="return">async def</span> <span class="function">main</span>():
+    <span class="return">await</span> <span class="function">task</span>(<span class="string">2</span>)
+    <span class="return">await</span> <span class="function">task</span>(<span class="string">3</span>)
+
+<span class="return">asyncio</span>.<span class="function">run</span>(<span class="function">main</span>())
+</code>
+</pre>
+</div>
+
+
+<p>В этом примере мы используем <code>asyncio</code> для выполнения задач асинхронно. Каждая задача запускается и может ожидать завершения, не блокируя выполнение других задач. Это позволяет выполнять задачи более эффективно.</p>
+<h4>Сравнение синхронного и асинхронного подходов</h4>
+<table style="width: 100%; border-collapse: collapse;">
+    <thead>
+        <tr>
+            <th style="border: 1px solid #ddd; padding: 8px;">Критерий</th>
+            <th style="border: 1px solid #ddd; padding: 8px;">Синхронное программирование</th>
+            <th style="border: 1px solid #ddd; padding: 8px;">Асинхронное программирование</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="border: 1px solid #ddd; padding: 8px;">Способ выполнения задач</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">Последовательное выполнение</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">Параллельное выполнение</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #ddd; padding: 8px;">Блокировка выполнения</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">Да, блокирует выполнение</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">Нет, не блокирует выполнение</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #ddd; padding: 8px;">Сложность кода</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">Ниже, проще для понимания</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">Выше, требует больше знаний</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #ddd; padding: 8px;">Типы задач</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">Подходит для простых задач</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">Идеально для сетевых запросов и операций ввода-вывода</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h4>Заключение</h4>
+<p>Синхронное и асинхронное программирование имеют свои преимущества и недостатки. Выбор подхода зависит от конкретных задач и требований вашего проекта. Понимание этих концепций поможет вам более эффективно разрабатывать приложения.</p>
+<div class="button-container">
+    <a href="{% url 'exceptions_info' %}" class="btn-minimal">Предыдущий</a>
+    <a href="{% url 'async_programming_intro' %}" class="btn-bright">Следующий</a>
+</div>
+
+{% endblock %}

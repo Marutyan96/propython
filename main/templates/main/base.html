@@ -1,0 +1,193 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Учебник Python{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+15&family=Sixtyfour&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="{% static 'main/style.css' %}">
+    <link rel="stylesheet" href="{% static 'main/dark-style.css' %}">
+    <link rel="stylesheet" href="{% static 'main/main.css' %}">
+    <link rel="stylesheet" href="{% static 'main/header.css' %}">
+    <link rel="stylesheet" href="{% static 'main/sidebar.css' %}">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <div id="header-2" class="bg-light">
+        <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between" style="height: 40px;">
+            <a href="{% url 'home' %}" class="mb-2 mb-md-0 logo-link" style="text-decoration: none;">
+                <p class="logo">
+                    <span class="red">pro</span><span class="blue">python</span>
+                </p>
+            </a>
+            
+            <nav class="mx-auto">
+                <ul class="d-flex list-unstyled mb-0 flex-wrap">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Самоучитель</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'editor' %}">редактор кода</a></li>
+                </ul>
+            </nav>
+
+            <div>
+                <form action="{% url 'search' %}" method="get" class="form-inline">
+                    <div class="input-group input-group-sm align-items-center"> <!-- Добавлено align-items-center -->
+                        <input type="search" name="q" class="form-control form-control-sm" placeholder="Поиск..." required style="width: 150px;">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary search-button" type="submit" title="Поиск">
+                                <i class="fas fa-search"></i> <!-- Иконка лупы -->
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                
+            </div>
+            
+        </div>
+    </div>
+    
+    
+    <div id="header" class="bg-light">
+        <nav class="mx-auto">
+            <ul class="d-flex list-unstyled mb-0 flex-wrap">
+
+                <li class="nav-item"><a class="nav-link" href="{% url 'books' %}">Книги</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'article_list' %}">Статьи</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'tests' %}">Тесты</a></li>
+                
+                <li class="nav-item">
+                    {% if user.is_authenticated %}
+                        <a class="nav-link" href="{% url 'profile' %}"><i class="fas fa-user"></i></a>
+                    {% else %}
+                        <a class="nav-link" href="{% url 'account_signup' %}"><i class="fas fa-user"></i></a>
+                    {% endif %}
+                </li>
+
+                <button id="theme-toggle" class="btn-theme" aria-label="Переключить тему">
+                    <i id="theme-icon" class="fas fa-sun"></i> 
+                </button>
+
+            </ul>
+        </nav>
+    </div>
+    
+    
+
+    <div id="sidebar" class="sidebar"> 
+        
+        <a href="{% url 'home' %}" class="nav-link" class="mb-2 mb-md-0 logo-link" style="text-decoration: none;">
+            <p class="logo-sidebar">
+                <span class="red">pro</span><span class="blue">python</span>
+            </p>
+        </a><br><br>
+        <button id="theme-toggle-sidebar" class="btn-theme" aria-label="Переключить тему">
+            <i id="theme-icon-sidebar" class="fas fa-sun"></i>
+        </button>
+        <ul class="nav flex-column">
+            
+
+
+            <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Самоучитель</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'books' %}">Книги</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'article_list' %}">Статьи</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'tests' %}">Тесты</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'editor' %}">редактор кода</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'account_signup' %}"><i class="fas fa-user"></i></a></li>            <li class="nav-item">
+                <form action="{% url 'search' %}" method="get" class="form-inline">
+                    <div class="input-group input-group-sm align-items-center"> <!-- Добавлено align-items-center -->
+                        <input type="search" name="q" class="form-control form-control-sm" placeholder="Поиск..." required style="width: 150px;">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary search-button" type="submit" title="Поиск">
+                                <i class="fas fa-search"></i> <!-- Иконка лупы -->
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+            </li>
+        </ul>
+    </div>
+    
+    <button id="toggle-header" class="btn btn-secondary" aria-label="Переключить меню">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+    </button>
+    
+    
+     
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <button id="scrollToTop" class="btn btn-secondary" style="display: none;">
+        <i class="fas fa-arrow-up"></i> 
+    </button>
+    
+    <footer class="bg-light text-center py-3">
+        <div class="social-links">
+            <p>© <span id="year"></span></p>
+            <a href="https://t.me/Edgar_Marutyan_96" target="_blank" class="social-icon">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/1200px-Telegram_logo.svg.png" alt="Telegram" />
+            </a>
+            <a href="https://vk.com/feed" target="_blank" class="social-icon">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/VK.com-logo.svg" alt="VK" />
+            </a>
+            <a href="https://wa.me/1234567890" target="_blank" class="social-icon">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+            </a>
+            
+            <a href="viber://chat?number=1234567890" target="_blank" class="social-icon">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Viber_logo_2018_%28without_text%29.svg/1200px-Viber_logo_2018_%28without_text%29.svg.png" alt="Viber" />
+            </a>
+            
+            <a href="https://www.facebook.com/yourpage" target="_blank" class="social-icon">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" />
+            </a>
+            <a href="mailto:example@example.com" class="social-icon">
+                <img src="https://cdn-icons-png.freepik.com/256/2164/2164894.png?semt=ais_hybrid" alt="Email" />
+            </a>
+        </div>
+    </footer>
+    
+    <script>
+        document.getElementById('year').innerText = new Date().getFullYear();
+    </script>
+    
+
+
+    <script src="{% static 'main/js/script.js' %}"></script>
+
+    <script>
+        
+        function filterCourses() {
+            const input = document.getElementById('searchInput');
+            const filter = input.value.toLowerCase();
+            const ul = document.getElementsByClassName("chapter-list")[0]; // Получаем первый элемент с классом chapter-list
+            const li = ul.getElementsByTagName('li');
+    
+            for (let i = 0; i < li.length; i++) {
+                const a = li[i].getElementsByTagName("a")[0];
+                const txtValue = a.textContent || a.innerText;
+                if (txtValue.toLowerCase().indexOf(filter) > -1) {
+                    li[i].style.display = ""; // Показываем элемент
+                } else {
+                    li[i].style.display = "none"; // Скрываем элемент
+                }
+            }
+        }
+    </script>
+    
+</body>
+</html>

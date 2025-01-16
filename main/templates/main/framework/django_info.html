@@ -1,0 +1,378 @@
+<!-- Что такое Django и установка.html -->
+{% extends 'main/base.html' %}
+
+{% block title %}Django{% endblock %}
+
+{% block content %}
+<h4>Глава 1. Введение в Django</h4>
+
+<h4>Что такое Django?</h4>
+<p>Django — это высокоуровневый веб-фреймворк на Python, который позволяет быстро разрабатывать веб-приложения. Он следует принципам "не повторяйся" (DRY) и "бatteries included", что означает, что он предоставляет множество встроенных функций для упрощения разработки.</p>
+
+<p>Django идеально подходит для создания сложных веб-приложений, таких как системы управления контентом (CMS), интернет-магазины и социальные сети. Он предлагает такие возможности, как:</p>
+<ul>
+    <li>Мощная ORM (Object-Relational Mapping) для работы с базами данных.</li>
+    <li>Система маршрутизации для обработки URL.</li>
+    <li>Механизм шаблонов для динамической генерации HTML.</li>
+    <li>Управление пользователями и аутентификацией.</li>
+    <li>Административная панель для управления данными.</li>
+</ul>
+
+<h4>Установка Django</h4>
+<p>Для установки Django вам понадобится Python и пакетный менеджер pip. Убедитесь, что у вас установлены Python и pip. Вы можете проверить это, выполнив следующие команды в терминале:</p>
+<div class="code">
+<pre>
+<code>
+<span class="keyword">python --version</span>
+<span class="keyword">pip --version</span>
+</code></pre>
+</div>
+
+<p>Если у вас установлены Python и pip, вы можете установить Django с помощью следующей команды:</p>
+<div class="code">
+
+<span class="keyword">pip install django</span>
+
+</div>
+
+<h4>Проверка установки</h4>
+<p>После установки вы можете проверить версию Django, выполнив следующую команду:</p>
+<div class="code">
+
+<span class="keyword">python -m django --version</span>
+
+</div>
+
+<h4>Создание проекта Django</h4>
+<p>Теперь, когда вы установили Django, вы можете создать новый проект. Для этого выполните следующую команду:</p>
+<div class="code">
+
+<span class="keyword">django-admin startproject myproject</span>
+
+</div>
+
+<p>Эта команда создаст папку с именем <code>myproject</code>, содержащую файлы, необходимые для вашего проекта.</p>
+
+<h4>Запуск сервера разработки</h4>
+<p>Перейдите в созданную папку проекта:</p>
+<div class="code">
+
+<span class="keyword">cd myproject</span>
+
+</div>
+
+<p>Теперь вы можете запустить сервер разработки:</p>
+<div class="code">
+
+<span class="keyword">python manage.py runserver</span>
+
+</div>
+
+<p>После этого откройте браузер и перейдите по адресу <code>http://127.0.0.1:8000/</code>. Вы должны увидеть страницу приветствия Django.</p>
+
+<h4>Глава 2. Представления и маршрутизация</h4>
+
+<h4>Представления в Django</h4>
+<p>Представления (views) — это функции или классы, которые обрабатывают запросы и возвращают ответы. Они играют ключевую роль в архитектуре MVT (Model-View-Template), которая схожа с MVC (Model-View-Controller). В Django представление отвечает за получение данных из модели и передачу их в шаблон для отображения.</p>
+
+<h4>Создание простого представления</h4>
+<p>Для создания представления вам нужно создать файл <code>views.py</code> в вашем приложении. Вот пример простого представления:</p>
+<div class="code">
+<pre>
+<code>
+<span class="import">from</span> <span class="module">django.shortcuts</span> <span class="import">import</span> <span class="function">render</span>
+
+<span class="keyword">def</span> <span class="function">home</span>(<span class="variable">request</span>):
+    <span class="comment"># Передача данных в шаблон</span>
+    <span class="variable">context</span> = {
+        <span class="string">'message'</span>: <span class="string">'Добро пожаловать на главную страницу!'</span>
+    }
+    <span class="return">return</span> <span class="function">render</span>(<span class="variable">request</span>, <span class="string">'home.html'</span>, <span class="variable">context</span>)
+</code></pre>
+</div>
+
+<p>В данном примере мы передаем в шаблон переменную <code>message</code>, которую можно использовать для отображения сообщения на странице.</p>
+
+<h4>Пример использования данных в шаблоне</h4>
+<p>Создайте файл <code>home.html</code> и добавьте следующий код:</p>
+<div class="code">
+<pre>
+<code>
+&lt;<span class="keyword">!DOCTYPE</span> <span class="type">html</span>&gt;
+&lt;<span class="keyword">html</span>&gt;
+&lt;<span class="keyword">head</span>&gt;
+    &lt;<span class="keyword">title</span>&gt;<span class="string">Главная</span>&lt;/<span class="keyword">title</span>&gt;
+&lt;/<span class="keyword">head</span>&gt;
+&lt;<span class="keyword">body</span>&gt;
+    &lt;<span class="keyword">h1</span>&gt; 
+    <span class="brackets">&#123;&#123;</span><span class="variable">message</span><span class="brackets">&#125;&#125;</span>
+    &lt;/<span class="keyword">h1</span>&gt;
+&lt;/<span class="keyword">body</span>&gt;
+&lt;/<span class="keyword">html</span>&gt;
+</code></pre>
+</div>
+
+
+<h4>Маршрутизация URL</h4>
+<p>Маршрутизация URL позволяет связать URL-адреса с соответствующими представлениями. Это делается через файл <code>urls.py</code>. Вот пример настройки маршрутов:</p>
+<div class="code">
+<pre>
+<code>
+<span class="import">from</span> <span class="module">django.urls</span> <span class="import">import</span> <span class="function">path</span>
+<span class="import">from</span> <span class="">.</span> <span class="import">import</span> <span class="module">views</span>
+
+<span class="variable">urlpatterns</span> = [
+    <span class="function">path</span>(<span class="string">''</span>, <span class="module">views</span>.<span class="function">home</span>, <span class="string">'home'</span>),
+    <span class="function">path</span>(<span class="string">'about/'</span>, <span class="module">views</span>.<span class="function">about</span>, <span class="string">'about'</span>)
+]
+</code></pre>
+</div>
+
+<h4>Создание дополнительного представления</h4>
+<p>Добавим еще одно представление <code>about</code>:</p>
+<div class="code">
+<pre>
+<code>
+<span class="keyword">def</span> <span class="function">about</span>(<span class="variable">request</span>):
+    <span class="return">return</span> <span class="function">render</span>(<span class="variable">request</span>, <span class="string">'about.html'</span>, <span class="constant">{}</span>)
+</code></pre>
+</div>
+
+<p>Создайте файл <code>about.html</code> и добавьте в него содержимое, например:</p>
+<div class="code">
+    <pre>
+    <code>
+&lt;<span class="keyword">!DOCTYPE</span> <span class="type">html</span>&gt;
+&lt;<span class="keyword">html</span>&gt;
+&lt;<span class="keyword">head</span>&gt;
+    &lt;<span class="keyword">title</span>&gt;<span class="string">О нас</span>&lt;/<span class="keyword">title</span>&gt;
+&lt;/<span class="keyword">head</span>&gt;
+&lt;<span class="keyword">body</span>&gt;
+    &lt;<span class="keyword">h1</span>&gt;<span class="string">Страница &quot;О нас&quot;</span>&lt;/<span class="keyword">h1</span>&gt;
+&lt;/<span class="keyword">body</span>&gt;
+&lt;/<span class="keyword">html</span>&gt;
+</code></pre>
+</div>
+
+    
+
+<h4>Связывание представлений с URL-адресами</h4>
+<p>После того как вы создали представления и настроили маршруты, убедитесь, что ваш проект может правильно обрабатывать запросы. Проверьте <code>urls.py</code>, чтобы убедиться в правильности маршрутов.</p>
+
+<h4>Запуск сервера разработки и тестирование приложения</h4>
+<p>Теперь вы можете снова запустить сервер разработки:</p>
+<div class="code">
+
+<span class="keyword">python manage.py runserver</span>
+
+</div>
+
+<p>Перейдите по адресу <code>http://127.0.0.1:8000/</code>, чтобы увидеть домашнюю страницу, и по адресу <code>http://127.0.0.1:8000/about/</code>, чтобы увидеть страницу "О нас".</p>
+
+
+<h4>Глава 3. Шаблоны</h4>
+
+<h4>Создание и использование шаблонов</h4>
+<p>Шаблоны в Django используются для отделения логики отображения от логики обработки данных. Шаблон — это HTML-файл, который может содержать теги шаблонного языка Django. Эти теги позволяют внедрять данные, циклы и условия прямо в HTML.</p>
+
+<h5>Создание шаблона</h5>
+<p>Чтобы создать шаблон, поместите файл HTML в директорию <code>templates</code> вашего приложения. Вот пример простого шаблона:</p>
+<div class="code">
+<pre>
+<code>
+&lt;<span class="keyword">!DOCTYPE</span> <span class="type">html</span>&gt;
+&lt;<span class="keyword">html</span>&gt;
+&lt;<span class="keyword">head</span>&gt;
+    &lt;<span class="keyword">title</span>&gt;<span class="string">Мой сайт</span>&lt;/<span class="keyword">title</span>&gt;
+&lt;/<span class="keyword">head</span>&gt;
+&lt;<span class="keyword">body</span>&gt;
+    &lt;<span class="keyword">h1</span>&gt;<span class="string">Добро пожаловать на мой сайт!</span>&lt;/<span class="keyword">h1</span>&gt;
+&lt;/<span class="keyword">body</span>&gt;
+&lt;/<span class="keyword">html</span>&gt;
+</code></pre>
+</div>
+
+<h5>Подключение шаблона</h5>
+<p>В представлении необходимо использовать функцию <code>render()</code>, чтобы подключить шаблон. Пример:</p>
+<div class="code">
+    <pre>
+    <code>
+<span class="import">from</span> <span class="module">django.shortcuts</span> <span class="import">import</span> <span class="function">render</span>
+
+<span class="keyword">def</span> <span class="function">index</span>(<span class="variable">request</span>):
+    <span class="return">return</span> <span class="function">render</span>(<span class="variable">request</span>, <span class="string">'index.html'</span>)
+</code></pre>
+</div>
+
+<h4>Передача данных в шаблоны</h4>
+<p>Чтобы передать данные из представления в шаблон, можно использовать словарь в функции <code>render()</code>. Ключи словаря становятся переменными в шаблоне, а их значения — данными, доступными для отображения.</p>
+
+<h5>Пример передачи данных</h5>
+<p>В представлении передаём данные:</p>
+<div class="code">
+    <pre>
+    <code>
+<span class="import">from</span> <span class="module">django.shortcuts</span> <span class="import">import</span> <span class="function">render</span>
+
+<span class="keyword">def</span> <span class="function">about</span>(<span class="variable">request</span>):
+    <span class="variable">context</span> = {
+        <span class="string">'title'</span>: <span class="string">'О нас'</span>,
+        <span class="string">'description'</span>: <span class="string">'Эта страница рассказывает о нашем сайте.'</span>
+    }
+    <span class="return">return</span> <span class="function">render</span>(<span class="variable">request</span>, <span class="string">'about.html'</span>, <span class="variable">context</span>)
+</code></pre>
+</div>
+
+<p>В шаблоне <code>about.html</code> отобразим переданные данные:</p>
+<div class="code">
+<pre>
+<code>
+&lt;<span class="keyword">!DOCTYPE</span> <span class="type">html</span>&gt;
+&lt;<span class="keyword">html</span>&gt;
+&lt;<span class="keyword">head</span>&gt;
+    &lt;<span class="keyword">title</span>&gt;<span class="brackets">&#123;&#123;</span><span class="variable">title</span><span class="brackets">&#125;&#125;</span>&lt;/<span class="keyword">title</span>&gt;
+&lt;/<span class="keyword">head</span>&gt;
+&lt;<span class="keyword">body</span>&gt;
+    &lt;<span class="keyword">h1</span>&gt;<span class="brackets">&#123;&#123;</span><span class="variable">title</span><span class="brackets">&#125;&#125;</span>&lt;/<span class="keyword">h1</span>&gt;
+    &lt;<span class="keyword">p</span>&gt;<span class="brackets">&#123;&#123;</span><span class="variable">description</span><span class="brackets">&#125;&#125;</span>&lt;/<span class="keyword">p</span>&gt;
+&lt;/<span class="keyword">body</span>&gt;
+&lt;/<span class="keyword">html</span>&gt;
+</code></pre>
+</div>
+
+<p>Теперь при переходе на страницу <code>/about</code> вы увидите данные, переданные из представления в шаблон.</p>
+
+<h5>Вывод списков в шаблоне</h5>
+<p>Списки можно отображать с использованием циклов в шаблонном языке Django:</p>
+<div class="code">
+    <pre>
+    <code>
+<span class="brackets">&#123;%</span> <span class="keyword">for</span> <span class="variable">item</span> <span class="keyword">in</span> <span class="variable">items</span> <span class="brackets">%&#125;</span>
+    &lt;<span class="keyword">li</span>&gt;<span class="brackets">&#123;&#123;</span><span class="variable">item</span><span class="brackets">&#125;&#125;</span>&lt;/<span class="keyword">li</span>&gt;
+<span class="brackets">&#123;%</span> <span class="keyword">endfor</span> <span class="brackets">%&#125;</span>
+</code></pre>
+</div>
+
+<h4>Глава 4. Работа с формами</h4>
+
+<h4>Введение в формы в Django</h4>
+<p>Формы в Django используются для сбора данных от пользователей. Django предлагает удобный механизм для создания и обработки форм, проверки данных и их сохранения в базе данных.</p>
+
+<h5>Создание формы</h5>
+<p>Чтобы создать форму, можно использовать класс <code>forms.Form</code> в Django. Вот пример простой формы для ввода имени и email:</p>
+
+<div class="code">
+    <pre>
+    <code>
+<span class="import">from</span> <span class="module">django</span>.<span class="module">forms</span> <span class="import">import</span> <span class="class">Form</span>
+<span class="import">from</span> <span class="module">django</span>.<span class="module">forms</span> <span class="import">import</span> <span class="class">CharField</span>, <span class="class">EmailField</span>
+
+<span class="keyword">class</span> <span class="class">ContactForm</span>(<span class="class">Form</span>):
+    <span class="variable">name</span> = <span class="class">CharField</span>(<span class="variable">max_length</span>=<span class="number">100</span>)
+    <span class="variable">email</span> = <span class="class">EmailField</span>()
+</code></pre>
+</div>
+
+<h5>Обработка формы в представлении</h5>
+<p>Для обработки формы в представлении нужно создать логику, которая будет проверять, правильно ли заполнена форма, и сохранять или выводить ошибки:</p>
+
+<div class="code">
+    <pre>
+    <code>
+<span class="import">from</span> <span class="module">django.shortcuts</span> <span class="import">import</span> <span class="function">render</span>, <span class="function">redirect</span>
+<span class="import">from</span> <span class="module">.forms</span> <span class="import">import</span> <span class="class">ContactForm</span>
+
+<span class="keyword">def</span> <span class="function">contact</span>(<span class="variable">request</span>):
+    <span class="variable">form</span> = <span class="class">ContactForm</span>(<span class="variable">request</span>.<span class="variable">POST</span>)
+    <span class="keyword">if</span> <span class="variable">form</span>.<span class="function">is_valid</span>():
+        <span class="comment"># Обработка данных формы, например, отправка письма</span>
+        <span class="return">redirect</span>(<span class="string">'success'</span>)
+    <span class="keyword">else</span>:
+        <span class="return">render</span>(<span class="variable">request</span>, <span class="string">'contact.html'</span>, {'<span class="string">form</span>': <span class="variable">form</span>})
+</code></pre>
+</div>
+
+<h5>Вывод ошибок формы в шаблоне</h5>
+<p>Чтобы вывести ошибки в шаблоне, используем следующий код:</p>
+
+<div class="code">
+<pre>
+<code>
+&lt;<span class="keyword">form</span> method=<span class="string">"post"</span>&gt;
+<span class="brackets">&#123;&#123;</span> form.as_p <span class="brackets">&#125;&#125;</span>
+    &lt;<span class="keyword">button</span> type=<span class="string">"submit"</span>&gt;Отправить&lt;/<span class="keyword">button</span>&gt;
+&lt;/<span class="keyword">form</span>&gt;
+</code></pre>
+</div>
+
+<h4>Глава 5. Модели</h4>
+
+<h4>Введение в модели Django</h4>
+<p>Модели в Django представляют структуру данных в базе данных. Каждая модель — это класс, который описывает таблицу в базе данных. Django предоставляет удобные инструменты для работы с базой данных через ORM (Object-Relational Mapping).</p>
+
+<h5>Создание модели</h5>
+<p>Чтобы создать модель, нужно создать класс, который наследует от <code>django.db.models.Model</code>. Каждый атрибут этого класса становится полем в таблице базы данных.</p>
+
+<div class="code">
+<pre><code>
+<span class="import">from</span> <span class="module">django.db</span> <span class="import">import</span> <span class="class">models</span>
+
+<span class="keyword">class</span> <span class="class">Post</span>(<span class="class">models.Model</span>):
+    <span class="variable">title</span> = <span class="class">models.CharField</span>(<span class="variable">max_length</span>=<span class="number">200</span>)
+    <span class="variable">content</span> = <span class="class">models.TextField</span>()
+    <span class="variable">created_at</span> = <span class="class">models.DateTimeField</span>(<span class="variable">auto_now_add</span>=<span class="keyword">True</span>)
+</code></pre>
+</div>
+
+<h5>Миграции для моделей</h5>
+<p>После создания модели необходимо выполнить миграции для создания соответствующей таблицы в базе данных:</p>
+
+<div class="code">
+<span class="keyword">python manage.py makemigrations</span>
+</div>
+<br>
+<div class="code">
+<span class="keyword">python manage.py migrate</span>
+</div>
+
+<h5>Работа с моделями в представлениях</h5>
+<p>Чтобы работать с моделями в представлениях, можно использовать методы Django ORM для извлечения и манипуляции данными:</p>
+
+<div class="code">
+    <pre>
+    <code>
+<span class="import">from</span> <span class="module">django.shortcuts</span> <span class="import">import</span> <span class="function">render</span>
+<span class="import">from</span> <span class="module">.models</span> <span class="import">import</span> <span class="class">Post</span>
+
+<span class="keyword">def</span> <span class="function">post_list</span>(<span class="variable">request</span>):
+    <span class="variable">posts</span> = <span class="class">Post</span>.<span class="method">objects.all</span>()
+    <span class="return">render</span>(<span class="variable">request</span>, <span class="string">'post_list.html'</span>, {'<span class="string">posts</span>': <span class="variable">posts</span>})
+</code></pre>
+</div>
+
+<h5>Вывод данных моделей в шаблоне</h5>
+<p>Чтобы отобразить данные, переданные через контекст в шаблон, используйте следующий код:</p>
+
+<div class="code">
+<pre>
+<code>
+&lt;<span class="keyword">ul</span>&gt;
+    <span class="brackets">&#123;%</span> <span class="keyword">for</span> <span class="variable">post</span> <span class="keyword">in</span> <span class="variable">posts</span> <span class="brackets">%&#125;</span>
+    &lt;<span class="keyword">li</span>&gt;
+        &lt;<span class="keyword">h2</span>&gt;<span class="brackets">&#123;&#123;</span><span class="variable">post.title</span><span class="brackets">&#125;&#125;</span>&lt;/<span class="keyword">h2</span>&gt;
+        &lt;<span class="keyword">p</span>&gt;<span class="brackets">&#123;&#123;</span><span class="variable">post.content</span><span class="brackets">&#125;&#125;</span>&lt;/<span class="keyword">p</span>&gt;
+    &lt;/<span class="keyword">li</span>&gt;
+    <span class="brackets">&#123;%</span> <span class="keyword">endfor</span> <span class="brackets">%&#125;</span>
+&lt;/<span class="keyword">ul</span>&gt;
+</code></pre>
+</div>
+
+<p>Теперь при переходе на страницу, которая вызывает <code>post_list</code>, будет отображаться список всех постов, добавленных в базу данных.</p>
+
+
+<div class="button-container">
+    <a href="{% url 'flask_info' %}" class="btn-minimal">Предыдущий</a>
+    <a href="{% url 'fastAPI_info' %}" class="btn-bright">Следующий</a>
+</div>
+
+{% endblock %}

@@ -1,0 +1,93 @@
+<!-- Введение в асинхронное программирование.html -->
+{% extends 'main/base.html' %}
+
+{% block title %}Введение в асинхронное программирование в Python{% endblock %}
+
+{% block content %}
+
+<h4>Введение в асинхронное программирование в Python</h4>
+
+<p>Асинхронное программирование позволяет выполнять несколько операций одновременно, не блокируя основной поток выполнения программы. Это особенно полезно для ввода-вывода, сетевых операций и работы с базами данных, где время ожидания может быть значительным.</p>
+
+<h4>Почему асинхронное программирование?</h4>
+<p>Асинхронное программирование помогает улучшить производительность приложений, позволяя им оставаться отзывчивыми во время ожидания завершения длительных операций. Например, в веб-приложениях асинхронный подход может обрабатывать множество запросов одновременно, не дожидаясь завершения каждого из них.</p>
+
+<h4>Основные понятия</h4>
+<ul>
+    <li><strong>Событийный цикл</strong>: Основной механизм, который управляет асинхронными задачами, обеспечивая их выполнение в нужном порядке.</li>
+    <li><strong>Коррутины</strong>: Специальные функции, которые могут приостанавливать и возобновлять свое выполнение, позволяя другим задачам выполняться в это время.</li>
+    <li><strong>Задачи</strong>: Обертка для коррутин, позволяющая отслеживать их выполнение и результаты.</li>
+</ul>
+
+<h4>Как работает асинхронное программирование?</h4>
+<p>Асинхронное программирование работает на основе концепции "ожидания". Когда корутина достигает точки, где ей нужно подождать (например, при выполнении сетевого запроса), она "приостанавливается", и управление передается обратно в событийный цикл. Это позволяет другим корутинам выполняться, пока первая не завершит свою задачу.</p>
+
+<h4>Пример корутины</h4>
+<p>Ниже приведен простой пример корутины, которая выводит сообщение:</p>
+<div class="code">
+<pre>
+<code>
+<span class="return">import</span> <span class="module">asyncio</span>
+
+<span class="return">async def</span> <span class="function">example_coroutine</span><span class="brackets">():
+    <span class="keyword">print</span>(<span class="string">'Hello from coroutine!'</span>)
+
+<span class="return">asyncio.run</span>(<span class="function">example_coroutine</span>())
+</code>
+</pre>
+</div>
+<p>В этом примере мы импортируем библиотеку <code>asyncio</code>, определяем корутину <code>example_coroutine</code>, которая выводит сообщение, и затем запускаем её с помощью <code>asyncio.run()</code>.</p>
+
+<h4>Примеры использования корутин</h4>
+
+<h5>1. Простой пример с задержкой</h5>
+<p>Этот пример демонстрирует, как корутина может приостанавливать выполнение с помощью <code>await</code>.</p>
+<div class="code">
+<pre>
+<code>
+<span class="return">import</span> <span class="module">asyncio</span>
+
+<span class="return">async def</span> <span class="function">delayed_message</span><span class="brackets">(<span class="variable">message</span>, <span class="variable">delay</span>):
+    <span class="return">await</span> <span class="module">asyncio</span>.<span class="function">sleep</span>(<span class="variable">delay</span>)
+    <span class="keyword">print</span>(<span class="variable">message</span>)
+
+<span class="return">async def</span> <span class="function">main</span>():
+    <span class="return">await</span> <span class="function">delayed_message</span>(<span class="string">'Hello after 1 second!'</span>, <span class="string">1</span>)
+    <span class="return">await</span> <span class="function">delayed_message</span>(<span class="string">'Hello after 2 seconds!'</span>, <span class="string">2</span>)
+
+<span class="return">asyncio.run</span>(<span class="function">main</span>())
+</code>
+</pre>
+</div>
+
+<h5>2. Параллельное выполнение корутин</h5>
+<p>В этом примере мы запускаем несколько корутин параллельно с помощью <code>asyncio.gather()</code>.</p>
+<div class="code">
+<pre>
+<code>
+<span class="return">import</span> <span class="module">asyncio</span>
+
+<span class="return">async def</span> <span class="function">task</span><span class="brackets">(<span class="variable">name</span>, <span class="variable">delay</span>):
+    <span class="return">await</span> <span class="module">asyncio</span>.<span class="function">sleep</span>(<span class="variable">delay</span>)
+    <span class="keyword">print</span>(<span class="string">f'Task <span class="brackets">{<span class="variable">name</span><span class="brackets">} <span class="string">completed after <span class="brackets">{<span class="variable">delay</span><span class="brackets">} <span class="string">seconds'<span class="brackets">)
+
+<span class="return">async def</span> <span class="function">main</span>():
+    <span class="return">await</span> <span class="module">asyncio</span>.<span class="function">gather</span>(
+        <span class="function">task</span>(<span class="string">'A'</span>, <span class="string">2</span>),
+        <span class="function">task</span>(<span class="string">'B'</span>, <span class="string">1</span>),
+        <span class="function">task</span>(<span class="string">'C'</span>, <span class="string">3</span>)
+    )
+
+<span class="return">asyncio.run</span>(<span class="function">main</span>())
+</code>
+</pre>
+</div>
+<div class="button-container">
+    <a href="{% url 'async_programming_info' %}" class="btn-minimal">Предыдущий</a>
+    <a href="{% url 'working_with_asyncio' %}" class="btn-bright">Следующий</a>
+</div>
+
+
+
+
+{% endblock %}

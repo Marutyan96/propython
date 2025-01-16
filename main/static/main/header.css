@@ -1,0 +1,161 @@
+
+/* Стили для заголовка */
+#header {
+
+    height: 50px;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: space-between; /* Изменено на space-between для равномерного распределения */
+    align-items: center; /* Вертикальное выравнивание */
+    background: linear-gradient(135deg, rgb(69, 103, 144), rgb(69, 103, 144)); /* Градиентный фон */
+    padding: 10px 20px; /* Отступы сверху и снизу */
+    border-left: none; /* Без рамки слева */
+    border-right: none; /* Без рамки справа */
+  
+  
+  }
+  
+  #header-2 {
+  
+    height: 70px;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: space-between; /* Изменено на space-between для равномерного распределения */
+    align-items: center; /* Вертикальное выравнивание */
+    background: linear-gradient(135deg, #730404, #000000); /* Градиентный фон */
+    padding: 10px 20px; /* Отступы сверху и снизу */
+    border-left: none; /* Без рамки слева */
+    border-right: none; /* Без рамки справа */
+  
+  }
+  
+  
+
+/* Стили для логотипа */
+.logo {
+
+    text-shadow: 1px 1px 1px #000000,
+    1px 2px 1px #000000,
+    1px 3px 1px #000000,
+    1px 4px 1px #000000, 
+    1px 5px 1px #000000,
+    1px 6px 1px #000000,
+    1px 10px 5px rgba(16, 16, 16, 0.5),
+    1px 15px 10px rgba(16, 16, 16, 0.4),
+    1px 20px 30px rgba(16, 16, 16, 0.3),
+    1px 25px 50px rgba(16, 16, 16, 0.2);
+  position: relative;
+  font-family: "Jersey 15", serif;
+    font-weight: 400;
+    font-style: normal;
+      font-size: 38px;
+      color: rgb(67, 135, 207); /* Оранжевый цвет */
+      transition: 0.5s;
+    }
+  
+    .logo-sidebar{
+      text-shadow: 1px 1px 1px #000000,
+      1px 2px 1px #000000,
+      1px 3px 1px #000000,
+      1px 4px 1px #000000, 
+      1px 5px 1px #000000,
+      1px 6px 1px #000000,
+      1px 10px 5px rgba(16, 16, 16, 0.5),
+      1px 15px 10px rgba(16, 16, 16, 0.4),
+      1px 20px 30px rgba(16, 16, 16, 0.3),
+      1px 25px 50px rgba(16, 16, 16, 0.2);
+    position: relative;
+    top: 10px;
+    font-family: "Jersey 15", serif;
+      font-weight: 400;
+      font-style: normal;
+        font-size: 38px;
+        color: rgb(67, 135, 207); /* Оранжевый цвет */
+        transition: 0.5s;
+    }
+  /* Красный цвет для слова "pro" */
+  .red {
+    color: #00ffee; /* Красный цвет текста */
+  }
+  
+  /* Синий цвет для слова "python" */
+  .blue {
+    color: #ffee00; /* Темно-синий цвет текста */
+  }
+
+  /* Стили для кнопки поиска */
+.search-button {
+    bottom: 5px;
+    transition: background-color 0.3s, color 0.3s; /* Плавный переход */
+    }
+    
+    .search-button:hover {
+      background-color: DarkSlateGrey; /* Цвет фона при наведении */
+      color: white; /* Цвет текста при наведении */
+    }
+    
+    
+/* Стили для формы поиска */
+.form-inline {
+  
+    width: 100%; /* Задаем ширину 100% для формы */
+    margin: 20px 0; /* Отступы сверху и снизу */
+  }
+  
+  .custom-button {
+    background-color: rgb(77, 130, 130) ;
+    color: #ffffff ;
+    border: none;
+  }
+  
+  .custom-button:hover {
+    background-color: DarkSlateGrey ; /* Цвет фона при наведении */
+    color: #ffffff ; /* Цвет текста при наведении */
+    cursor: pointer; /* Изменяет курсор на указатель */
+  }
+  
+
+/* Мобильные стили */
+@media (max-width: 768px) {
+    #toggle-header {
+      display: block; /* Показываем кнопку на маленьких экранах */
+    }
+  
+    .form-control {
+      
+      margin-left: 10px; /* Отступ слева для поля ввода */
+      max-width: 83%; /* Максимальная ширина поля ввода */
+    }
+  
+    #header {
+      display: none; /* Скрываем заголовок на мобильных устройствах */
+      flex-direction: column; /* Переключаем на вертикальную компоновку */
+      align-items: flex-start; /* Выравниваем элементы по левому краю */
+    }
+    #header-2 {
+      display: none; /* Скрываем заголовок на мобильных устройствах */
+      flex-direction: column; /* Переключаем на вертикальную компоновку */
+      align-items: flex-start; /* Выравниваем элементы по левому краю */
+    }
+  
+    #header .container {
+      flex-direction: column; /* Изменяем направление на столбик */
+      align-items: center; /* Центрируем элементы по горизонтали */
+    }
+  
+    .nav {
+      margin-top: 10px; /* Отступ сверху для навигации */
+    }
+    .logo {
+      font-size: 28px; /* Уменьшаем размер шрифта для логотипа */
+    }
+  
+  
+    .form-inline {
+      margin-top: 20px; /* Отступ сверху для формы */
+  
+    }
+   
+  }

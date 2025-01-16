@@ -1,0 +1,91 @@
+<!-- Списки.html -->
+{% extends 'main/base.html' %}
+
+{% block title %}Урок по спискам в Python{% endblock %}
+
+{% block content %}
+
+<h4>Списки в Python</h4>
+
+<p>Списки в Python — это упорядоченные изменяемые коллекции, которые могут содержать элементы различных типов. Списки позволяют хранить и обрабатывать данные более эффективно. В этом уроке мы рассмотрим основные операции со списками.</p>
+
+<h4>Создание списка</h4>
+<p>Списки создаются с помощью квадратных скобок <code>[]</code>.</p>
+<div class="code">
+<pre>
+<code>
+<span class="variable">fruits</span> = <span class="parenthesis">[</span><span class="string">"яблоко"</span>, <span class="string">"банан"</span>, <span class="string">"вишня"</span><span class="parenthesis">]</span></span>
+<span class="keyword">print</span>(<span class="variable">fruits</span>)  <span class="comment"># Вывод: ['яблоко', 'банан', 'вишня']</span>
+</code></pre></div>
+
+<h4>Добавление элементов в список</h4>
+<p>Для добавления элементов в список используется метод <code>append()</code>.</p>
+<div class="code">
+<pre>
+<code>
+<span class="variable">fruits</span>.<span class="function">append</span>(<span class="string">"апельсин"</span>)</span>
+<span class="keyword">print</span>(<span class="variable">fruits</span>)  <span class="comment"># Вывод: ['яблоко', 'банан', 'вишня', 'апельсин']</span>
+</code></pre></div>
+
+<h4>Удаление элементов из списка</h4>
+<p>Для удаления элементов из списка используется метод <code>remove()</code> или оператор <code>del</code>.</p>
+<div class="code">
+  <pre>
+      <code>
+<span class="variable">fruits</span>.<span class="function">remove</span>(<span class="string">"банан"</span>)<span class="comment">  # Удаляем банан</span>
+<span class="keyword">print</span>(<span class="variable">fruits</span>)<span class="comment">  # Вывод: ['яблоко', 'вишня', 'апельсин']</span>
+
+<span class="keyword">del</span> <span class="variable">fruits[0]</span><span class="comment">  # Удаляем первый элемент</span>
+<span class="keyword">print</span>(<span class="variable">fruits</span>)<span class="comment">  # Вывод: ['вишня', 'апельсин']</span>
+</code></pre>
+</div>
+
+<h4>Итерация по списку</h4>
+<p>Итерация по элементам списка может быть выполнена с помощью цикла <code>for</code>.</p>
+<div class="code">
+  <pre>
+      <code>
+<span class="keyword">for</span> <span class="variable">fruit</span> <span class="keyword">in</span> <span class="variable">fruits</span>:
+  <span class="keyword">print</span>(<span class="variable">fruit</span>)
+</code></pre>
+</div>
+
+<h4>Доступ к элементам списка</h4>
+<p>Элементы списка можно получить по индексу, начиная с 0.</p>
+<div class="code">
+<code>
+<span class="keyword">print</span>(<span class="variable">fruits</span>[<span class="number">1</span>])<span class="comment">  # Вывод: апельсин</span>
+</code>
+</div>
+
+
+<h4>Изменение элементов списка</h4>
+<p>Элементы списка можно изменять, обращаясь к ним по индексу.</p>
+<div class="code">
+  <pre>
+      <code>
+<span class="variable">fruits</span> <span class="operator">=</span> <span class="brackets">[<span class="string">"яблоко"</span>, <span class="string">"банан"</span>, <span class="string">"вишня"</span>]</span>
+<span class="variable">fruits</span>[<span class="number">1</span>] <span class="operator">=</span> <span class="string">"груша"</span>
+<span class="keyword">print</span>(<span class="variable">fruits</span>)  <span class="comment"># Вывод: ['яблоко', 'груша', 'вишня']</span>
+</code></pre>
+</div>
+
+
+<h4>Список и его длина</h4>
+<p>Вы можете узнать количество элементов в списке с помощью функции <code>len()</code>.</p>
+<div class="code">
+<pre>
+<code>
+<span class="variable">fruits</span> <span class="operator">=</span> <span class="brackets">[<span class="string">"яблоко"</span>, <span class="string">"банан"</span>, <span class="string">"вишня"</span>]</span>
+<span class="variable">length</span> <span class="operator">=</span> <span class="function">len</span>(<span class="variable">fruits</span>)
+<span class="keyword">print</span>(<span class="string">f"Количество фруктов: {length}"</span>)  <span class="comment"># Вывод: Количество фруктов: 3</span>
+</code></pre></div>
+
+<h4>Заключение</h4>
+<p>Списки являются мощным инструментом для хранения и обработки данных в Python. Попробуйте создать свои собственные списки и поэкспериментировать с различными методами!</p>
+<div class="button-container">
+  <a href="{% url 'lambda_info' %}" class="btn-minimal">Предыдущий</a>
+  <a href="{% url 'tuple_info' %}" class="btn-bright">Следующий</a>
+</div>
+
+{% endblock %}

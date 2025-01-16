@@ -1,0 +1,69 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Урок по функциям в Python{% endblock %}
+
+{% block content %}
+
+<h4>Функции в Python</h4>
+
+<p>Функции в Python позволяют организовать код в логические блоки, которые можно вызывать несколько раз. Это помогает избежать дублирования кода и делает его более читаемым и управляемым. В этом уроке мы рассмотрим, как создавать и использовать функции в Python.</p>
+
+<h4>Определение функции</h4>
+<p>Функции определяются с помощью ключевого слова <span class="keyword">def</span>, за которым следует имя функции и круглые скобки.</p>
+<div class="code">
+<pre>
+<code>
+<span class="keyword">def</span> <span class="function">greet</span><span class="brackets">(<span class="variable">name</span>):
+    <span class="keyword">print</span>(<span class="string">f"Привет, <span class="brackets">{<span class="variable">name<span class="brackets">}<span class="string">!"</span>)</code></pre>
+</div>
+
+<h4>Вызов функции</h4>
+<p>Чтобы вызвать функцию, просто используйте её имя и передайте необходимые аргументы.</p>
+<div class="code">
+
+<span class="function">greet</span><span class="brackets">(<span class="string">"Алексей"</span>)  <span class="comment"># Вывод: Привет, Алексей!</span></code></pre>
+</div>
+
+<h4>Функции с возвращаемыми значениями</h4>
+<p>Функции могут возвращать значения с помощью ключевого слова <span class="keyword">return</span>.</p>
+<div class="code">
+<pre>
+<code>
+<span class="keyword">def</span> <span class="function">add</span><span class="brackets">(<span class="variable">a</span>, <span class="variable">b</span>):
+    <span class="return">return</span> <span class="variable">a</span> + <span class="variable">b</span>
+
+<span class="variable">result</span> = <span class="function">add</span>(<span class="number">5</span>, <span class="number">3</span>)
+<span class="keyword">print</span>(<span class="string">f"Результат: <span class="brackets">{<span class="variable">result<span class="brackets">}<span class="string">"</span>)  <span class="comment"># Вывод: Результат: 8</span>
+</code></pre></div>
+
+<h4>Аргументы по умолчанию</h4>
+<p>Вы можете задавать значения по умолчанию для аргументов функции.</p>
+<div class="code">
+<pre>
+<code>
+<span class="keyword">def</span> <span class="function">greet</span><span class="brackets">(<span class="variable">name</span>, <span class="variable">greeting</span> = <span class="string">"Привет"</span>):
+    <span class="keyword">print</span>(<span class="string">f"<span class="brackets">{<span class="variable">greeting<span class="brackets">}, <span class="brackets">{<span class="variable">name<span class="brackets">}<span class="string">!"</span>)
+
+<span class="function">greet</span>(<span class="string">"Алексей"</span>)  <span class="comment"># Вывод: Привет, Алексей!</span>
+<span class="function">greet</span>(<span class="string">"Мария"</span>, <span class="string">"Здравствуйте"</span>)  <span class="comment"># Вывод: Здравствуйте, Мария!</span>
+</code></pre></div>
+
+<h4>Неопределенное количество аргументов</h4>
+<p>Вы можете использовать <span class="keyword">*</span>args и <span class="keyword">**</span>kwargs для передачи переменного количества аргументов.</p>
+<div class="code">
+<pre>
+<code>
+<span class="keyword">def</span> <span class="function">print_args</span><span class="brackets">(<span class="keyword">*args</span>):
+    <span class="return">for</span> <span class="variable">arg</span> <span class="return">in</span> <span class="keyword">args</span>:
+        <span class="keyword">print</span>(<span class="variable">arg</span>)
+
+<span class="function">print_args</span>(<span class="string">"Первый"</span>, <span class="string">"Второй"</span>, <span class="string">"Третий"</span>)
+</code></pre></div>
+
+<div class="button-container">
+    <a href="{% url 'conditional_info' %}" class="btn-minimal">Предыдущий</a>
+    <a href="{% url 'lambda_info' %}" class="btn-bright">Следующий</a>
+</div>
+
+
+{% endblock %}

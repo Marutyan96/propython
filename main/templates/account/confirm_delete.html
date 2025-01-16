@@ -1,0 +1,15 @@
+<!-- confirm_delete.html -->
+{% extends 'main/base.html' %}
+
+{% block title %}Подтверждение удаления{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Вы уверены, что хотите удалить "{{ article.title }}"?</h2>
+    <form action="{% url 'delete_article' article.id %}" method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Удалить</button>
+        <a href="{% url 'article_detail' article.id %}" class="btn btn-secondary">Отмена</a>
+    </form>
+</div>
+{% endblock %}

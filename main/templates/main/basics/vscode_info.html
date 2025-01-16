@@ -1,0 +1,83 @@
+{% extends 'main/base.html' %}
+
+
+{% block title %}Установка и настройка VSCode для Python{% endblock %}
+
+{% block content %}
+
+    <h4>Установка и настройка Visual Studio Code для Python</h4>
+
+    <h4>Шаг 1: Установка Visual Studio Code</h4>
+
+    <h5>1.1. Загрузка VSCode</h5>
+    <p>Перейдите на официальный сайт Visual Studio Code: <a href="https://code.visualstudio.com/" target="_blank">code.visualstudio.com</a>.</p>
+    <p>На главной странице нажмите на кнопку для загрузки последней версии для вашей операционной системы.</p>
+
+    <h5>1.2. Установка VSCode</h5>
+    <p><strong>Для Windows:</strong></p>
+    <ul>
+        <li>Запустите загруженный установочный файл.</li>
+        <li>Следуйте инструкциям установщика.</li>
+    </ul>
+
+    <p><strong>Для macOS:</strong></p>
+    <ul>
+        <li>Откройте загруженный файл <code>.dmg</code> и перетащите VSCode в папку <code>Applications</code>.</li>
+    </ul>
+
+    <p><strong>Для Linux:</strong></p>
+    <ul>
+        <li>Откройте терминал и введите следующую команду:</li>
+    </ul>
+    <div class="code">
+        sudo snap install code --classic
+    </div>
+
+    <h4>Шаг 2: Установка расширений для Python</h4>
+    <p>После установки откройте VSCode и выполните следующие действия:</p>
+    
+    <h5>2.1. Открытие панели расширений</h5>
+    <p>Нажмите на иконку расширений на боковой панели или используйте сочетание клавиш <code>Ctrl + Shift + X</code>.</p>
+
+    <h5>2.2. Установка расширения Python</h5>
+    <p>В строке поиска введите <strong>Python</strong> и установите расширение от Microsoft.</p>
+
+    <h5>2.3. Установка расширения Pylance (опционально)</h5>
+    <p>Также вы можете установить расширение <strong>Pylance</strong> для улучшенной поддержки IntelliSense.</p>
+
+    <h4>Шаг 3: Настройка интерпретатора Python</h4>
+    <p>После установки расширений необходимо выбрать интерпретатор Python:</p>
+    
+    <h5>3.1. Открытие командной палитры</h5>
+    <p>Нажмите <code>Ctrl + Shift + P</code> и введите <strong>Python: Select Interpreter</strong></p>
+
+    <h5>3.2. Выбор интерпретатора</h5>
+    <p>Выберите установленный интерпретатор Python из списка.</p>
+
+    <h4>Шаг 4: Создание и запуск первой программы</h4>
+
+    <h5>4.1. Создание нового файла</h5>
+    <p>Создайте новый файл с расширением <code>.py</code> (например, <code>hello.py</code>) в VSCode.</p>
+
+    <h5>4.2. Написание кода</h5>
+    <p>Введите следующий код:</p>
+<div class="code">
+<span class="keyword">print</span>(<span class="string">"Hello, World!"</span>)
+</div>
+  
+
+    <h5>4.3. Запуск программы</h5>
+    <p>Запустите программу, нажав <code>F5</code> или выбрав <strong>Run > Start Debugging</strong> из меню.</p>
+    <p>Вы должны увидеть вывод:</p>
+<div class="code">
+Hello, World!
+</div>
+
+    <div class="button-container">
+        <a href="{% url 'installation_info' %}" class="btn-minimal">Предыдущий</a>
+        <a href="{% url 'basic_info' %}" class="btn-bright">Следующий</a>
+    </div>
+    
+    
+
+{% endblock %}

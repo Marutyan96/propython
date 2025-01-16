@@ -1,0 +1,77 @@
+<!-- Словари.html -->
+{% extends 'main/base.html' %}
+
+{% block title %}Урок по словарям в Python{% endblock %}
+
+{% block content %}
+
+<h4>Урок по словарям в Python</h4>
+    <p>Словари в Python представляют собой неупорядоченные коллекции пар "ключ-значение". Они используются для хранения данных, которые можно быстро извлекать по уникальному ключу.</p>
+
+    <h4>Создание словаря</h4>
+    <p>Словари создаются с помощью фигурных скобок <code class="brackets">{}</code> или с помощью функции <code class="function">dict()</code>.</p>
+<div class="code"><pre><code>
+<span class="variable">my_dict</span> = <span class="brackets">{}</span><span class="string">"name": "Алексей", "age": 30</span>
+<span class="keyword">print</span>(<span class="variable">my_dict</span>)  <span class="comment"># Вывод: {'name': 'Алексей', 'age': 30}</span>
+</code></pre></div>
+
+    <h4>Доступ к значениям словаря</h4>
+    <p>Доступ к значениям осуществляется с помощью ключа.</p>
+<div class="code">
+        <pre>
+            <code>
+<span class="keyword">print</span>(<span class="variable">my_dict</span>[<span class="string">"name"</span>])  <span class="comment"># Вывод: Алексей</span>
+</code></pre></div>
+
+    <h4>Изменение значений в словаре</h4>
+    <p>Вы можете изменять значения, используя ключ.</p>
+    <div class="code">
+        <pre>
+            <code>
+<span class="variable">my_dict</span>[<span class="string">"age"</span>] = <span class="number">31</span>
+<span class="keyword">print</span>(<span class="variable">my_dict</span>)  <span class="comment"># Вывод: {'name': 'Алексей', 'age': 31}</span>
+</code></pre></div>
+
+    <h4>Добавление новых пар "ключ-значение"</h4>
+    <p>Новые пары можно добавлять, используя новый ключ.</p>
+    <div class="code">
+        <pre>
+            <code>
+<span class="variable">my_dict</span>[<span class="string">"city"</span>] = <span class="string">"Москва"</span>
+<span class="keyword">print</span>(<span class="variable">my_dict</span>)  <span class="comment"># Вывод: {'name': 'Алексей', 'age': 31, 'city': 'Москва'}</span>
+</code></pre></div>
+
+    <h4>Удаление пар "ключ-значение"</h4>
+    <p>Вы можете удалять пары с помощью оператора <code class="keyword">del</code>.</p>
+<div class="code">
+<pre><code>
+<span class="keyword">del</span> <span class="variable">my_dict</span>[<span class="string">"age"</span>]
+<span class="keyword">print</span>(<span class="variable">my_dict</span>)  <span class="comment"># Вывод: {'name': 'Алексей', 'city': 'Москва'}</span>
+</code></pre></div>
+
+    <h4>Методы словарей</h4>
+    <p>Словари имеют несколько полезных методов, таких как <code class="function">keys()</code>, <code class="function">values()</code> и <code class="function">items()</code>.</p>
+<div class="code">
+<pre>
+<code>
+<span class="keyword">print</span>(<span class="function">my_dict.keys()</span>)   <span class="comment"># Вывод: dict_keys(['name', 'city'])</span>
+<span class="keyword">print</span>(<span class="function">my_dict.values()</span>) <span class="comment"># Вывод: dict_values(['Алексей', 'Москва'])</span>
+<span class="keyword">print</span>(<span class="function">my_dict.items()</span>)  <span class="comment"># Вывод: dict_items([('name', 'Алексей'), ('city', 'Москва')])</span>
+</code></pre></div>
+
+    <h4>Проверка наличия ключа</h4>
+    <p>Вы можете проверять наличие ключа в словаре с помощью оператора <code class="keyword">in</code>.</p>
+<div class="code">
+<pre>
+<code>
+<span class="keyword">if</span> <span class="string">"name"</span> <span class="keyword">in</span> <span class="variable">my_dict</span>:
+    <span class="keyword">print</span>(<span class="string">"Ключ 'name' существует."</span>)
+</code></pre></div>
+
+    <h4>Заключение</h4>
+    <p>Словари являются мощным инструментом для хранения и управления данными в Python. Попробуйте создать свои собственные словари и поэкспериментировать с их методами!</p>
+    <div class="button-container">
+        <a href="{% url 'range_info' %}" class="btn-minimal">Предыдущий</a>
+        <a href="{% url 'set_info' %}" class="btn-bright">Следующий</a>
+    </div>
+    {% endblock %}

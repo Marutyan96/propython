@@ -1,0 +1,105 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Учебник Python{% endblock %}
+
+{% block content %}
+
+        <h4>Установка Python и написание первой программы</h4>
+
+        <h4>Шаг 1: Установка Python</h4>
+    
+        <h5>1.1. Загрузка Python</h5>
+        <p>Перейдите на официальный сайт Python: <a href="https://www.python.org/" target="_blank">python.org</a>.</p>
+        <p>На главной странице вы увидите кнопку для загрузки последней версии Python. Нажмите на нее.</p>
+    
+        <h5>1.2. Установка Python</h5>
+        <p><strong>Для Windows:</strong></p>
+        <ul>
+            <li>Запустите загруженный установочный файл.</li>
+            <li>Обязательно отметьте галочку "Add Python to PATH" перед нажатием на "Install Now".</li>
+        </ul>
+    
+        <p><strong>Для macOS:</strong></p>
+        <ul>
+            <li>Откройте загруженный файл <code>.pkg</code> и следуйте инструкциям по установке.</li>
+        </ul>
+    
+        <p><strong>Для Linux:</strong></p>
+        <ul>
+            <li>Откройте терминал и введите следующую команду:</li>
+        </ul>
+        <div class="code">
+            sudo apt update<br><br>
+            sudo apt install python3
+        </div>
+        
+    
+        <h4>Шаг 2: Проверка установки Python</h4>
+        <p>После установки откройте командную строку (или терминал) и введите:</p>
+        <div class="code">
+            python --version
+        </div>
+        <p>или</p>
+        <div class="code">
+            python3 --version
+        </div>
+        <p>Вы должны увидеть установленную версию Python.</p>
+    
+        <h4>Шаг 3: Написание первой программы</h4>
+    
+        <h5>3.1. Открытие текстового редактора</h5>
+        <p>Вы можете использовать любой текстовый редактор, например:</p>
+        <ul>
+            <li>Notepad (Windows)</li>
+            <li>TextEdit (macOS)</li>
+            <li>nano или vim (Linux)</li>
+        </ul>
+    
+        <h5>3.2. Написание кода</h5>
+        <p>Создайте новый файл и введите следующий код:</p>
+        <div class="code">
+            print("Hello, World!")
+        </div>
+    
+        <h5>3.3. Сохранение файла</h5>
+        <p>Сохраните файл с именем <code>hello.py</code>. Убедитесь, что файл имеет расширение <code>.py</code>.</p>
+    
+        <h4>Шаг 4: Запуск программы</h4>
+    
+        <h5>4.1. Открытие терминала или командной строки</h5>
+        <ul>
+            <li><strong>Windows</strong>: Нажмите <code>Win + R</code>, введите <code>cmd</code> и нажмите <code>Enter</code>.</li>
+            <li><strong>macOS</strong>: Откройте <code>Terminal</code> из <code>Applications &gt; Utilities</code>.</li>
+            <li><strong>Linux</strong>: Откройте терминал.</li>
+        </ul>
+    
+        <h5>4.2. Переход к папке с файлом</h5>
+        <p>Используйте команду <code>cd</code>, чтобы перейти в папку, где вы сохранили файл <code>hello.py</code>. Например:</p>
+        <div class="code">
+            cd путь/к/вашей/папке
+        </div>
+    
+        <h5>4.3. Запуск программы</h5>
+        <p>Введите следующую команду:</p>
+        <div class="code">
+            python hello.py
+        </div>
+        <p>или</p>
+        <div class="code">
+            python3 hello.py
+        </div>
+        <p>Вы должны увидеть вывод:</p>
+        <div class="code">
+            Hello, World!
+        </div>
+    
+        <div class="button-container">
+            <a href="{% url 'vscode_info' %}" class="btn-bright">Следующий</a>
+        </div>
+
+        <script type="text/javascript" src="js/jquery-1.4.1.min.js"></script>
+    
+
+
+    {% endblock %}

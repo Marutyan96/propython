@@ -1,0 +1,80 @@
+<!-- Конструкция try...except.html -->
+{% extends 'main/base.html' %}
+
+{% block title %}Урок по конструкции try...except в Python{% endblock %}
+
+{% block content %}
+
+<h4>Конструкция try...except в Python</h4>
+
+<p>Конструкция <code>try...except</code> в Python используется для обработки исключений, что позволяет вашему коду продолжать выполнение даже в случае возникновения ошибок. Это полезно для предотвращения аварийного завершения программы.</p>
+
+<h4>Основы конструкции try...except</h4>
+<p>Синтаксис конструкции выглядит следующим образом:</p>
+<div class="code">
+<pre>
+<code>
+<span class="return">try</span><span class="brackets">:</span>
+    <span class="comment"># Код, который может вызвать исключение</span>
+    <span class="variable">result</span> <span class="operator">=</span> <span class="number">10</span> <span class="operator">/</span> <span class="number">0</span>  <span class="comment"># Деление на ноль</span>
+<span class="return">except</span> <span class="keyword">ZeroDivisionError</span><span class="brackets">:</span>
+    <span class="keyword">print</span><span class="brackets">(</span><span class="string">'Ошибка: Деление на ноль!'</span><span class="brackets">)</span>
+</code></pre></div>
+    
+
+<h4>Обработка нескольких исключений</h4>
+<p>Вы можете обрабатывать несколько типов исключений, указав их через запятую:</p>
+<div class="code">
+<pre>
+<code>
+<span class="return">try</span><span class="brackets">:</span>
+    <span class="variable">value</span> <span class="operator">=</span> <span class="function">int</span>(<span class="function">input</span>(<span class="string">'Введите число: '</span>))
+    <span class="variable">result</span> <span class="operator">=</span> <span class="number">10</span> <span class="operator">/</span> <span class="variable">value</span>
+<span class="return">except</span> <span class="brackets">(</span><span class="class">ValueError</span>, <span class="class">ZeroDivisionError</span><span class="brackets">):</span>
+    <span class="keyword">print</span>(<span class="string">'Ошибка: Введите корректное число, отличное от нуля.'</span>)
+</code></pre></div>
+    
+    
+
+<h4>Использование блока else</h4>
+<p>Вы также можете добавить блок <code>else</code>, который будет выполнен, если в блоке <code>try</code> не возникло исключений:</p>
+<div class="code">
+<pre>
+<code>
+<span class="return">try</span><span class="brackets">:</span>
+    <span class="variable">value</span> <span class="operator">=</span> <span class="keyword">int</span><span class="brackets">(<span class="keyword">input</span>(<span class="string">'Введите число: '</span>))
+    <span class="variable">result</span> <span class="operator">=</span> <span class="number">10</span> <span class="operator">/</span> <span class="variable">value</span>
+<span class="return">except</span> <span class="keyword">ZeroDivisionError</span><span class="brackets">:</span>
+    <span class="keyword">print</span>(<span class="string">'Ошибка: Деление на ноль!'</span>)
+<span class="return">else</span><span class="brackets">:</span>
+    <span class="keyword">print</span>(<span class="string">'Результат: '</span> <span class="operator">+</span> <span class="variable">result</span>)
+</code></pre></div>
+    
+
+<h4>Использование блока finally</h4>
+<p>Блок <code>finally</code> выполняется в любом случае, независимо от того, произошло исключение или нет. Это полезно для выполнения завершающих операций, таких как закрытие файлов:</p>
+<div class="code">
+<pre>
+<code>
+<span class="return">try</span><span class="brackets">:
+    <span class="variable">file</span> <span class="operator">=</span> <span class="function">open</span>(<span class="string">'example.txt'</span>, <span class="string">'r'</span>)
+    <span class="variable">content</span> <span class="operator">=</span> <span class="variable">file</span>.<span class="function">read</span>()
+<span class="return">except</span> <span class="class">FileNotFoundError</span><span class="brackets">:</span>
+    <span class="keyword">print</span>(<span class="string">'Файл не найден.'</span>)
+<span class="return">finally</span><span class="brackets">:</span>
+    <span class="keyword">print</span>(<span class="string">'Завершение работы.'</span>)
+    <span class="variable">file</span>.<span class="function">close</span>()  <span class="comment"># Закрытие файла</span>
+</code>
+</pre>
+</div>
+    
+
+
+<h4>Заключение</h4>
+<p>Конструкция <code>try...except</code> позволяет вам обрабатывать ошибки и исключения, улучшая стабильность и надежность вашего кода. Используйте её для управления потенциальными проблемами в вашем приложении.</p>
+<div class="button-container">
+    <a href="{% url 'file_handling_info' %}" class="btn-minimal">Предыдущий</a>
+    <a href="{% url 'async_programming_info' %}" class="btn-bright">Следующий</a>
+</div>
+
+{% endblock %}

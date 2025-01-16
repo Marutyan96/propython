@@ -1,0 +1,91 @@
+<!-- Классы и объекты.html -->
+{% extends 'main/base.html' %}
+
+{% block title %}Урок по ООП в Python{% endblock %}
+
+{% block content %}
+
+<h4>Объектно-ориентированное программирование (ООП)</h4>
+
+<p>Объектно-ориентированное программирование (ООП) — это парадигма программирования, основанная на концепции "объектов", которые могут содержать данные и код: данные в виде полей (атрибутов), и код в виде процедур (методов).</p>
+
+<h4>Основные понятия ООП</h4>
+
+<ul>
+    <li><strong>Класс</strong>: Шаблон для создания объектов. Определяет набор атрибутов и методов, доступных для объектов этого класса.</li>
+    <li><strong>Объект</strong>: Конкретный экземпляр класса. Объекты могут иметь разные значения атрибутов, но все они имеют одинаковые методы.</li>
+    <li><strong>Атрибуты</strong>: Переменные, которые хранят состояние объекта.</li>
+    <li><strong>Методы</strong>: Функции, определенные внутри класса, которые могут изменять состояние объекта или выполнять действия.</li>
+</ul>
+
+<h4>Шаг 1: Создание простого класса</h4>
+<p>Начнем с создания простого класса, который будет представлять собаку.</p>
+
+<div class="code">
+<pre>
+<code>
+<span class="keyword">class</span> <span class="class-name">Dog</span>:
+    <span class="keyword">def</span> <span class="function">__init__</span><span class="variable">(self, <span class="string">name</span>, <span class="string">age</span>):</span>
+        <span class="variable">self.name =</span> <span class="string">name</span>
+        <span class="variable">self.age =</span> <span class="string">age</span>
+</code></pre></div>
+
+<h4>Шаг 2: Добавление методов</h4>
+<p>Теперь добавим методы, которые позволят нашей собаке "говорить" и получать ее возраст.</p>
+
+<div class="code">
+<pre>
+<code>
+    <span class="keyword">def</span> <span class="function">bark</span><span class="variable">(self):</span>
+        <span class="keyword">return</span> <span class="variable">f"{self.name} говорит: Гав-гав!"</span>
+
+    <span class="keyword">def</span> <span class="function">get_age</span><span class="variable">(self):</span>
+        <span class="keyword">return</span> <span class="variable">f"{self.name} - {self.age} лет."</span>
+</code></pre></div>
+
+<h4>Шаг 3: Создание объекта класса</h4>
+<p>Теперь, когда у нас есть класс, давайте создадим объект этого класса и вызовем его методы.</p>
+
+<div class="code">
+<pre>
+<code>
+<span class="variable">my_dog = <span class="class-name">Dog</span>(<span class="string">"Шарик"</span>, <span class="string">5</span>)</span>
+
+<span class="keyword">print</span><span class="variable">(my_dog.<span class="function">bark</span>())       <span class="comment"># Вывод: Шарик говорит: Гав-гав!</span>
+<span class="keyword">print<span class="variable"><span class="variable">(my_dog.<span class="function">get_age</span>())    <span class="comment"># Вывод: Шарик - 5 лет.</span>
+</code></pre></div>
+
+<h4>Шаг 4: Наследование</h4>
+<p>Теперь давайте рассмотрим концепцию наследования, которая позволяет создавать новые классы на основе существующих. Создадим класс <code>GuideDog</code>, который наследует от <code>Dog</code>.</p>
+
+<div class="code">
+<pre>
+<code>
+<span class="keyword">class</span> <span class="class-name">GuideDog</span><span class="variable">(<span class="class-name">Dog</span>):</span>
+    <span class="keyword">def</span> <span class="function">__init__</span><span class="variable">(self, <span class="string">name</span>, <span class="string">age</span>, <span class="string">owner</span>):
+        <span class="keyword">super</span>().<span class="function">__init__</span><span class="variable">(name, age)</span>
+        <span class="variable">self.owner = </span><span class="string">owner</span>
+
+    <span class="keyword">def</span> <span class="function">bark</span><span class="variable">(self):</span>
+        <span class="keyword">return</span><span class="variable"> f"{self.name}, проводник, говорит: Гав-гав!"</span>
+</code></pre></div>
+
+<h4>Шаг 5: Создание объекта класса-наследника</h4>
+<p>Теперь создадим объект класса <code>GuideDog</code> и вызовем его методы.</p>
+
+<div class="code">
+<pre>
+<code>
+<span class="variable">my_guide_dog</spam> = <span class="class-name">GuideDog</span>(<span class="string">"Рекс"</span>, <span class="string">3</span>, <span class="string">"Алексей"</span>)
+
+<span class="keyword">print</span><span class="variable">(my_guide_dog.<span><span class="function">bark</span>())       <span class="comment"># Вывод: Рекс, проводник, говорит: Гав-гав!</span>
+<span class="keyword">print</span>(<span class="variable">my_guide_dog.<span><span class="function">get_age</span>())    <span class="comment"># Вывод: Рекс - 3 лет.</span>
+<span class="keyword">print</span>(<span class="variable">f"<span><span class="class-name">Владелец:</span> {my_guide_dog.owner}")<span>  <span class="comment"># Вывод: Владелец: Алексей</span>
+</code></pre></div>
+
+<div class="button-container">
+    <a href="{% url 'decorators_info' %}" class="btn-minimal">Предыдущий</a>
+    <a href="{% url 'inheritance_info' %}" class="btn-bright">Следующий</a>
+</div>
+
+{% endblock %}

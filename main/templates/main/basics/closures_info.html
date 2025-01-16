@@ -1,0 +1,53 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Замыкания в Python{% endblock %}
+
+{% block content %}
+<h4>Замыкания в Python</h4>
+<p>Замыкание — это функция, которая запоминает значение переменных из своей внешней области видимости даже после того, как эта внешняя функция завершила выполнение. Это позволяет создавать функции с сохранением состояния.</p>
+
+<h4>Как работают замыкания?</h4>
+<p>Когда внутренняя функция ссылается на переменные внешней функции, создается замыкание. Важно, что замыкания позволяют сохранять состояние между вызовами функции.</p>
+
+<h4>Пример замыкания</h4>
+<div class="code">
+    <pre>
+<code>
+<span class="keyword">def</span> <span class="variable">outer_function</span>(<span class="parameter">x</span>):
+    <span class="keyword">def</span> <span class="variable">inner_function</span>(<span class="parameter">y</span>):
+        <span class="return">return</span> <span class="variable">x</span> + <span class="variable">y</span> <span class="comment"># доступ к переменной x из внешней функции</span>
+    
+    <span class="return">return</span> <span class="variable">inner_function</span> <span class="comment"># возвращаем внутреннюю функцию</span>
+
+<span class="variable">closure</span> = <span class="variable">outer_function</span>(<span class="number">10</span>) <span class="comment"># создаем замыкание с x = 10</span>
+<span class="function">print</span>(<span class="variable">closure</span>(<span class="number">5</span>)) <span class="comment"># выводит 15 (10 + 5)</span>
+</code></pre></div>
+
+<h4>Применение замыканий</h4>
+<p>Замыкания часто используются для создания функций с состоянием, например, в обработчиках событий или для создания фабрик функций.</p>
+
+<h5>Пример: Фабрика функций</h5>
+<div class="code">
+    <pre>
+<code>
+<span class="keyword">def</span> <span class="variable">make_multiplier</span>(<span class="parameter">factor</span>):
+    <span class="keyword">def</span> <span class="variable">multiplier</span>(<span class="parameter">x</span>):
+        <span class="return">return</span> <span class="parameter">x</span> * <span class="parameter">factor</span> <span class="comment"># умножаем x на factor</span>
+    
+    <span class="return">return</span> <span class="variable">multiplier</span> <span class="comment"># возвращаем функцию умножения</span>
+
+<span class="variable">double</span> = <span class="variable">make_multiplier</span>(<span class="number">2</span>) <span class="comment"># создаем функцию для удвоения</span>
+<span class="variable">triple</span> = <span class="variable">make_multiplier</span>(<span class="number">3</span>) <span class="comment"># создаем функцию для утроения</span>
+
+<span class="function">print</span>(<span class="variable">double</span>(<span class="number">5</span>)) <span class="comment"># выводит 10</span>
+<span class="function">print</span>(<span class="variable">triple</span>(<span class="number">5</span>)) <span class="comment"># выводит 15</span>
+</code></pre></div>
+
+<h4>Итоги</h4>
+<p>Замыкания в Python позволяют создавать функции, которые могут запоминать значения переменных из внешней области видимости. Это мощный инструмент для управления состоянием и создания функций с определенной логикой.</p>
+<div class="button-container">
+    <a href="{% url 'args_kwargs_info' %}" class="btn-minimal">Предыдущий</a>
+    <a href="{% url 'decorators_info' %}" class="btn-bright">Следующий</a>
+</div>
+
+{% endblock %}

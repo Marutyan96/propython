@@ -1,0 +1,107 @@
+<!-- Строки.html -->
+{% extends 'main/base.html' %}
+
+{% block title %}Урок по работе со строками в Python{% endblock %}
+
+{% block content %}
+
+<h4>Работа со строками в Python</h4>
+
+<p>Строки в Python представляют собой последовательности символов. Они являются одним из основных типов данных и предоставляют множество методов для обработки текстовой информации.</p>
+
+<h4>Создание строк</h4>
+<p>Строки могут быть созданы с помощью одинарных <code>' '</code> или двойных <code>" "</code> кавычек.</p>
+<div class="code">
+<pre>
+<code>
+<span class="variable">string1 = <span class="string">'Привет'</span></span>
+<span class="variable">string2 = <span class="string">"Мир"</span></span>
+<span class="keyword">print</span>(<span class="string">string1 + " " + string2</span>)  <span class="comment"># Вывод: Привет Мир</span>
+</code></pre></div>
+
+
+<h4>Доступ к символам строки</h4>
+<p>Вы можете получить доступ к отдельным символам строки, используя индексы.</p>
+<div class="code">
+<pre>
+<code>
+<span class="variable">my_string = <span class="string">"Python"</span></span>
+<span class="keyword">print</span>(<span class="string">my_string[<span class="number">0</span>]</span>)  <span class="comment"># Вывод: P</span>
+<span class="keyword">print</span>(<span class="string">my_string[<span class="number">-1</span>]</span>)  <span class="comment"># Вывод: n</span>
+</code></pre></div>
+
+
+<h4>Срезы строк</h4>
+<p>Срезы позволяют извлекать подстроки из строки.</p>
+<div class="code">
+<pre>
+<code>
+<span class="variable">my_string = <span class="string">"Python"</span></span>
+<span class="variable">substring = my_string[<span class="number">1</span>:<span class="number">4</span>]</span>
+<span class="keyword">print</span>(<span class="string">substring</span>)  <span class="comment"># Вывод: yth</span>
+</code></pre></div>
+
+
+<h4>Методы строк</h4>
+<p>Строки имеют множество полезных методов. Вот несколько из них:</p>
+
+<h5>1. <code class="function">lower()</code> и <code class="function">upper()</code></h5>
+<p>Методы для изменения регистра строки.</p>
+<div class="code">
+<pre>
+<code>
+<span class="variable">my_string = <span class="string">"Python"</span></span>
+<span class="keyword">print</span>(<span class="variable">my_string</span>.<span class="function">lower</span>())  <span class="comment"># Вывод: python</span>
+<span class="keyword">print</span>(<span class="variable">my_string</span>.<span class="function">upper</span>())  <span class="comment"># Вывод: PYTHON</span>
+</code></pre></div>
+
+
+<h5>2. <code class="function">strip()</code></h5>
+<p>Метод для удаления пробелов в начале и конце строки.</p>
+<div class="code">
+<pre>
+<code>
+<span class="variable">my_string_with_spaces = <span class="string">"  Python  "</span></span>
+<span class="keyword">print</span>(<span class="variable">my_string_with_spaces</span>.<span class="function">strip</span>())  <span class="comment"># Вывод: Python</span>
+</code></pre></div>
+
+
+<h5>3. <code class="function">replace()</code></h5>
+<p>Метод для замены подстроки в строке.</p>
+<div class="code">
+<pre>
+<code>
+<span class="variable">my_string = <span class="string">"Python"</span></span>
+<span class="variable">new_string = <span class="variable">my_string</span>.<span class="function">replace</span>(<span class="string">"Python"</span>, <span class="string">"Java"</span>)</span>
+<span class="keyword">print</span>(<span class="variable">new_string</span>)  <span class="comment"># Вывод: Java</span>
+</code></pre></div>
+
+
+<h5>4. <code class="function">split()</code></h5>
+<p>Метод для разделения строки на список подстрок.</p>
+<div class="code">
+<pre>
+<code>
+<span class="variable">sentence = <span class="string">"Привет, мир!"</span></span>
+<span class="variable">words = <span class="variable">sentence</span>.<span class="function">split</span>(<span class="string">", "</span>)</span>
+<span class="keyword">print</span>(<span class="variable">words</span>)  <span class="comment"># Вывод: ['Привет', 'мир!']</span>
+</code></pre></div>
+
+
+<h4>Конкатенация строк</h4>
+<p>Строки можно объединять с помощью оператора <code class="operator">+</code>.</p>
+<div class="code">
+<pre>
+<code>
+<span class="variable">greeting = <span class="string">"Привет"</span></span>
+<span class="variable">name = <span class="string">"Алексей"</span></span>
+<span class="variable">message = <span class="variable">greeting</span> <span class="operator">+</span> <span class="string">", "</span> <span class="operator">+</span> <span class="variable">name</span></span>
+<span class="keyword">print</span>(<span class="variable">message</span>)  <span class="comment"># Вывод: Привет, Алексей</span>
+</code></pre></div>
+
+<div class="button-container">
+    <a href="{% url 'set_info' %}" class="btn-minimal">Предыдущий</a>
+    <a href="{% url 'args_kwargs_info' %}" class="btn-bright">Следующий</a>
+</div>
+
+{% endblock %}

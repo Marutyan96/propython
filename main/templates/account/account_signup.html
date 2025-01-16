@@ -1,0 +1,74 @@
+{% extends "main/base.html" %}
+{% load i18n %}
+{% load socialaccount %}
+{% load form_tags %}  <!-- Убедитесь, что вы загружаете свои теги -->
+
+{% block content %}
+<div class="container">
+  
+    
+    {% if form.non_field_errors %}
+        <div class="alert alert-danger">
+            {{ form.non_field_errors }}
+        </div>
+    {% endif %}
+    
+    <form method="post" action="{% url 'account_signup' %}">
+        {% csrf_token %}
+        
+        <div class="form-group">
+            <label for="id_email">Email:</label>
+            {{ form.email|add_class:"form-control" }}  
+            {% if form.email.errors %}
+                <div class="alert alert-danger">
+                    {{ form.email.errors }}
+                </div>
+            {% endif %}
+        </div>
+        
+        
+        <div class="form-group">
+            <label for="id_username"></label>
+            {{ form.username.label_tag }}
+            {{ form.username|add_class:"form-control" }}
+            {% if form.username.errors %}
+                <div class="alert alert-danger">
+                    {{ form.username.errors }}
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            <label for="id_password1"></label>
+            {{ form.password1.label_tag }}
+            {{ form.password1|add_class:"form-control" }}
+            {% if form.password1.errors %}
+                <div class="alert alert-danger">
+                    {{ form.password1.errors }}
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            <label for="id_password2"></label>
+            {{ form.password2.label_tag }}
+            {{ form.password2|add_class:"form-control" }}
+            {% if form.password2.errors %}
+                <div class="alert alert-danger">
+                    {{ form.password2.errors }}
+                </div>
+            {% endif %}
+        </div>
+
+        <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+    </form>
+    
+    <p>
+        Уже есть аккаунт? <a href="{% url 'account_login' %}">Войти</a>
+    </p>
+    
+    <h4>Или зарегистрироваться с помощью:</h4>
+
+
+</div>
+{% endblock %}

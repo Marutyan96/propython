@@ -1,0 +1,95 @@
+{% extends 'main/base.html' %} 
+{% block title %}Урок по лямбда-функциям в Python{% endblock %} 
+{% block content %}
+
+<h4>Лямбда-функции в Python</h4>
+
+<p>
+  Лямбда-функции — это анонимные функции в Python, которые могут иметь любое
+  количество аргументов, но только одно выражение. Они часто используются для
+  создания небольших функций на лету.
+</p>
+
+<h4>Создание лямбда-функции</h4>
+<p>
+  Лямбда-функцию можно создать с помощью ключевого слова
+  <span class="keyword">lambda</span>. Вот пример:
+</p>
+<div class="code">
+  <pre>
+    <code>
+<span class="variable">add</span> = <span class="keyword">lambda</span> <span class="variable">x</span>, <span class="variable">y</span>: <span class="variable">x</span> + <span class="variable">y</span>
+<span class="function">print</span>(<span class="variable">add</span>(<span class="number">2</span>, <span class="number">3</span>))  <span class="comment"># Вывод: 5</span>
+</code></pre>
+</div>
+
+
+<h4>Лямбда-функции с несколькими аргументами</h4>
+<p>Лямбда-функции могут принимать несколько аргументов. Например:</p>
+<div class="code">
+<pre>
+<code>
+<span class="variable">multiply</span> = <span class="keyword">lambda</span> <span class="variable">a</span>, <span class="variable">b</span>: <span class="variable">a</span> * <span class="variable">b</span>
+<span class="function">print</span>(<span class="variable">multiply</span>(<span class="number">4</span>, <span class="number">5</span>))  <span class="comment"># Вывод: 20</span>
+</code></pre>
+</div>
+
+
+<h4>Использование лямбда-функций с функциями высшего порядка</h4>
+<p>
+  Лямбда-функции часто используются в сочетании с функциями высшего порядка,
+  такими как <span class="keyword">map()</span>,
+  <span class="keyword">filter()</span> и <span class="keyword">reduce()</span>.
+  Например:
+</p>
+
+<h5>Пример с <span class="keyword">map()</span></h5>
+<div class="code">
+  <pre>
+    <code>
+<span class="variable">numbers</span> = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]
+<span class="variable">squared</span> = <span class="function">list</span>(<span class="function">map</span>(<span class="keyword">lambda</span> <span class="variable">x</span>: <span class="variable">x</span> ** <span class="number">2</span>, <span class="variable">numbers</span>))
+<span class="function">print</span>(<span class="variable">squared</span>)  <span class="comment"># Вывод: [1, 4, 9, 16]</span>
+</code></pre>
+</div>
+
+
+<h5>Пример с <span class="keyword">filter()</span></h5>
+<div class="code">
+  <pre>
+<code>
+<span class="variable">even_numbers</span> = <span class="function">list</span>(<span class="function">filter</span>(<span class="keyword">lambda</span> <span class="variable">x</span>: <span class="variable">x</span> % <span class="number">2</span> == <span class="number">0</span>, <span class="variable">numbers</span>))
+<span class="function">print</span>(<span class="variable">even_numbers</span>)  <span class="comment"># Вывод: [2, 4]</span>
+</code></pre>
+</div>
+
+
+<h4>Лямбда-функции и сортировка</h4>
+<p>
+  Лямбда-функции также могут использоваться для сортировки списков. Например:
+</p>
+<div class="code">
+  <pre>
+    <code>
+<span class="variable">data</span> = [(<span class="number">1</span>, <span class="string">'один'</span>), (<span class="number">3</span>, <span class="string">'три'</span>), (<span class="number">2</span>, <span class="string">'два'</span>)]
+<span class="variable">sorted_data</span> = <span class="function">sorted</span>(<span class="variable">data</span>, <span class="keyword">key</span>=<span class="keyword">lambda</span> <span class="variable">x</span>: <span class="variable">x</span>[<span class="number">0</span>])
+<span class="function">print</span>(<span class="variable">sorted_data</span>)  <span class="comment"># Вывод: [(1, 'один'), (2, 'два'), (3, 'три')]</span>
+</code></pre>
+</div>
+
+
+
+<h4>Заключение</h4>
+<p>
+  Лямбда-функции — это мощный инструмент для создания небольших, анонимных
+  функций в Python. Они особенно полезны в сочетании с функциями высшего
+  порядка. Попробуйте использовать лямбда-функции в своих проектах и оцените их
+  удобство!
+</p>
+<div class="button-container">
+  <a href="{% url 'functions_info' %}" class="btn-minimal">Предыдущий</a>
+  <a href="{% url 'list_info' %}" class="btn-bright">Следующий</a>
+</div>
+
+
+{% endblock %}

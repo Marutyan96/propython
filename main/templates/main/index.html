@@ -1,0 +1,77 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Учебник Python{% endblock %}
+
+{% block content %}
+<section class="python-course">
+    <h1 class="course-title">Современный учебник PYTHON</h1>
+
+    <h6>Перед вами учебник по PYTHON, начиная с основ, включающий в себя много тонкостей и фишек .</h6>
+</section>
+
+
+<br><br><br><br>
+<ul class="chapter-list">
+    <strong>Введение</strong>
+    <li><a href="{% url 'installation_info' %}">1. Установка Python и первая программа</a></li>
+    <li><a href="{% url 'vscode_info' %}">2. Установка и настройка VSCode</a></li>
+    <li><a href="{% url 'basic_info' %}">3. Введение в написание программ</a></li>
+
+   <strong>Основы</strong>
+    <li><a href="{% url 'variables_info' %}">4. Переменные и типы данных</a></li>
+    <li><a href="{% url 'input_output_info' %}">5. Консольный ввод и вывод</a></li>
+    <li><a href="{% url 'arithmetic_info' %}">6. Арифметические операции с числами</a></li>
+    <li><a href="{% url 'conditional_info' %}">7. Условные выражения (if, else, elif)</a></li>
+    <li><a href="{% url 'loops_info' %}">8. Циклы</a></li>
+    <li><a href="{% url 'functions_info' %}">9. Функции</a></li>
+    <li><a href="{% url 'lambda_info' %}">10. Лямбда-функции</a></li>
+    <li><a href="{% url 'list_info' %}">11. Списки</a></li>
+    <li><a href="{% url 'tuple_info' %}">12. Кортежи</a></li>
+    <li><a href="{% url 'type_conversion_info' %}">13. Преобразование типов</a></li>
+    <li><a href="{% url 'variable_scope_info' %}">14. Область видимости переменных</a></li>
+    <li><a href="{% url 'range_info' %}">13. Диапазоны (range)</a></li>
+    <li><a href="{% url 'dictionary_info' %}">14. Словари</a></li>
+    <li><a href="{% url 'set_info' %}">15. Множества</a></li>
+    <li><a href="{% url 'string_info' %}">16. Строки</a></li>
+    <li><a href="{% url 'args_kwargs_info' %}">17. *args и **kwargs</a></li>
+    <li><a href="{% url 'closures_info' %}">18. Замыкания</a></li>
+    <li><a href="{% url 'decorators_info' %}">19. Декораторы</a></li>
+
+   <strong>Объектно-ориентированное программирование</strong>
+    <li><a href="{% url 'oop_info' %}">20. Классы и объекты</a></li>
+    <li><a href="{% url 'inheritance_info' %}">21. принципы ООП</a></li>
+    <li><a href="{% url 'modules_info' %}">22. Определение и подключение модулей</a></li>
+
+    <strong>Основы работы с файлами</strong>
+    <li><a href="{% url 'file_handling_info' %}">23. Открытие и закрытие файлов</a></li>
+    <li><a href="{% url 'exceptions_info' %}">24. Конструкция try...except</a></li>
+
+  <strong>Асинхронное программирование</strong>
+    <li><a href="{% url 'async_programming_info' %}">25. Синхронное vs Асинхронное программирование</a></li>
+    <li><a href="{% url 'async_programming_intro' %}">26. Введение в асинхронное программирование</a></li>
+    <li><a href="{% url 'working_with_asyncio' %}">27. Работа с asyncio</a></li>
+    <li><a href="{% url 'exception_handling_async' %}">28. Обработка исключений в асинхронных функциях</a></li>
+    <li><a href="{% url 'async_http_requests' %}">29. Асинхронные HTTP-запросы с использованием aiohttp</a></li>
+
+   <strong>SOLID</strong>
+    <li><a href="{% url 'solid_info' %}">30. Принципы SOLID</a></li>
+    
+   <strong>Тестирование и отладка</strong>
+    <li><a href="{% url 'testing_info' %}">31. Тестирование и отладка кода</a></li>
+
+    <strong>Основы веб-разработки</strong>
+    <li><a href="{% url 'flask_info' %}">32.  Flask</a></li>
+    <li><a href="{% url 'django_info' %}">33.  Django</a></li>
+    <li><a href="{% url 'fastAPI_info' %}">34.  FastAPI</a></li>
+
+    <strong>Машинное обучение</strong>
+    <li><a href="{% url 'ml_intro_info' %}">35. Введение в машинное обучение</a></li>
+    
+</ul>
+
+
+
+
+
+{% endblock %}

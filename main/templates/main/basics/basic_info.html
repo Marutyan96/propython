@@ -1,0 +1,73 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+
+{% block title %}Введение в написание программ на Python{% endblock %}
+
+{% block content %}
+
+    <h4>Введение в написание программ на Python</h4>
+
+    <h4>Шаг 1: Создание нового проекта</h4>
+    <h5>1.1. Открытие VSCode</h5>
+    <p>Запустите Visual Studio Code.</p>
+
+    <h5>1.2. Создание нового файла</h5>
+    <p>Создайте новый файл с расширением <code class="string">.py</code> (например, <code class="string">first_program.py</code>).</p>
+
+    <h4>Шаг 2: Написание первой программы</h4>
+    <h5>2.1. Написание кода</h5>
+    <p>Введите следующий код в созданном файле:</p>
+    <div class="code">
+        <code>
+            <span class="keyword">print</span>(<span class="string">"Добро пожаловать в программирование на Python!"</span>)
+        </code>
+    </div>
+
+    <h5>2.2. Сохранение файла</h5>
+    <p>Сохраните файл, нажав <code class="string">Ctrl + S</code> или выбрав <strong>File > Save</strong> из меню.</p>
+
+    <h4>Шаг 3: Запуск программы</h4>
+    <h5>3.1. Открытие терминала</h5>
+    <p>Откройте встроенный терминал в VSCode, нажав <code class="string">Ctrl + `</code> (обратная кавычка) или выбрав <strong>Terminal > New Terminal</strong> из меню.</p>
+
+    <h5>3.2. Переход к папке с файлом</h5>
+    <p>Убедитесь, что вы находитесь в папке, где сохранен ваш файл <code class="string">first_program.py</code>. Используйте команду <code class="keyword">cd</code> для перехода в нужную директорию:</p>
+    <div class="code">
+        <code>
+            <span class="keyword">cd</span> <span class="string">путь/к/вашей/папке</span>
+        </code>
+    </div>
+
+    <h5>3.3. Запуск программы</h5>
+    <p>Введите следующую команду для запуска вашей программы:</p>
+    <div class="code">
+        <code>
+            <span class="keyword">python</span> <span class="string">first_program.py</span>
+        </code>
+    </div>
+    <p>или</p>
+    <div class="code">
+        <code>
+            <span class="keyword">python3</span> <span class="string">first_program.py</span>
+        </code>
+    </div>
+
+    <h5>3.4. Ожидаемый результат</h5>
+    <p>Вы должны увидеть вывод:</p>
+    <div class="code">
+        <code>
+            <span class="string">Добро пожаловать в программирование на Python!</span>
+        </code>
+    </div>
+
+    <h4>Заключение</h4>
+    <p>Поздравляем, вы только что написали и запустили свою первую программу на Python! Продолжайте изучать язык, экспериментируйте с кодом и открывайте для себя новые возможности программирования.</p>
+    
+    <div class="button-container">
+        <a href="{% url 'vscode_info' %}" class="btn-minimal">Предыдущий</a>
+        <a href="{% url 'variables_info' %}" class="btn-bright">Следующий</a>
+    </div>
+    
+    
+{% endblock %}

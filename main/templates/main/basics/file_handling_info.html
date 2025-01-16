@@ -1,0 +1,83 @@
+<!-- Работа с файлами.html -->
+{% extends 'main/base.html' %}
+
+{% block title %}Урок по работе с файлами в Python{% endblock %}
+
+{% block content %}
+
+<h4>Работа с файлами в Python</h4>
+
+<p>В Python работа с файлами является важной частью программирования. Вы можете открывать, читать, записывать и закрывать файлы. В этом уроке мы рассмотрим основные операции с файлами.</p>
+
+<h4>Открытие файла</h4>
+<p>Чтобы открыть файл, используйте функцию <code>open()</code>. Она принимает два аргумента: имя файла и режим открытия.</p>
+<div class="code">
+<pre>
+<code>
+<span class="keyword">file</span> = <span class="function">open</span><span class="brackets">(<span class="string">'example.txt'</span>, <span class="string">'r'</span>)  <span class="comment"># 'r' - режим чтения</span>
+</code>
+</pre>
+</div>
+
+<h4>Чтение из файла</h4>
+<p>После открытия файла вы можете читать его содержимое с помощью различных методов:</p>
+<ul>
+    <li><code>read()</code> - читает весь файл.</li>
+    <li><code>readline()</code> - читает одну строку.</li>
+    <li><code>readlines()</code> - читает все строки и возвращает их в виде списка.</li>
+</ul>
+
+<h5>Пример чтения файла</h5>
+<div class="code">
+<pre>
+<code>
+<span class="variable">content</span> = <span class="variable">file</span>.<span class="function">read</span><span class="brackets">()
+<span class="keyword">print</span>(<span class="variable">content</span>)
+</code>
+</pre>
+</div>
+    
+
+<h4>Закрытие файла</h4>
+<p>После завершения работы с файлом его необходимо закрыть, чтобы освободить ресурсы:</p>
+<div class="code">
+<pre>
+<code>
+<span class="variable">file</span>.<span class="function">close</span><span class="brackets">()
+</code></pre></div>
+    
+
+<h4>Запись в файл</h4>
+<p>Чтобы записать данные в файл, откройте его в режиме записи <code>'w'</code> или добавления <code>'a'</code>.</p>
+<h5>Пример записи в файл</h5>
+<div class="code">
+<pre>
+<code>
+<span class="return">with</span> <span class="function">open</span><span class="brackets">(<span class="string">'output.txt'</span>, <span class="string">'w'</span>) <span class="return">as</span> <span class="variable">file</span>:
+    <span class="variable">file</span>.<span class="function">write</span>(<span class="string">'Привет, мир!'</span>)
+</code>
+</pre>
+</div>
+    
+
+<h4>Использование конструкции <code>with</code></h4>
+<p>Рекомендуется использовать конструкцию <code>with</code> для работы с файлами, так как она автоматически закрывает файл после выхода из блока:</p>
+<div class="code">
+<pre>
+<code>
+<span class="keyword">with</span> <span class="function">open</span>(<span class="string">'example.txt'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> <span class="variable">file</span>:
+    <span class="variable">content</span> = <span class="variable">file</span>.<span class="function">read</span>()
+    <span class="keyword">print</span>(<span class="variable">content</span>)
+</code>
+</pre>
+</div>
+    
+
+<h4>Заключение</h4>
+<p>Работа с файлами в Python позволяет вам сохранять и загружать данные. Используйте правильные режимы открытия и конструкцию <code>with</code> для эффективной работы с файлами.</p>
+<div class="button-container">
+    <a href="{% url 'modules_info' %}" class="btn-minimal">Предыдущий</a>
+    <a href="{% url 'exceptions_info' %}" class="btn-bright">Следующий</a>
+</div>
+
+{% endblock %}

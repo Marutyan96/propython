@@ -1,0 +1,83 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Преобразование типов{% endblock %}
+
+{% block content %}
+
+<h5>Преобразование типов в Python</h5>
+    <p>Преобразование типов (или приведение типов) в Python позволяет изменять тип данных переменной. Это может быть полезно, когда необходимо выполнять операции между переменными разных типов.</p>
+
+    <h5>Основные функции преобразования типов</h5>
+    <ul>
+        <li><code>int()</code> — преобразует значение в целое число.</li>
+        <li><code>float()</code> — преобразует значение в число с плавающей точкой.</li>
+        <li><code>str()</code> — преобразует значение в строку.</li>
+        <li><code>list()</code> — преобразует значение в список.</li>
+        <li><code>tuple()</code> — преобразует значение в кортеж.</li>
+        <li><code>set()</code> — преобразует значение в множество.</li>
+    </ul>
+
+    <h5>Примеры преобразования типов</h5>
+
+    <h5>Пример 1: Преобразование в целое число</h5>
+    <div class="code">
+        <pre>
+<code>
+<span class="variable">num_str</span> = <span class="string">'42'</span> <span class="comment"># строка, представляющая число</span>
+<span class="variable">num_int</span> = <span class="function">int</span>(<span class="variable">num_str</span>) <span class="comment"># преобразуем строку в целое число</span>
+<span class="function">print</span>(<span class="string">'Целое число: '</span>, <span class="variable">num_int</span>) <span class="comment"># выводим результат</span>
+</code>
+        </pre>
+    </div>
+
+    <h5>Пример 2: Преобразование в число с плавающей точкой</h5>
+    <div class="code">
+        <pre>
+<code>
+<span class="variable">float_str</span> = <span class="string">'3.14'</span> <span class="comment"># строка, представляющая число с плавающей точкой</span>
+<span class="variable">num_float</span> = <span class="function">float</span>(<span class="variable">float_str</span>) <span class="comment"># преобразуем строку в число с плавающей точкой</span>
+<span class="function">print</span>(<span class="string">'Число с плавающей точкой: '</span>, <span class="variable">num_float</span>) <span class="comment"># выводим результат</span>
+</code>
+        </pre>
+    </div>
+
+    <h5>Пример 3: Преобразование в строку</h5>
+    <div class="code">
+        <pre>
+<code>
+<span class="variable">num</span> = <span class="number">100</span> <span class="comment"># целое число</span>
+<span class="variable">num_str</span> = <span class="function">str</span>(<span class="variable">num</span>) <span class="comment"># преобразуем целое число в строку</span>
+<span class="function">print</span>(<span class="string">'Строка: '</span>, <span class="variable">num_str</span>) <span class="comment"># выводим результат</span>
+</code>
+        </pre>
+    </div>
+
+    <h5>Пример 4: Преобразование списка в кортеж</h5>
+    <div class="code">
+        <pre>
+<code>
+<span class="variable">my_list</span> = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>] <span class="comment"># список чисел</span>
+<span class="variable">my_tuple</span> = <span class="function">tuple</span>(<span class="variable">my_list</span>) <span class="comment"># преобразуем список в кортеж</span>
+<span class="function">print</span>(<span class="string">'Кортеж: '</span>, <span class="variable">my_tuple</span>) <span class="comment"># выводим результат</span>
+</code>
+        </pre>
+    </div>
+
+    <h5>Пример 5: Преобразование кортежа в множество</h5>
+    <div class="code">
+        <pre>
+<code>
+<span class="variable">my_tuple</span> = (<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>) <span class="comment"># кортеж с дублирующимися элементами</span>
+<span class="variable">my_set</span> = <span class="function">set</span>(<span class="variable">my_tuple</span>) <span class="comment"># преобразуем кортеж в множество (дубликаты удаляются)</span>
+<span class="function">print</span>(<span class="string">'Множество: '</span>, <span class="variable">my_set</span>) <span class="comment"># выводим результат</span>
+</code>
+        </pre>
+    </div>
+
+    <h5>Итоги</h5>
+    <p>Преобразование типов в Python — это мощный инструмент, который позволяет работать с данными различных типов. Используя функции преобразования, вы можете легко изменять типы переменных в зависимости от ваших нужд.</p>
+    <div class="button-container">
+        <a href="{% url 'tuple_info' %}" class="btn-minimal">Предыдущий</a>
+        <a href="{% url 'variable_scope_info' %}" class="btn-bright">Следующий</a>
+    </div>
+    {% endblock %}

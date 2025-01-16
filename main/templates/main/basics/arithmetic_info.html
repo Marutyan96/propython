@@ -1,0 +1,114 @@
+<!-- arithmetic_operations.html -->
+{% extends 'main/base.html' %}
+
+{% block title %}Урок по арифметическим операциям с числами в Python{% endblock %}
+
+{% block content %}
+
+<h4>Арифметические операции с числами в Python</h4>
+
+<p>В Python вы можете выполнять различные арифметические операции с числами. В этом уроке мы рассмотрим основные операции: сложение, вычитание, умножение, деление, целочисленное деление, остаток от деления и возведение в степень.</p>
+
+<h4>Шаг 1: Сложение</h4>
+<p>Сложение выполняется с помощью оператора <code>+</code>.</p>
+<div class="code">
+<pre>
+<code>
+<span class="variable">a</span> <span class="operator">=</span> <span class="string">5
+<span class="variable">b</span> <span class="operator">=</span> <span class="string">3
+<span class="variable">result <span class="operator">=</span> a <span class="operator">+</span> b
+<span class="keyword">print</span><span class="brackets">(<span class="string">f"Сложение: <span class="brackets">{</span>result<span class="brackets">}<span class="string">"</span><span class="brackets">)  <span class="comment"># Вывод: Сложение: 8</span>
+</code></pre>
+</div>
+
+<h4>Шаг 2: Вычитание</h4>
+<p>Вычитание выполняется с помощью оператора <code>-</code>.</p>
+<div class="code">
+<pre>
+<code>
+<span class="variable">result <span class="operator">=</span> a <span class="operator">- </span>b
+<span class="keyword">print</span><span class="brackets">(<span class="string">f"Вычитание: <span class="brackets">{<span class="string">result<span class="brackets">}</span>"</span><span class="brackets">)  <span class="comment"># Вывод: Вычитание: 2</span>
+</code></pre>
+</div>
+
+<h4>Шаг 3: Умножение</h4>
+<p>Умножение выполняется с помощью оператора <code>*</code>.</p>
+<div class="code">
+<pre>
+<code>
+<span class="variable">result <span class="operator">=</span> a <span class="operator">*</span> b
+<span class="keyword">print</span><span class="brackets">(<span class="string">f"Умножение: <span class="brackets">{<span class="variable">result</span>}</span>"</span><span class="brackets">)</span>  <span class="comment"># Вывод: Умножение: 15</span>
+</code></pre>
+</div>
+<h4>Шаг 4: Деление</h4>
+<p>Деление выполняется с помощью оператора <code>/</code>.</p>
+<div class="code">
+<pre>
+<code>
+<span class="variable">result <span class="operator">=</span> a <span class="operator">/</span> b
+<span class="keyword">print</span><span class="brackets">(<span class="string">f"Деление: <span class="brackets">{<span class="variable">result</span>}</span>"</span><span class="brackets">)</span>  <span class="comment"># Вывод: Деление: 1.6667</span>
+</code></pre>
+</div>
+
+<h4>Шаг 5: Целочисленное деление</h4>
+<p>Целочисленное деление выполняется с помощью оператора <code>//</code>.</p>
+<div class="code">
+<pre>
+<code>
+<span class="variable">result <span class="operator">=</span> a <span class="operator">//</span> b
+<span class="keyword">print</span><span class="brackets">(<span class="string">f"Целочисленное деление: <span class="brackets">{<span class="variable">result</span>}</span>"</span><span class="brackets">)</span>  <span class="comment"># Вывод: Целочисленное деление: 1</span>
+</code></pre>
+</div>
+
+<h4>Шаг 6: Остаток от деления</h4>
+<p>Остаток от деления выполняется с помощью оператора <code>%</code>.</p>
+<div class="code">
+<pre>
+<code>
+<span class="variable">result <span class="operator">=</span> a <span class="operator">%</span> b
+<span class="keyword">print</span><span class="brackets">(<span class="string">f"Остаток от деления: <span class="brackets">{<span class="variable">result</span>}</span>"</span><span class="brackets">)</span>  <span class="comment"># Вывод: Остаток от деления: 2</span>
+</code></pre>
+</div>
+
+<h4>Шаг 7: Возведение в степень</h4>
+<p>Возведение в степень выполняется с помощью оператора <code>**</code>.</p>
+<div class="code">
+<pre>
+<code>
+<span class="variable">result <span class="operator">=</span> a <span class="operator">**</span> b
+<span class="keyword">print</span><span class="brackets">(<span class="string">f"Возведение в степень: <span class="brackets">{<span class="variable">result</span>}</span>"</span><span class="brackets">)</span>  <span class="comment"># Вывод: Возведение в степень: 125</span>
+</code></pre>
+</div>
+
+<h4>Шаг 8: Ввод данных от пользователя</h4>
+<p>Теперь давайте позволим пользователю вводить два числа и выполнять все операции над ними.</p>
+
+<div class="code">
+<pre>
+<code>
+<span class="return">try</span>:
+    <span class="variable">a <span class="operator">=</span> int<span class="brackets">(<span class="string">input<span class="brackets">(</span>"Введите первое число: "<span class="brackets">)</span><span class="brackets">)</span>
+    <span class="variable">b </span><span class="operator">=</span></span><span class="variable"> int<span class="brackets">(<span class="string">input<span class="brackets">(</span>"Введите второе число: "<span class="brackets">)</span><span class="brackets">)
+
+    <span class="keyword">print</span><span class="brackets">(<span class="string">f"Сложение: <span class="brackets">{</span>a <span class="operator">+</span> b<span class="brackets">}</span>"</span><span class="brackets">)</span>
+    <span class="keyword">print</span><span class="brackets">(<span class="string">f"Вычитание: <span class="brackets">{</span>a <span class="operator">-</span> b<span class="brackets">}</span>"</span><span class="brackets">)</span>
+    <span class="keyword">print</span><span class="brackets">(<span class="string">f"Умножение: <span class="brackets">{</span>a <span class="operator">*</span> b<span class="brackets">}</span>"</span><span class="brackets">)</span>
+    <span class="keyword">print</span><span class="brackets">(<span class="string">f"Деление: <span class="brackets">{</span>a <span class="operator">/</span> b<span class="brackets">}</span>"</span><span class="brackets">)</span>
+    <span class="keyword">print</span><span class="brackets">(<span class="string">f"Целочисленное деление: <span class="brackets">{</span>a <span class="operator">//</span> b<span class="brackets">}</span>"</span><span class="brackets">)</span>
+    <span class="keyword">print</span><span class="brackets">(<span class="string">f"Остаток от деления: <span class="brackets">{</span>a <span class="operator">%</span> b<span class="brackets">}</span>"</span><span class="brackets">)</span>
+    <span class="keyword">print</span><span class="brackets">(<span class="string">f"Возведение в степень: <span class="brackets">{</span>a <span class="operator">**</span> b<span class="brackets">}</span>"</span><span class="brackets">)</span>
+        
+<span class="return">except</span> <span class="return">ValueError</span>:
+    <span class="keyword">print</span>(<span class="string">"Пожалуйста, введите корректные числа."</span>)
+</code></pre>
+</div>
+
+
+<h4>Заключение</h4>
+<p>Арифметические операции являются основой программирования. Используя Python, вы можете легко выполнять различные вычисления. Попробуйте изменить код и экспериментировать с различными значениями!</p>
+<div class="button-container">
+    <a href="{% url 'input_output_info' %}" class="btn-minimal">Предыдущий</a>
+    <a href="{% url 'conditional_info' %}" class="btn-bright">Следующий</a>
+</div>
+
+{% endblock %}

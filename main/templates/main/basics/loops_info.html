@@ -1,0 +1,81 @@
+<!-- Циклы.html -->
+
+{% extends 'main/base.html' %}
+
+{% block title %}Урок по циклам в Python{% endblock %}
+
+{% block content %}
+
+<h4>Циклы в Python</h4>
+
+<p>Циклы в Python используются для повторения блока кода несколько раз. Это позволяет автоматизировать задачи и обрабатывать данные более эффективно. В этом уроке мы рассмотрим два основных типа циклов: <code class="keyword">for</code> и <code class="keyword">while</code>.</p>
+
+<h4>Цикл <code class="keyword">for</code></h4>
+<p>Цикл <code class="keyword">for</code> используется для перебора элементов в последовательностях, таких как списки, строки или диапазоны.</p>
+
+<h5>Пример 1: Перебор списка</h5>
+<div class="code">
+<pre>
+<code>
+<span class="keyword">fruits</span> <span class="operator">=</span> <span class="brackets">[<span class="string">"яблоко"</span>, <span class="string">"банан"</span>, <span class="string">"вишня"</span>]</span>
+
+<span class="keyword">for</span> <span class="variable">fruit</span> <span class="keyword">in</span> <span class="function">fruits</span>:
+    <span class="keyword">print</span>(<span class="variable">fruit</span>)
+</code></pre></div>
+
+<h5>Пример 2: Использование функции <code class="function">range()</code></h5>
+<p>Функция <code class="function">range()</code> позволяет создавать последовательности чисел.</p>
+<div class="code">
+<pre>
+<code>
+<span class="keyword">for</span> <span class="variable">i</span> <span class="keyword">in</span> <span class="function">range</span><span class="brackets">(<span class="number">5</span>)</span>:
+    <span class="keyword">print</span>(<span class="string">f"Итерация <span class="brackets">{<span class="variable">i</span>}</span>"</span>)
+</code></pre></div>
+
+<h4>Цикл <code class="keyword">while</code></h4>
+<p>Цикл <code class="keyword">while</code> выполняет блок кода, пока условие истинно.</p>
+<h5>Пример 3: Использование цикла <code class="keyword">while</code></h5>
+<div class="code">
+<pre>
+<code>
+<span class="variable">count</span> <span class="operator">=</span> <span class="number">0</span>
+
+<span class="return">while</span> <span class="variable">count</span> <span class="operator">&lt;</span> <span class="number">5</span>:
+    <span class="keyword">print</span>(<span class="string">f"Счетчик: <span class="brackets">{<span class="variable">count</span>}</span>"</span>)
+    <span class="variable">count</span> <span class="operator">+=</span> <span class="number">1</span>
+</code></pre>
+</div>
+
+<h4>Прерывание и продолжение цикла</h4>
+<p>Вы можете использовать ключевые слова <code class="keyword">break</code> и <code class="keyword">continue</code> для управления выполнением циклов.</p>
+
+<h5>Пример 4: Использование <code class="keyword">break</code></h5>
+<div class="code">
+<pre>
+<code>
+<span class="keyword">for</span> <span class="variable">i</span> <span class="keyword">in</span> <span class="function">range</span><span class="brackets">(<span class="number">10</span>)</span>:
+    <span class="return">if</span> <span class="variable">i</span> <span class="operator">==</span> <span class="number">5</span>:
+        <span class="return">break</span>
+    <span class="keyword">print</span>(<span class="variable">i</span>)
+</code></pre>
+</div>
+
+<h5>Пример 5: Использование <code class="keyword">continue</code></h5>
+<div class="code">
+<pre>
+<code>
+<span class="keyword">for</span> <span class="variable">i</span> <span class="keyword">in</span> <span class="function">range</span><span class="brackets">(<span class="number">10</span>)</span>:
+    <span class="return">if</span> <span class="variable">i</span> <span class="operator">%</span> <span class="number">2</span> <span class="operator">==</span> <span class="number">0</span>:
+        <span class="return">continue</span>
+    <span class="keyword">print</span>(<span class="variable">i</span>)
+</code></pre>
+</div>
+<h4>Заключение</h4>
+<p>Циклы являются мощным инструментом в Python, позволяющим выполнять повторяющиеся задачи с минимальными усилиями. Попробуйте создать свои собственные циклы и поэкспериментировать с различными условиями!</p>
+<div class="button-container">
+    <a href="{% url 'conditional_info' %}" class="btn-minimal">Предыдущий</a>
+    <a href="{% url 'functions_info' %}" class="btn-bright">Следующий</a>
+</div>
+
+
+{% endblock %}

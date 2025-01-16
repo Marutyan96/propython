@@ -1,0 +1,142 @@
+
+main {
+    padding: 1rem; /* Отступы внутри основного контента */
+    background: rgb(245, 245, 245); /* Цвет фона основного контента */
+    margin-right: 58px; /* Добавляем отступ справа */
+    margin-left: 58px; /* Добавляем отступ справа */
+  
+    border: solid 1px rgb(63, 63, 63);
+    border-radius: 10px 10px 0 0; 
+    border-top: none; /* Без рамки сверху */
+    border-bottom: none; /* Без рамки снизу */
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1); /* Тень для основного контента */
+    min-height: 550px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 20px; /* Установите размер шрифта */
+    line-height: 1.4; /* Уменьшите высоту строки для более компактного вида */
+  }
+  
+  /* Стили для параграфов в основном контенте */
+  main p {
+    margin-bottom: 0.5rem; /* Уменьшите отступы снизу для параграфов */
+    line-height: 1.4; /* Высота строки для лучшей читаемости */
+  }
+  
+  
+  /* Стили для списков в основном контенте */
+  main ul {
+    margin-bottom: 1.5rem; /* Отступы снизу для списков */
+  }
+  
+  /* Стили для кода */
+  .code {
+    border-radius: 5px;
+    border-left: 5px solid #b54d3b; /* Красная линия слева */
+    background: #252525; /* Однотонный фон */
+    padding: 10px; /*Отступы внутри блока кода */
+    font-family: monospace; /* Моноширинный шрифт */
+    color: #ececec; /* Белый текст */
+  }
+  
+  /* Обеспечиваем, чтобы текст внутри <code> был белым */
+  .code code {
+    color: #ffffff; /* Белый цвет для текста внутри <code> */
+  }
+
+  .main-title {
+    text-align: center; /* Центрируем заголовок */
+    font-size: 2rem; /* Размер шрифта */
+    margin-bottom: 1.5rem; /* Отступ снизу */
+  }
+  
+  
+/* Стили для синтаксиса кода */
+.keyword { color: #498bc5; }
+.module-name { color: #4682B4; } /*  для имен модулей */
+.function { color: #d7daa7; }
+.variable { color: #90e5ff; }
+.brackets { color: #e7c60f; }
+.string { color: #c58a6c; }
+.comment { color: #689854; }
+.operator { color: orange; }
+.return { color: #c284bc; }
+.number { color: #a9c79d; }
+.class-name { color: #02c6a9; }
+.module { color: #02c6a9; }
+.class { color: #02c6a9; }
+.parameter { color: #4682B4; } /* Для параметров функций */
+.decorator { color: #bf0000; } /*  для декораторов */
+.exception { color: #FF4500; } /* для исключений */
+.constant { color: gold; } /*  для констант */
+.type { color: #7FFF00; } /*  для типов данных */
+.import { color: #b472aa; } /*  для ключевых слов импорта */
+.method { color: #90e5ff; } /* Для методов */
+
+
+/* Стили для контейнера */
+.button-container {
+  padding-top: 30px;
+
+  display: flex; /* Используем Flexbox */
+  flex-wrap: wrap; /* Позволяем кнопкам переноситься на новую строку */
+  justify-content: center;
+  align-items: center; /* Центрируем по вертикали */
+  font-size: medium; /* Размер шрифта для контейнера */
+}
+
+/* Минималистичный стиль для кнопок */
+.btn-minimal {
+
+  display: inline-block; /* Отображение как блочный элемент */
+  padding: 10px 20px; /* Внутренние отступы */
+  font-size: 14px; /* Размер шрифта */
+  font-weight: normal; /* Нормальное начертание шрифта */
+  color: #333; /* Темный текст */
+  background-color: #f0f0f0; /* Светлый фон */
+  border: 1px solid #ccc; /* Серая рамка */
+  border-radius: 4px; /* Закругленные углы */
+  text-decoration: none; /* Убираем подчеркивание */
+  margin: 10px; /* Отступ между кнопками */
+  transition: background-color 0.3s, transform 0.3s; /* Плавные переходы */
+}
+
+.btn-minimal:hover {
+  text-decoration: none; /* Убираем подчеркивание */
+
+  background-color: #fdd6c3; /* Цвет фона при наведении */
+  color: #bb0000; /* Цвет текста при наведении */
+}
+
+.btn-minimal:active {
+  transform: scale(0.95); /* Уменьшение при нажатии */
+}
+
+/* Яркий стиль для кнопок */
+.btn-bright {
+  
+  display: inline-block; /* Отображение как блочный элемент */
+  padding: 10px 20px; /* Внутренние отступы */
+  font-size: 14px; /* Размер шрифта */
+  font-weight: normal; /* Нормальное начертание шрифта */
+  color: #fff; /* Белый текст */
+  background-color: #ff5722; /* Яркий оранжевый фон */
+  border: none; /* Без рамки */
+  border-radius: 4px; /* Закругленные углы */
+  text-decoration: none; /* Убираем подчеркивание */
+  margin: 10px; /* Отступ между кнопками */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тень */
+  transition: background-color 0.3s, transform 0.3s; /* Плавные переходы */
+}
+
+.btn-bright:hover {
+  text-decoration: none; /* Убираем подчеркивание */
+
+  color: #000000; /* Цвет текста при наведении */
+  background-color: #fe7b39; /* Цвет фона при наведении */
+}
+
+.btn-bright:active {
+  transform: scale(0.95); /* Уменьшение при нажатии */
+}
+
+

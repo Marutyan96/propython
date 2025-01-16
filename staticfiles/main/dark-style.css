@@ -1,0 +1,75 @@
+:root {
+  --dark-bg: #212830; /* Темный фон */
+  --dark-bg-hover: #0f2137; /* Темный фон для элементов списка */
+  --hover-color: #046fbb; /* Цвет при наведении */
+  --light-text: rgb(214, 214, 214); /* Светлый текст */
+  --light-text-hover: rgb(221, 178, 50); /* Цвет текста при наведении */
+  --paragraph-color: rgb(200, 200, 200); /* Цвет текста для параграфов */
+}
+
+.dark-theme body {
+  background-color: #b54d3b; /* Цвет фона для темной темы */
+  color: rgb(212, 5, 5); /* Цвет текста для лучшей читаемости */
+}
+
+
+main.dark-theme {
+  background-color: var(--dark-bg);
+  color: var(--light-text);
+}
+
+main.dark-theme .chapter-list li {
+  background-color: var(--dark-bg-hover);
+  color: var(--light-text);
+}
+
+main.dark-theme .chapter-list li:hover {
+  background-color: var(--hover-color);
+}
+
+main.dark-theme .chapter-list a {
+  color: var(--light-text);
+}
+
+main.dark-theme .chapter-list a:hover {
+  color: var(--light-text-hover);
+}
+
+.dark-theme strong {
+  color: var(--light-text);
+}
+
+main.dark-theme p,
+main.dark-theme h2,
+main.dark-theme h3,
+main.dark-theme h4,
+main.dark-theme h5 {
+  color: var(--paragraph-color);
+}
+
+main.dark-theme ul {
+  color: var(--light-text);
+}
+
+.dark-theme .btn-theme i,
+.dark-theme #pre {
+  color: var(--light-text);
+}
+
+.dark-theme .book-list a {
+  font-weight: bolder;
+  color: #4ec9b0;
+}
+.dark-theme .book-list a:hover {
+  text-decoration: underline; /* Подчеркивание при наведении */
+  color: #b54d3b; /* Цвет текста при наведении */
+}
+
+
+.dark-theme .list-group-item{
+  background-color: #232323;
+}
+
+.dark-theme .list-group-item a{
+  color: #f1f1f1;
+}

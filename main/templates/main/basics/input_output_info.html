@@ -1,0 +1,77 @@
+<!-- console_input_output.html -->
+{% extends 'main/base.html' %}
+
+{% block title %}Урок по консольному вводу и выводу в Python{% endblock %}
+
+{% block content %}
+
+<h4>Консольный ввод и вывод в Python</h4>
+
+<p>В Python мы можем взаимодействовать с пользователем через консоль, получая данные с помощью ввода и отображая результаты с помощью вывода. В этом уроке мы рассмотрим, как использовать функции <code>input()</code> и <code>print()</code>.</p>
+
+<h4>Шаг 1: Вывод данных на экран</h4>
+<p>Для вывода данных на экран используется функция <code>print()</code>.</p>
+
+<div class="code">
+
+<span class="keyword">print</span><span class="brackets">(<span class="string">"Привет, мир!"</span><span class="brackets">)  <span class="comment"># Вывод: Привет, мир!</span>
+
+</div>
+
+<h4>Шаг 2: Ввод данных от пользователя</h4>
+<p>Чтобы получить данные от пользователя, мы используем функцию <code>input()</code>. Она позволяет пользователю ввести данные с клавиатуры.</p>
+
+<div class="code">
+<pre>
+<code>
+<span class="variable">name <span class="parenthesis">=</span> <span class="keyword">input</span><span class="brackets">(<span class="string">"Введите ваше имя: "</span>)
+<span class="keyword">print</span>(<span class="string">f"Привет, <span class="brackets">{</span>name<span class="brackets">}</span>!"</span>)  <span class="comment"># Вывод: Привет, [имя пользователя]!</span>
+</code></pre>
+</div>
+
+<h4>Шаг 3: Преобразование типов данных</h4>
+<p>Данные, полученные с помощью <code>input()</code>, всегда имеют тип <code>str</code>. Если вам нужно работать с числами, необходимо преобразовать их в нужный тип.</p>
+
+<div class="code">
+<pre>
+<code>
+<span class="variable">age <span class="parenthesis">=</span> <span class="keyword">int</span><span class="brackets">(<span class="keyword">input</span>(<span class="string">"Введите ваш возраст: "</span>))
+<span class="keyword">print</span><span class="brackets">(<span class="string">f"Вам <span class="brackets">{</span>age<span class="brackets">}</span> лет!"</span>)  <span class="comment"># Вывод: Вам [возраст] лет!</span>
+</code></pre>
+</div>
+
+<h4>Шаг 4: Обработка ошибок ввода</h4>
+<p>Важно обрабатывать возможные ошибки ввода. Можно использовать блок <code>try-except</code> для обработки исключений.</p>
+
+<div class="code">
+<pre>
+<code>
+<span class="return">try</span>:
+    <span class="variable">age <span class="parenthesis">=</span> <span class="keyword">int</span><span class="brackets">(<span class="keyword">input</span>(<span class="string">"Введите ваш возраст: "</span>))
+    <span class="keyword">print</span>(<span class="string">f"Вам <span class="brackets">{</span>age<span class="brackets">}</span> лет!"</span>)
+<span class="return">except</span> <span class="keyword">ValueError</span>:
+    <span class="keyword">print</span>(<span class="string">"Пожалуйста, введите корректное число."</span>)
+</code></pre>
+</div>
+
+<h4>Шаг 5: Множественный ввод данных</h4>
+<p>Можно также получить несколько данных от пользователя за один раз.</p>
+
+<div class="code">
+<pre>
+<code>
+<span class="variable">name<span class="parenthesis">,<span class="variable"> age <span class="parenthesis">=</span> <span class="keyword">input</span><span class="brackets">(<span class="string">"Введите ваше имя и возраст через пробел: "</span>).<span class="function">split</span>()
+<span class="variable">age <span class="parenthesis">=</span> <span class="keyword">int</span><span class="brackets">(<span class="variable">age</span>)
+<span class="keyword">print</span>(<span class="string">f"Привет, <span class="brackets">{</span>name<span class="brackets">}</span>! Вам <span class="brackets">{</span>age<span class="brackets">}</span> лет!"<span class="brackets">)</span>
+</code></pre>
+</div>
+
+<h4>Заключение</h4>
+<p>Консольный ввод и вывод являются важными аспектами взаимодействия с пользователем в Python. Используя функции <code>input()</code> и <code>print()</code>, вы можете получать данные от пользователя и отображать результаты. Попробуйте создать свои собственные программы, используя консольный ввод и вывод!</p>
+<div class="button-container">
+    <a href="{% url 'variables_info' %}" class="btn-minimal">Предыдущий</a>
+    <a href="{% url 'arithmetic_info' %}" class="btn-bright">Следующий</a>
+</div>
+
+
+{% endblock %}

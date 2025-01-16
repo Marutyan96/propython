@@ -1,0 +1,61 @@
+<!-- Асинхронные HTTP-запросы с использованием aiohttp.html -->
+{% extends 'main/base.html' %}
+
+{% block title %}Асинхронные HTTP-запросы с использованием aiohttp{% endblock %}
+
+{% block content %}
+
+<h4>Асинхронные HTTP-запросы с использованием aiohttp</h4>
+
+<p>Библиотека <code>aiohttp</code> позволяет выполнять асинхронные HTTP-запросы. Это полезно для работы с API и получения данных из интернета.</p>
+
+<h4>Установка aiohttp</h4>
+<p>Чтобы установить библиотеку <code>aiohttp</code>, используйте pip:</p>
+<pre><code id='pre'>pip install aiohttp</code></pre>
+
+<h4>Пример использования aiohttp</h4>
+<p>Ниже приведен пример функции, которая выполняет асинхронный HTTP-запрос:</p>
+<div class="code">
+<pre>
+<code>
+<span class="return">import</span> <span class="module">aiohttp</span>
+<span class="return">import</span> <span class="module">asyncio</span>
+
+<span class="return">async def</span> <span class="function">fetch</span><span class="brackets">(<span class="variable">url</span>):
+    <span class="return">async with</span> <span class="module">aiohttp</span>.<span class="function">ClientSession</span>() <span class="return">as</span> <span class="variable">session</span>:
+        <span class="return">async with</span> <span class="variable">session</span>.<span class="function">get</span>(<span class="variable">url</span>) <span class="return">as</span> <span class="variable">response</span>:
+            <span class="return">return</span> <span class="return">await</span> <span class="variable">response</span>.<span class="function">text</span>()
+
+<span class="return">async def</span> <span class="function">main</span>():
+    <span class="variable">html</span> = <span class="return">await</span> <span class="function">fetch</span>(<span class="string">'https://www.example.com'</span>)
+    <span class="keyword">print</span>(<span class="string">'Fetched data:'</span>, <span class="variable">html</span>)
+
+<span class="return">asyncio.run</span>(<span class="function">main</span>())
+</code>
+</pre>
+</div><br>
+
+<p>В этом примере мы импортируем библиотеки <code>aiohttp</code> и <code>asyncio</code>, определяем асинхронную функцию <code>fetch</code>, которая выполняет HTTP-запрос и возвращает текст ответа. Затем в функции <code>main</code> мы вызываем <code>fetch</code> и выводим полученные данные.</p>
+
+<h4>Обработка ошибок</h4>
+<p>Важно обрабатывать возможные ошибки при выполнении HTTP-запросов. Например, вы можете использовать блок <code>try-except</code> для обработки исключений:</p>
+<div class="code">
+<pre>
+<code>
+<span class="return">async def</span> <span class="function">fetch</span><span class="brackets">(<span class="variable">url</span>):
+    <span class="return">try</span>:
+        <span class="return">async with</span> <span class="module">aiohttp</span>.<span class="function">ClientSession</span>() <span class="return">as</span> <span class="variable">session</span>:
+            <span class="return">async with</span> <span class="variable">session</span>.<span class="function">get</span>(<span class="variable">url</span>) <span class="return">as</span> <span class="variable">response</span>:
+                <span class="keyword">response.raise_for_status</span>()  <span class="comment"># Проверка на ошибки</span>
+                <span class="return">return</span> <span class="variable">await</span> <span class="variable">response</span>.<span class="function">text</span>()
+    <span class="return">except</span> <span class="module">aiohttp</span>.<span class="function">ClientError</span> <span class="return">as</span> <span class="variable">e</span>:
+        <span class="keyword">print</span>(<span class="string">'Error occurred:'</span>, <span class="variable">e</span>)
+</code>
+</pre>
+</div>
+<div class="button-container">
+    <a href="{% url 'exception_handling_async' %}" class="btn-minimal">Предыдущий</a>
+    <a href="{% url 'solid_info' %}" class="btn-bright">Следующий</a>
+</div>
+
+{% endblock %}

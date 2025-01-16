@@ -1,0 +1,683 @@
+
+
+
+h4,h5{
+  padding-top: 10px;
+  font-weight: 900;
+  color: #001545;
+}
+  
+
+/* Стили для контейнера */
+.button-container {
+  padding-top: 30px;
+
+  display: flex; /* Используем Flexbox */
+  flex-wrap: wrap; /* Позволяем кнопкам переноситься на новую строку */
+  justify-content: center;
+  align-items: center; /* Центрируем по вертикали */
+  font-size: medium; /* Размер шрифта для контейнера */
+}
+
+/* Минималистичный стиль для кнопок */
+.btn-minimal {
+
+  display: inline-block; /* Отображение как блочный элемент */
+  padding: 10px 20px; /* Внутренние отступы */
+  font-size: 14px; /* Размер шрифта */
+  font-weight: normal; /* Нормальное начертание шрифта */
+  color: #333; /* Темный текст */
+  background-color: #f0f0f0; /* Светлый фон */
+  border: 1px solid #ccc; /* Серая рамка */
+  border-radius: 4px; /* Закругленные углы */
+  text-decoration: none; /* Убираем подчеркивание */
+  margin: 10px; /* Отступ между кнопками */
+  transition: background-color 0.3s, transform 0.3s; /* Плавные переходы */
+}
+
+.btn-minimal:hover {
+  text-decoration: none; /* Убираем подчеркивание */
+
+  background-color: #fdd6c3; /* Цвет фона при наведении */
+  color: #bb0000; /* Цвет текста при наведении */
+}
+
+.btn-minimal:active {
+  transform: scale(0.95); /* Уменьшение при нажатии */
+}
+
+/* Яркий стиль для кнопок */
+.btn-bright {
+  
+  display: inline-block; /* Отображение как блочный элемент */
+  padding: 10px 20px; /* Внутренние отступы */
+  font-size: 14px; /* Размер шрифта */
+  font-weight: normal; /* Нормальное начертание шрифта */
+  color: #fff; /* Белый текст */
+  background-color: #ff5722; /* Яркий оранжевый фон */
+  border: none; /* Без рамки */
+  border-radius: 4px; /* Закругленные углы */
+  text-decoration: none; /* Убираем подчеркивание */
+  margin: 10px; /* Отступ между кнопками */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тень */
+  transition: background-color 0.3s, transform 0.3s; /* Плавные переходы */
+}
+
+.btn-bright:hover {
+  text-decoration: none; /* Убираем подчеркивание */
+
+  color: #000000; /* Цвет текста при наведении */
+  background-color: #fe7b39; /* Цвет фона при наведении */
+}
+
+.btn-bright:active {
+  transform: scale(0.95); /* Уменьшение при нажатии */
+}
+
+
+
+
+
+.btn-theme {
+  position: relative;
+  left: 25px;
+  background: none; /* Убираем фон */
+  border: none; /* Убираем рамку */
+  cursor: pointer; /* Указываем, что это кнопка */
+  padding: 0; /* Убираем отступы */
+}
+/* Эффект наведения */
+.btn-theme:hover {
+  color: #ff0000; /* Цвет иконки при наведении */
+}
+
+.btn-theme:focus {
+  outline: none; /* Убираем обводку при фокусе */
+}
+
+/* Стили для иконки луны */
+.fa-moon {
+  color: #ffffff; /* Цвет иконки луны в темной теме */
+  transition: color 0.3s; /* Плавный переход цвета */
+}
+
+/* Дополнительные стили для иконки луны при наведении */
+.fa-moon:hover {
+  color: #ffcc00; /* Цвет иконки луны при наведении */
+}
+
+/* Стили для иконки солнца */
+.fa-sun {
+  color: #f39c12; /* Цвет иконки солнца в светлой теме */
+  transition: color 0.3s; /* Плавный переход цвета */
+}
+
+/* Дополнительные стили для иконки солнца при наведении */
+.fa-sun:hover {
+  color: #e67e22; /* Цвет иконки солнца при наведении */
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Стили для логотипа */
+.logo {
+
+  text-shadow: 1px 1px 1px #000000,
+  1px 2px 1px #000000,
+  1px 3px 1px #000000,
+  1px 4px 1px #000000, 
+  1px 5px 1px #000000,
+  1px 6px 1px #000000,
+  1px 10px 5px rgba(16, 16, 16, 0.5),
+  1px 15px 10px rgba(16, 16, 16, 0.4),
+  1px 20px 30px rgba(16, 16, 16, 0.3),
+  1px 25px 50px rgba(16, 16, 16, 0.2);
+position: relative;
+font-family: "Jersey 15", serif;
+  font-weight: 400;
+  font-style: normal;
+    font-size: 38px;
+    color: rgb(67, 135, 207); /* Оранжевый цвет */
+    transition: 0.5s;
+  }
+
+  .logo-sidebar{
+    text-shadow: 1px 1px 1px #000000,
+    1px 2px 1px #000000,
+    1px 3px 1px #000000,
+    1px 4px 1px #000000, 
+    1px 5px 1px #000000,
+    1px 6px 1px #000000,
+    1px 10px 5px rgba(16, 16, 16, 0.5),
+    1px 15px 10px rgba(16, 16, 16, 0.4),
+    1px 20px 30px rgba(16, 16, 16, 0.3),
+    1px 25px 50px rgba(16, 16, 16, 0.2);
+  position: relative;
+  top: 10px;
+  font-family: "Jersey 15", serif;
+    font-weight: 400;
+    font-style: normal;
+      font-size: 38px;
+      color: rgb(67, 135, 207); /* Оранжевый цвет */
+      transition: 0.5s;
+  }
+/* Красный цвет для слова "pro" */
+.red {
+  color: #00ffee; /* Красный цвет текста */
+}
+
+/* Синий цвет для слова "python" */
+.blue {
+  color: #ffee00; /* Темно-синий цвет текста */
+}
+
+
+
+.mb-2.mb-md-0:hover .text-gradient {
+  transform: scale(1.1); /* Увеличение текста при наведении */
+}
+
+
+* {
+  font-weight: 100;
+  box-sizing: border-box; /* Включаем отступы и границы в размеры элементов */
+
+}
+
+body,
+h1,
+h2,
+p,
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-weight: normal;
+  font-size: small;
+}
+
+body {
+background: rgb(69, 103, 144);
+}
+
+/* Стили для заголовка */
+#header {
+
+  height: 50px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: space-between; /* Изменено на space-between для равномерного распределения */
+  align-items: center; /* Вертикальное выравнивание */
+  background: linear-gradient(135deg, rgb(69, 103, 144), rgb(69, 103, 144)); /* Градиентный фон */
+  padding: 10px 20px; /* Отступы сверху и снизу */
+  border-left: none; /* Без рамки слева */
+  border-right: none; /* Без рамки справа */
+
+
+}
+
+#header-2 {
+
+  height: 70px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: space-between; /* Изменено на space-between для равномерного распределения */
+  align-items: center; /* Вертикальное выравнивание */
+  background: linear-gradient(135deg, #730404, #000000); /* Градиентный фон */
+  padding: 10px 20px; /* Отступы сверху и снизу */
+  border-left: none; /* Без рамки слева */
+  border-right: none; /* Без рамки справа */
+
+}
+
+
+
+
+
+
+
+
+#scrollToTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: transparent; /* Прозрачный фон */
+  color: #4da8ac; /* Цвет текста кнопки */
+  border: none; /* Убираем границу */
+  border-radius: 50px; /* Скругленные углы */
+  cursor: pointer; /* Курсор в виде руки */
+  display: none; /* Скрыть кнопку по умолчанию */
+  z-index: 1000; /* Поверх остальных элементов */
+  padding: 10px; /* Добавьте немного внутреннего отступа, если нужно */
+}
+
+#scrollToTop:hover,
+#scrollToTop:focus {
+  color: #f8f8f8; /* Цвет текста при наведении и фокусе */
+  border: none; /* Убедитесь, что граница не появляется */
+  outline: none; /* Убираем обводку при фокусе */
+}
+
+/* Убираем обводку и границы у всех кнопок */
+.btn {
+  border: none !important; /* Убираем границы у всех кнопок */
+  outline: none !important; /* Убираем обводку у всех кнопок */
+}
+
+/* Убираем стандартные стили для кнопок при фокусе */
+.btn:focus {
+  box-shadow: none !important; /* Убираем тень при фокусе */
+}
+
+
+
+/* Стили заголовков */
+h1,
+h2,
+h3,
+.main-title,
+.chapter-title {
+  color: #2c3e50; /* Цвет заголовков */
+}
+
+.main-title {
+  text-align: center; /* Центрируем заголовок */
+  font-size: 2rem; /* Размер шрифта */
+  margin-bottom: 1.5rem; /* Отступ снизу */
+}
+
+.chapter-title {
+  margin-top: 2rem; /* Отступ сверху */
+  font-size: 1.3rem; /* Размер шрифта */
+}
+
+/* Стили для списков глав */
+.chapter-list {
+  max-width: 85%; /* Максимальная ширина списка */
+  font-size: 0.9rem; /* Размер шрифта */
+  padding: 0; /* Убираем отступы */
+}
+
+.chapter-list li {
+  margin: 0.4rem 0; /* Отступы между элементами списка */
+  padding: 0.75rem; /* Отступы внутри элемента списка */
+  border: solid black 0.5px; /* Граница элемента списка */
+  border-radius: 8px; /* Скругление углов */
+  background-color: #f4f7fb; /* Цвет фона элемента списка */
+  transition: background-color 0.3s, transform 0.3s; /* Плавный переход */
+}
+
+.chapter-list li:hover {
+  background-color: #ddecf8; /* Цвет фона при наведении */
+  transform: translateY(-1px); /* Легкое поднятие при наведении */
+}
+
+.chapter-list a {
+  text-decoration: none; /* Убираем подчеркивание */
+  color: rgb(0, 0, 0); /* Цвет текста */
+  font-weight: normal; /* Обычный текст */
+  transition: color 0.3s; /* Плавный переход цвета */
+}
+
+.chapter-list a:hover {
+  color: #b54d3b; /* Цвет текста при наведении */
+  text-decoration: underline; /* Подчеркивание при наведении */
+}
+
+main {
+  padding: 1rem; /* Отступы внутри основного контента */
+  background: rgb(245, 245, 245); /* Цвет фона основного контента */
+  margin-right: 58px; /* Добавляем отступ справа */
+  margin-left: 58px; /* Добавляем отступ справа */
+
+  border: solid 1px rgb(63, 63, 63);
+  border-radius: 10px 10px 0 0; 
+  border-top: none; /* Без рамки сверху */
+  border-bottom: none; /* Без рамки снизу */
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1); /* Тень для основного контента */
+  min-height: 550px;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 20px; /* Установите размер шрифта */
+  line-height: 1.4; /* Уменьшите высоту строки для более компактного вида */
+}
+
+/* Стили для параграфов в основном контенте */
+main p {
+  margin-bottom: 0.5rem; /* Уменьшите отступы снизу для параграфов */
+  line-height: 1.4; /* Высота строки для лучшей читаемости */
+}
+
+
+/* Стили для списков в основном контенте */
+main ul {
+  margin-bottom: 1.5rem; /* Отступы снизу для списков */
+}
+
+/* Стили для кода */
+.code {
+  border-radius: 5px;
+  border-left: 5px solid #b54d3b; /* Красная линия слева */
+  background: #252525; /* Однотонный фон */
+  padding: 10px; /*Отступы внутри блока кода */
+  font-family: monospace; /* Моноширинный шрифт */
+  color: #ececec; /* Белый текст */
+}
+
+/* Обеспечиваем, чтобы текст внутри <code> был белым */
+.code code {
+  color: #ffffff; /* Белый цвет для текста внутри <code> */
+}
+
+/* Стили для кнопки поиска */
+.search-button {
+  transition: background-color 0.3s, color 0.3s; /* Плавный переход */
+}
+
+.search-button:hover {
+  background-color: DarkSlateGrey; /* Цвет фона при наведении */
+  color: white; /* Цвет текста при наведении */
+}
+
+
+/* Стили для синтаксиса кода */
+.keyword { color: #498bc5; }
+.module-name { color: #4682B4; } /*  для имен модулей */
+.function { color: #d7daa7; }
+.variable { color: #90e5ff; }
+.brackets { color: #e7c60f; }
+.string { color: #c58a6c; }
+.comment { color: #689854; }
+.operator { color: orange; }
+.return { color: #c284bc; }
+.number { color: #a9c79d; }
+.class-name { color: #02c6a9; }
+.module { color: #02c6a9; }
+.class { color: #02c6a9; }
+.parameter { color: #4682B4; } /* Для параметров функций */
+.decorator { color: #bf0000; } /*  для декораторов */
+.exception { color: #FF4500; } /* для исключений */
+.constant { color: gold; } /*  для констант */
+.type { color: #7FFF00; } /*  для типов данных */
+.import { color: #b472aa; } /*  для ключевых слов импорта */
+.method { color: #90e5ff; } /* Для методов */
+
+
+
+
+/* Стили для курса Python */
+.python-course {
+  background: url('logo.jpg'); /* Указываем путь к изображению */
+  background-size: cover; /* Масштабируем изображение, чтобы оно покрывало весь блок */
+  background-position: center; /* Центрируем изображение */
+  background-repeat: no-repeat; /* Не повторяем изображение */
+  font-size: 17px;
+  padding: 40px; /* Отступы внутри блока курса */
+  border-radius: 4px; /* Скругление углов */
+  margin: 20px auto; /* Центрируем блок курса */
+  color:#ffffff; /* Цвет текста */
+}
+
+
+.course-title {
+  background-size: cover; /* Масштабируем изображение, чтобы оно покрывало весь блок */
+  background-position: center; /* Центрируем изображение */
+  background-repeat: no-repeat; /* Не повторяем изображение */
+
+  padding: 20px;
+  font-size: 31px; /* Размер шрифта заголовка курса */
+  margin-bottom: 15px; /* Отступ снизу */
+  text-align: center; /* Центрируем заголовок курса */
+  color: white;
+}
+
+
+
+/* Стили для списка книг */
+.book-list {
+  padding: 0; /* Убираем отступы */
+  
+}
+
+.book-list li {
+  margin-bottom: 10px; /* Отступы снизу для элементов списка книг */
+}
+
+.book-list a {
+  font-weight: bolder;
+  color: rgb(0, 59, 87); /* Цвет текста ссылки */
+}
+
+.book-list a:hover {
+  text-decoration: underline; /* Подчеркивание при наведении */
+  color: #b54d3b; /* Цвет текста при наведении */
+}
+
+
+/* Убираем обводку при фокусе */
+:active,
+:hover,
+:focus {
+  outline: 0; /* Убираем обводку */
+  outline-offset: 0; /* Убираем смещение обводки */
+}
+/* Боковая панель */
+.sidebar {
+  padding: 13px;
+  display: none; /* Скрываем боковую панель по умолчанию */
+  position: fixed; /* Фиксированное положение */
+  top: 0; /* Положение сверху */
+  left: -250px; /* Скрыть боковую панель за пределами экрана */
+  width: 250px; /* Ширина боковой панели */
+  height: 100%; /* Высота боковой панели */
+  background: linear-gradient(45deg, #000000, #bac8e0); /* Градиентный фон */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5); /* Тень для боковой панели */
+  transition: left 0.3s ease; /* Плавный переход */
+  z-index: 1000; /* Убедитесь, что панель будет поверх других элементов */
+}
+
+.sidebar.active {
+  left: 0; /* Показываем боковую панель */
+  display: block; /* Отображаем боковую панель */
+}
+
+/* Стили для формы поиска */
+.form-inline {
+  
+  width: 100%; /* Задаем ширину 100% для формы */
+  margin: 20px 0; /* Отступы сверху и снизу */
+}
+
+.custom-button {
+  background-color: rgb(77, 130, 130) ;
+  color: #ffffff ;
+  border: none;
+}
+
+.custom-button:hover {
+  background-color: DarkSlateGrey ; /* Цвет фона при наведении */
+  color: #ffffff ; /* Цвет текста при наведении */
+  cursor: pointer; /* Изменяет курсор на указатель */
+}
+
+
+
+
+
+.form-control {
+  
+  height: 30px;
+  width: 80%; /* Ширина поля ввода */
+  border-radius: 5px 0 0 5px; /* Скругление углов только слева */
+}
+
+
+.nav-link {
+
+  text-decoration: none; /* Убираем подчеркивание */
+  color: whitesmoke; /* Цвет текста */
+  font-weight: 400; /* Полужирный текст */
+  transition: color 0.3s; /* Плавный переход цвета */
+  border-radius: 5px; /* Скругленные углы */
+  display: block; /* Делаем ссылку блочным элементом для удобства клика */
+  position: relative; /* Устанавливаем относительное позиционирование для псевдоэлемента */
+}
+
+.nav-link::after {
+  content: ""; /* Создаем пустой контент для псевдоэлемента */
+  position: absolute; /* Абсолютное позиционирование */
+  left: 0; /* Выравнивание по левому краю */
+  bottom: 0; /* Выравнивание по нижнему краю */
+  width: 100%; /* Ширина подчеркивания равна ширине ссылки */
+  height: 3px; /* Высота подчеркивания */
+  background-color: gold;
+  transform: scaleX(0); /* Начальное состояние - скрыто */
+  transition: transform 0.3s; /* Плавный переход для эффекта подчеркивания */
+}
+
+.nav-link:hover {
+  color:#4ec9b0; /* Цвет текста при наведении (можно изменить на любой другой) */
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1); /* При наведении подчеркивание появляется */
+}
+
+
+
+
+
+/* Кнопка для переключения боковой панели */
+#toggle-header {
+  position: fixed; /* Фиксированное положение */
+  top: 10px; /* Положение сверху */
+  right: 10px; /* Положение справа */
+  z-index: 1001; /* Чтобы кнопка была поверх боковой панели */
+  background: transparent; /* Прозрачный фон */
+  border: none; /* Убираем границу */
+  cursor: pointer; /* Курсор в виде указателя */
+  display: none; /* Скрываем кнопку по умолчанию */
+}
+/* Линии кнопки */
+.line {
+  display: block; /* Блочный элемент */
+  width: 30px; /* Ширина линии */
+  height: 3px; /* Высота линии */
+  background-color: #6c757d; /* Цвет линии */
+  margin: 5px auto; /* Отступ между линиями */
+  transition: all 0.3s; /* Плавный переход */
+}
+
+/* Эффекты для линий кнопки */
+.line:hover {
+  background-color: #4ec9b0; /* Цвет линии при наведении */
+}
+
+
+/* Мобильные стили */
+@media (max-width: 768px) {
+  #toggle-header {
+    display: block; /* Показываем кнопку на маленьких экранах */
+  }
+
+  .form-control {
+    
+    margin-left: 10px; /* Отступ слева для поля ввода */
+    max-width: 83%; /* Максимальная ширина поля ввода */
+  }
+
+  #header {
+    display: none; /* Скрываем заголовок на мобильных устройствах */
+    flex-direction: column; /* Переключаем на вертикальную компоновку */
+    align-items: flex-start; /* Выравниваем элементы по левому краю */
+  }
+  #header-2 {
+    display: none; /* Скрываем заголовок на мобильных устройствах */
+    flex-direction: column; /* Переключаем на вертикальную компоновку */
+    align-items: flex-start; /* Выравниваем элементы по левому краю */
+  }
+
+  #header .container {
+    flex-direction: column; /* Изменяем направление на столбик */
+    align-items: center; /* Центрируем элементы по горизонтали */
+  }
+
+  .nav {
+    margin-top: 10px; /* Отступ сверху для навигации */
+  }
+  .logo {
+    font-size: 28px; /* Уменьшаем размер шрифта для логотипа */
+  }
+
+
+  .form-inline {
+    margin-top: 20px; /* Отступ сверху для формы */
+
+  }
+ 
+}
+
+/* Стили для выделенного текста */
+strong {
+
+  font-size: 1.3em; /* Размер шрифта */
+  color: #000000; /* Темно-серый цвет */
+  padding: 8px; /* Отступы внутри */
+  margin: 10px 0; /* Отступы сверху и снизу */
+
+}
+
+
+/* Стиль для выделенного текста */
+::selection {
+  background-color: #ffcc00; /* Цвет фона при выделении текста */
+  color: #000000; /* Цвет текста при выделении */
+}
+
+/* Футер */
+footer {
+  position: relative;
+  display: flex; /* Используем Flexbox для футера */
+  justify-content: center; /* Центрируем элементы по горизонтали */
+  align-items: center; 
+  background: linear-gradient(135deg, #575757, #2e3134); /* Градиентный фон */
+  color: white; /* Белый цвет текста */
+  padding: 20px; /* Отступы сверху и снизу */
+ 
+ 
+}
+
+.social-links {
+  display: flex; /* Используем Flexbox для выравнивания элементов в строку */
+  justify-content: center; /* Центрируем элементы по горизонтали */
+  margin-top: 10px; /* Отступ сверху для логотипов */
+}
+
+.social-icon {
+  margin: 0 10px; /* Отступы между иконками */
+}
+
+.social-icon img {
+  width: 30px; /* Ширина логотипа */
+  height: auto; /* Авто-высота для сохранения пропорций */
+}
+
+.social-icon:hover img {
+    filter: invert(1); /* Инвертируем цвет при наведении */
+}
+
+
+
+
+
+
+

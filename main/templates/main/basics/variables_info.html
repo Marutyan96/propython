@@ -1,0 +1,103 @@
+<!-- variables_and_data_types.html -->
+{% extends 'main/base.html' %}
+
+{% block title %}Урок по переменным и типам данных в Python{% endblock %}
+
+{% block content %}
+
+<h4>Переменные и типы данных в Python</h4>
+
+<p>Переменные в Python используются для хранения данных. Они могут принимать различные типы данных, такие как числа, строки, списки и другие. Понимание типов данных и работы с переменными является основой программирования на Python.</p>
+
+<h4>Основные понятия переменных</h4>
+
+<ul>
+    <li><strong>Переменная</strong>: Именованная область памяти, в которой хранится значение.</li>
+    <li><strong>Присваивание</strong>: Процесс установки значения переменной с помощью оператора <code>=</code>.</li>
+</ul>
+
+<h4>Типы данных в Python</h4>
+
+<ul>
+    <li><strong>int</strong>: Целые числа.</li>
+    <li><strong>float</strong>: Числа с плавающей запятой (десятичные числа).</li>
+    <li><strong>str</strong>: Строки (последовательности символов).</li>
+    <li><strong>bool</strong>: Логические значения <code>True</code> и <code>False</code>.</li>
+    <li><strong>list</strong>: Списки (упорядоченные коллекции элементов).</li>
+    <li><strong>dict</strong>: Словари (неупорядоченные коллекции пар ключ-значение).</li>
+</ul>
+
+<h4>Шаг 1: Присваивание переменных</h4>
+<p>Давайте начнем с простого примера присваивания переменных.</p>
+
+<div class="code"><pre><code>
+<span class="variable">name </span><span class="parenthesis">=</span> <span class="string">"Алексей"</span>
+<span class="variable">age</span><span class="parenthesis"> =</span> <span class="number">30</span>
+<span class="variable">height</span><span class="parenthesis"> =</span> <span class="number">1.75</span>
+<span class="variable">is_student</span><span class="parenthesis"> =</span> <span class="keyword">False</span>
+</code></pre>
+</div>
+
+<h4>Шаг 2: Вывод значений переменных</h4>
+<p>Теперь выведем значения переменных на экран.</p>
+
+<div class="code">
+<pre>
+<code>
+<span class="function">print</span><span class="brackets">(<span class="variable">name</span><span class="brackets">)       <span class="comment"># Вывод: Алексей</span>
+<span class="function">print</span><span class="brackets">(<span class="variable">age</span><span class="brackets">)        <span class="comment"># Вывод: 30</span>
+<span class="function">print</span><span class="brackets">(<span class="variable">height</span><span class="brackets">)     <span class="comment"># Вывод: 1.75</span>
+<span class="function">print</span><span class="brackets">(<span class="variable">is_student</span><span class="brackets">) <span class="comment"># Вывод: False</span>
+</code></pre>
+</div>
+
+<h4>Шаг 3: Изменение значений переменных</h4>
+<p>Переменные могут изменять свои значения в процессе выполнения программы.</p>
+
+<div class="code">
+<pre>
+<code>
+<span class="variable">age</span><span class="parenthesis"> =</span> <span class="variable">age</span> <span class="parenthesis">+ <span class="number"><span class="number">1</span>
+<span class="function">print</span><span class="brackets">(<span class="variable">age</span><span class="bracketsbrackets">) <span class="comment"># Вывод: 31</span>
+</code></pre>
+</div>
+
+<h4>Шаг 4: Типы данных</h4>
+<p>Теперь давайте посмотрим, как можно проверить тип данных переменной с помощью функции <code>type()</code>.</p>
+
+<div class="code">
+<pre>
+<code>
+<span class="function">print</span><span class="brackets">(<span class="function">type</span><span class="brackets">(<span class="variable">age</span>))        <span class="comment"># Вывод: <class 'int'></span>
+<span class="function">print</span><span class="brackets">(<span class="function">type</span><span class="brackets">(<span class="variable">height</span>))     <span class="comment"># Вывод: <class 'float'></span>
+<span class="function">print</span><span class="brackets">(<span class="function">type</span><span class="brackets">(<span class="variable">name</span>))       <span class="comment"># Вывод: <class 'str'></span>
+<span class="function">print</span><span class="brackets">(<span class="function">type</span><span class="brackets">(<span class="variable">is_student</span>)) <span class="comment"># Вывод: <class 'bool'></span>
+</code></pre>
+</div>
+
+<h4>Шаг 5: Списки и словари</h4>
+<p>Рассмотрим, как использовать списки и словари в Python.</p>
+
+<div class="code">
+<pre>
+<code>
+<span class="variable">fruits <span class="parenthesis">=</span> <span class="brackets">[<span class="string">"яблоко"</span>, <span class="string">"банан"</span>, <span class="string">"вишня"</span>]
+<span class="variable">person <span class="parenthesis">=</span> <span class="brackets">{<span class="string">"name"</span>: <span class="string">"Алексей"</span>, <span class="string">"age"</span>: <span class="number">30</span>}
+
+<span class="keyword">print</span>(<span class="variable">fruits</span>)   <span class="comment"># Вывод: ['яблоко', 'банан', 'вишня']</span>
+<span class="keyword">print</span>(<span class="variable">person</span>)   <span class="comment"># Вывод: {'name': 'Алексей', 'age': 30}</span>
+</code></pre>
+</div>
+
+<h4>Заключение</h4>
+<p>Переменные и типы данных являются основой программирования на Python. Понимание различных типов данных и умение работать с переменными поможет вам создавать более сложные программы. Попробуйте создавать свои собственные переменные и экспериментировать с различными типами данных!</p>
+
+<div class="button-container">
+    <a href="{% url 'basic_info' %}" class="btn-minimal">Предыдущий</a>
+    <a href="{% url 'input_output_info' %}" class="btn-bright">Следующий</a>
+</div>
+
+
+
+
+{% endblock %}

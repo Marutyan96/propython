@@ -1,0 +1,136 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Урок по SOLID в Python{% endblock %}
+
+{% block content %}
+
+<h4>SOLID в Python</h4>
+
+<p>SOLID - это набор принципов объектно-ориентированного программирования, который помогает создавать более гибкие, масштабируемые и поддерживаемые системы.</p>
+
+<h4>Принцип единой ответственности (Single Responsibility Principle)</h4>
+<p>Этот принцип гласит, что каждый класс должен иметь одну ответственность и не должен быть изменен более чем по одной причине.</p>
+<div class="code">
+<pre>
+<code>
+<span class="keyword">class</span> <span class="class-name">User </span>:
+    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="variable">self</span>, <span class="variable">name</span>, <span class="variable">email</span>):
+        <span class="variable">self</span>.<span class="variable">name</span> = <span class="variable">name</span>
+        <span class="variable">self</span>.<span class="variable">email</span> = <span class="variable">email</span>
+
+    <span class="keyword">def</span> <span class="function">send_email</span>(<span class="variable">self</span>):
+        <span class="comment"># логика отправки электронной почты</span>
+        <span class="return">pass</span>
+
+    <span class="keyword">def</span> <span class="function">save_to_database</span>(<span class="variable">self</span>):
+        <span class="comment"># логика сохранения в базу данных</span>
+        <span class="return">pass</span>
+</code>
+</pre>
+</div>
+
+<h4>Принцип открытости-закрытости (Open-Closed Principle)</h4>
+<p>Этот принцип гласит, что класс должен быть открыт для расширения, но закрыт для изменения.</p>
+<div class="code">
+<pre>
+<code>
+<span class="keyword">class</span> <span class="class-name">Shape</span>:
+    <span class="keyword">def</span> <span class="function">area</span>(<span class="variable">self</span>):
+        <span class="return">pass</span>
+
+<span class="keyword">class</span> <span class="class-name">Circle</span>(<span class="class-name">Shape</span>):
+    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="variable">self</span>, <span class="variable">radius</span>):
+        <span class="variable">self</span>.<span class="variable">radius</span> = <span class="variable">radius</span>
+
+    <span class="keyword">def</span> <span class="function">area</span>(<span class="variable">self</span>):
+        <span class="return">return</span> <span class="number">3.14</span> * <span class="variable">self</span>.<span class="variable">radius</span> ** <span class="number">2</span>
+
+<span class="keyword">class</span> <span class="class-name">Rectangle</span>(<span class="class-name">Shape</span>):
+    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="variable">self</span>, <span class="variable">width</span>, <span class="variable">height</span>):
+        <span class="variable">self</span>.<span class="variable">width</span> = <span class="variable">width</span>
+        <span class="variable">self</span>.<span class="variable">height</span> = <span class="variable">height</span>
+
+    <span class="keyword">def</span> <span class="function">area</span>(<span class="variable">self</span>):
+        <span class="return">return</span> <span class="variable">self</span>.<span class="variable">width</span> * <span class="variable">self</span>.<span class="variable">height</span>
+</code>
+</pre>
+</div>
+
+<h4>Принцип подстановки Барбары Лисков (Liskov Substitution Principle)</h4>
+<p>Этот принцип гласит, что подтипы должны быть заменяемыми базовыми типами.</p>
+<div class="code">
+<pre>
+<code>
+<span class="keyword">class</span> <span class="class-name">Bird</span>:
+    <span class="keyword">def</span> <span class="function">fly</span>(<span class="variable">self</span>):
+        <span class="return">pass</span>
+
+<span class="keyword">class</span> <span class="class-name">Duck</span>(<span class="class-name">Bird</span>):
+    <span class="keyword">def</span> <span class="function">fly</span>(<span class="variable">self</span>):
+        <span class="return">print</span>(<span class="string">'Кря-кря!'</span>)
+
+<span class="keyword">class</span> <span class="class-name">Penguin</span>(<span class="class-name">Bird</span>):
+    <span class="keyword">def</span> <span class="function">fly</span>(<span class="variable">self</span>):
+        <span class="return">raise</span> <span class="class-name">NotImplementedError</span>
+</code>
+</pre>
+</div>
+
+<h4>Принцип разделения интерфейса (Interface Segregation Principle)</h4>
+<p>Этот принцип гласит, что клиенты должны не зависеть от интерфейсов, которые они не используют.</p>
+<div class="code">
+<pre>
+<code>
+<span class="keyword">class</span> <span class="class-name">PrintAndScan</span>:
+    <span class="keyword">def</span> <span class="function">print</span>(<span class="variable">self</span>):
+        <span class="return">pass</span>
+
+    <span class="keyword">def</span> <span class="function">scan</span>(<span class="variable">self</span>):
+        <span class="return">pass</span>
+
+<span class="keyword">class</span> <span class="class-name">Printer</span>(<span class="class-name">PrintAndScan</span>):
+    <span class="keyword">def</span> <span class="function">print</span>(<span class="variable">self</span>):
+        <span class="return">print</span>(<span class="string">'Печать'</span>)
+
+<span class="keyword">class</span> <span class="class-name">Scanner</span>(<span class="class-name">PrintAndScan</span>):
+    <span class="keyword">def</span> <span class="function">scan</span>(<span class="variable">self</span>):
+        <span class="return">print</span>(<span class="string">'Сканирование'</span>)
+</code>
+</pre>
+</div>
+
+<h4>Принцип инверсии зависимостей (Dependency Inversion Principle)</h4>
+<p>Этот принцип гласит, что высокоуровневые модули не должны зависеть от низкоуровневых модулей, а должны зависеть от абстракций.</p>
+<div class="code">
+<pre>
+<code>
+<span class="keyword">class</span> <span class="class-name">PaymentGateway</span>:
+    <span class="keyword">def</span> <span class="function">process_payment</span>(<span class="variable">self</span>):
+        <span class="return">pass</span>
+
+<span class="keyword">class</span> <span class="class-name">PayPal</span>(<span class="class-name">PaymentGateway</span>):
+    <span class="keyword">def</span> <span class="function">process_payment</span>(<span class="variable">self</span>):
+        <span class="return">print</span>(<span class="string">'Оплата через PayPal'</span>)
+
+<span class="keyword">class</span> <span class="class-name">Stripe</span>(<span class="class-name">PaymentGateway</span>):
+    <span class="keyword">def</span> <span class="function">process_payment</span>(<span class="variable">self</span>):
+        <span class="return">print</span>(<span class="string">'Оплата через Stripe'</span>)
+
+<span class="keyword">class</span> <span class="class-name">Order</span>:
+    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="variable">self</span>, <span class="variable">payment_gateway</span>):
+        <span class="variable">self</span>.<span class="variable">payment_gateway</span> = <span class="variable">payment_gateway</span>
+
+    <span class="keyword">def</span> <span class="function">pay</span>(<span class="variable">self</span>):
+        <span class="variable">self</span>.<span class="variable">payment_gateway</span>.<span class="function">process_payment</span>()
+</code>
+</pre>
+</div>
+
+<h4>Заключение</h4>
+<p>Принципы SOLID помогают создавать более гибкие, масштабируемые и поддерживаемые системы. Используйте их для улучшения качества вашего кода.</p>
+<div class="button-container">
+    <a href="{% url 'async_http_requests' %}" class="btn-minimal">Предыдущий</a>
+    <a href="{% url 'testing_info' %}" class="btn-bright">Следующий</a>
+</div>
+
+{% endblock %}
